@@ -176,6 +176,7 @@ async function loadProductsFromExcel() {
         const first = g[0];
         const seenImages = [];
         const colors = [];
+        let descUno = '', especs = '', envs = '';
         for (const r of g) {
           if (r.Imagen && !seenImages.includes(r.Imagen)) seenImages.push(r.Imagen);
           if (r.Color) {
@@ -183,6 +184,9 @@ async function loadProductsFromExcel() {
               colors.push({ name: r.Color, hex: getColorHex(r.Color), image: r.Imagen || '' });
             }
           }
+          if (!descUno && r.DescripcionUno) descUno = String(r.DescripcionUno);
+          if (!especs && r.Especificaciones) especs = String(r.Especificaciones);
+          if (!envs && r.Envios) envs = String(r.Envios);
         }
         const images = seenImages.length > 0 ? seenImages : colors.map(c => c.image).filter(Boolean);
         return {
@@ -199,6 +203,9 @@ async function loadProductsFromExcel() {
           colors: colors,
           shortDesc: first.Descripcion || '',
           description: first.Descripcion || '',
+          descripcionUno: descUno,
+          especificaciones: especs,
+          envios: envs,
           specifications: [],
           shipping: '',
         };
@@ -218,6 +225,9 @@ async function loadProductsFromExcel() {
         colors: [],
         shortDesc: r.Descripcion || '',
         description: r.Descripcion || '',
+        descripcionUno: r.DescripcionUno ? String(r.DescripcionUno) : '',
+        especificaciones: r.Especificaciones ? String(r.Especificaciones) : '',
+        envios: r.Envios ? String(r.Envios) : '',
         specifications: [],
         shipping: '',
       }));

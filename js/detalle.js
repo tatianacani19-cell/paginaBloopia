@@ -226,7 +226,7 @@ function renderInfo() {
     }
   }
 
-  if (desc) desc.textContent = p.shortDesc || p.description || '';
+  if (desc) desc.textContent = p.descripcionUno || p.shortDesc || '';
 
   // Qty buttons
   const minusBtn = document.getElementById('detQtyMinus');
@@ -276,17 +276,18 @@ function renderAccordion() {
   if (descEl) descEl.innerHTML = (p.description || '').replace(/\n/g, '<br>');
 
   const specsEl = document.getElementById('detSpecifications');
-  if (specsEl && p.specifications) {
-    specsEl.innerHTML = p.specifications
-      .filter(s => s.trim())
-      .map(s => s.startsWith('Beneficios') || s.startsWith('Cuidados')
-        ? `<li style="list-style:none;font-weight:600;margin-top:10px;padding:0;color:var(--text)">${s}</li>`
-        : `<li>${s}</li>`)
-      .join('');
+  if (specsEl) {
+    const items = [];
+    if (p.especificaciones) {
+      p.especificaciones.split('\n').filter(s => s.trim()).forEach(s => {
+        items.push(`<li>${s.trim()}</li>`);
+      });
+    }
+    specsEl.innerHTML = items.join('');
   }
 
   const shipEl = document.getElementById('detShipping');
-  if (shipEl) shipEl.textContent = p.shipping || 'Envíos a todo Colombia con un tiempo de entrega de 3 a 7 días hábiles. Devoluciones gratuitas dentro de los primeros 30 días.';
+  if (shipEl) shipEl.innerHTML = (p.envios || '').replace(/\n/g, '<br>');
 
   // Accordion toggle
   document.querySelectorAll('.det-acc-header').forEach(header => {
