@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOOPIA — Categoría</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="top-bar" id="topBar">
+    <button class="top-bar-arrow top-bar-arrow-left" id="topBarPrev" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="top-bar-track">
+      <span class="top-bar-slide" id="topBarSlide"></span>
+    </div>
+    <button class="top-bar-arrow top-bar-arrow-right" id="topBarNext" aria-label="Siguiente">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="logo">
+        <img src="assets/LOGOBLOOPIA.webp" alt="BLOOPIA" class="logo-img" decoding="async" />
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a href="#">Categorías <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="categoria.html?category=babies">Bebés</a></li>
+              <li><a href="#">Hogar</a></li>
+              <li><a href="#">Cocina</a></li>
+              <li><a href="#">Energia Solar</a></li>
+              <li><a href="#">Mascotas</a></li>
+              <li><a href="#">Belleza</a></li>
+              <li><a href="#">Entretenimiento</a></li>
+              <li><a href="#">Fitness</a></li>
+              <li><a href="#">Herramientas</a></li>
+              <li><a href="#">Sonido</a></li>
+              <li><a href="#">Tecnología</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Novedades</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="action-btn" id="searchToggle" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="action-btn" id="profileToggle" aria-label="Perfil">
+          <i class="fas fa-user"></i>
+        </button>
+        <button class="action-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-bar-wrapper">
+        <input type="text" class="search-input" placeholder="Buscar productos..." id="searchInput" />
+        <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== ANNOUNCEMENT BAR ========== -->
+  <div class="announcement-bar" id="announcementBar">
+    <div class="announcement-track">
+      <div class="announcement-content">
+        💜 Innovación para cada espacio de tu vida: tecnología, hogar, bebés, bienestar y más. • 🔥 Ofertas todos los días en tecnología, hogar, bebés, accesorios y productos para toda la familia.
+      </div>
+      <div class="announcement-content" aria-hidden="true">
+        💜 Innovación para cada espacio de tu vida: tecnología, hogar, bebés, bienestar y más. • 🔥 Ofertas todos los días en tecnología, hogar, bebés, accesorios y productos para toda la familia.
+      </div>
+    </div>
+    <button class="announcement-close" id="announcementClose" aria-label="Cerrar">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- ========== CATEGORY BANNER ========== -->
+  <section class="cat-banner">
+    <div class="cat-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-overlay"></div>
+    <div class="container cat-banner-content">
+      <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+      <h1 class="cat-banner-title">BEBÉS</h1>
+      <p class="cat-banner-desc">Todo para el cuidado, comodidad y desarrollo de tu bebé, con la mejor calidad y diseño.</p>
+    </div>
+  </section>
+
+  <!-- ========== SUBCATEGORY NAV ========== -->
+  <nav class="subcat-nav" id="subcatNav">
+    <div class="subcat-wrapper">
+      <button class="subcat-arrow subcat-arrow-left" id="subcatArrowLeft" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="subcat-track" id="subcatTrack"></div>
+      <button class="subcat-arrow subcat-arrow-right" id="subcatArrowRight" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== SUBCATEGORY BANNER ========== -->
+  <section class="subcat-banner" id="subcatBanner">
+    <div class="subcat-banner-bg" id="subcatBannerBg"></div>
+    <div class="subcat-banner-overlay"></div>
+    <div class="subcat-banner-content container">
+      <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para los más pequeños.</p>
+      <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTS ========== -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="section-header reveal reveal-up">
+        <span class="section-label" id="productsLabel">Productos</span>
+        <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu bebé.</p>
+      </div>
+      <div class="product-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== PROMO CAROUSEL ========== -->
+  <section class="promo-carousel" id="promoCarousel">
+    <div class="promo-carousel-track" id="promoCarouselTrack">
+      <div class="promo-carousel-slide active" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">¡Oferta Especial!</span>
+          <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
+          <p class="promo-carousel-desc">En coches, cunas y muebles para bebé. La mejor calidad al mejor precio.</p>
+          <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-gift"></i>
+        </div>
+      </div>
+      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">Recién Llegado</span>
+          <h2 class="promo-carousel-title">Nueva Colección</h2>
+          <p class="promo-carousel-desc">Juguetes sensoriales, andaderas y sets de baño. Lo último para estimular a tu bebé.</p>
+          <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">Envío Gratis</span>
+          <h2 class="promo-carousel-title">Compra +$150</h2>
+          <p class="promo-carousel-desc">Recibe tu pedido sin costo adicional en toda Colombia. Aprovecha esta oportunidad.</p>
+          <a href="#" class="promo-carousel-cta">Ver más <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+      </div>
+    </div>
+
+    <button class="promo-carousel-arrow promo-carousel-arrow-left" id="promoCarouselPrev" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="promo-carousel-arrow promo-carousel-arrow-right" id="promoCarouselNext" aria-label="Siguiente">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="promo-carousel-dots" id="promoCarouselDots">
+      <span class="promo-carousel-dot active" data-index="0"></span>
+      <span class="promo-carousel-dot" data-index="1"></span>
+      <span class="promo-carousel-dot" data-index="2"></span>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(h => { document.getElementById('footer-placeholder').outerHTML = h; });
+  </script>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver Arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ========== CART OVERLAY ========== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button id="cartClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Tu carrito está vacío</p>
+        <span>Agrega algunos productos para empezar</span>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="btn btn-primary cart-checkout" id="checkoutBtn">
+        <i class="fab fa-whatsapp"></i> Pagar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mob-menu-overlay" id="mobMenuOverlay"></div>
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu-header">
+      <img src="assets/LOGOBLOOPIA.webp" alt="BLOOPIA" class="mob-menu-logo" />
+      <button class="mob-menu-close" id="mobMenuClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mob-menu-body">
+      <ul class="mob-menu-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#" class="mob-cat-toggle">Categorías <i class="fas fa-chevron-down"></i></a></li>
+      </ul>
+      <div class="mob-menu-categories">
+        <div class="mob-menu-cat-grid">
+          <a href="categoria.html?category=babies">Bebés</a>
+          <a href="#">Hogar</a>
+          <a href="#">Cocina</a>
+          <a href="#">Energia Solar</a>
+          <a href="#">Mascotas</a>
+          <a href="#">Belleza</a>
+          <a href="#">Entretenimiento</a>
+          <a href="#">Fitness</a>
+          <a href="#">Herramientas</a>
+          <a href="#">Sonido</a>
+          <a href="#">Tecnología</a>
+        </div>
+      </div>
+      <ul class="mob-menu-links">
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/categoria.js"></script>
+</body>
+</html>
