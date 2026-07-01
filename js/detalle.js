@@ -277,13 +277,7 @@ function renderAccordion() {
 
   const specsEl = document.getElementById('detSpecifications');
   if (specsEl) {
-    const items = [];
-    if (p.especificaciones) {
-      p.especificaciones.split('\n').filter(s => s.trim()).forEach(s => {
-        items.push(`<li>${s.trim()}</li>`);
-      });
-    }
-    specsEl.innerHTML = items.join('');
+    specsEl.innerHTML = (p.especificaciones || '').replace(/\n/g, '<br>');
   }
 
   const shipEl = document.getElementById('detShipping');
