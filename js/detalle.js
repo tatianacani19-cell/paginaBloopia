@@ -37,6 +37,20 @@ function renderBreadcrumb() {
     cat.href = `categoria.html?category=${currentProduct.category}`;
   }
   if (name) name.textContent = currentProduct.name;
+
+  const backLink = document.getElementById('detBackLink');
+  const backLabel = document.getElementById('detBackLabel');
+  const subParam = getUrlParam('sub');
+  if (backLink && backLabel) {
+    const baseUrl = `categoria.html?category=${currentProduct.category}`;
+    if (subParam && subParam !== 'todos') {
+      backLink.href = baseUrl + '&sub=' + subParam;
+      backLabel.textContent = subParam.charAt(0).toUpperCase() + subParam.slice(1).replace(/_/g, ' ');
+    } else {
+      backLink.href = baseUrl;
+      backLabel.textContent = categoryNames[currentProduct.category] || currentProduct.category;
+    }
+  }
 }
 
 function renderGallery() {

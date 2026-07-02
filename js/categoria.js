@@ -126,6 +126,9 @@ function initCategoryPage() {
     return;
   }
 
+  const subParam = getUrlParam('sub');
+  currentSubcategory = config.subcategories.find(s => s.key === subParam) ? subParam : 'todos';
+
   document.title = `BLOOPIA — ${config.displayName}`;
   renderHero(config);
   renderSubcategoryNav(config);
@@ -133,6 +136,10 @@ function initCategoryPage() {
 
   const defaultSub = config.subcategories.find(s => s.key === currentSubcategory) || config.subcategories[0];
   if (defaultSub) activateSubcategory(defaultSub);
+  if (subParam && subParam !== 'todos') {
+    const activeBtn = document.querySelector(`.subcat-btn[data-sub="${subParam}"]`);
+    if (activeBtn) setTimeout(() => activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }), 100);
+  }
 }
 
 function renderHero(config) {
@@ -271,7 +278,7 @@ function renderProducts() {
   grid.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.add-to-cart')) return;
-      window.location.href = `detalle.html?id=${card.dataset.id}`;
+      window.location.href = `detalle.html?id=${card.dataset.id}&sub=${currentSubcategory}`;
     });
   });
 

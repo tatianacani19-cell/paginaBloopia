@@ -60,7 +60,7 @@ const categoryNames = {
 };
 
 function formatPrice(amount) {
-  return '$' + Math.round(amount).toLocaleString('es-CO');
+  return '$' + Math.round(amount).toLocaleString('es-CO') + ' COP';
 }
 
 // ========== RENDER PRODUCTS ==========

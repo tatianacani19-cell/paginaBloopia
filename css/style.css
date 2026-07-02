@@ -3956,6 +3956,25 @@ input {
   font-weight: 500;
 }
 
+/* Back to subcategory */
+.det-back-bar {
+  background: var(--cream);
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--border);
+}
+.det-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brand-purple);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+.det-back-link:hover {
+  opacity: 0.7;
+}
+
 /* Product Detail Layout */
 .det-section {
   padding: 50px 0 60px;
