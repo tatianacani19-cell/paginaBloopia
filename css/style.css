@@ -4218,6 +4218,57 @@ input {
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
+/* Measurements */
+.det-medidas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.det-medidas-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.det-medidas-label strong {
+  color: var(--text);
+}
+
+.det-medida-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.det-medida-btn {
+  padding: 6px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.det-medida-btn:hover {
+  border-color: var(--brand-purple);
+  background: var(--brand-purple-bg);
+}
+
+.det-medida-btn.active {
+  border-color: var(--brand-purple);
+  background: var(--brand-purple);
+  color: #fff;
+}
+
+.det-no-medidas {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
 .det-no-colors {
   font-size: 0.85rem;
   color: var(--text-light);

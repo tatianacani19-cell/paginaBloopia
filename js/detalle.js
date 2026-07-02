@@ -1,5 +1,6 @@
 let currentProduct = null;
 let currentColor = null;
+let currentMedida = null;
 let currentQty = 1;
 
 function getUrlParam(name) {
@@ -255,11 +256,48 @@ function renderInfo() {
           updateGalleryForColor(color);
         });
       });
-    } else {
-      colorOptions.innerHTML = '<span class="det-no-colors">Color único</span>';
-      if (colorName) colorName.textContent = 'Único';
+      } else {
+        colorOptions.innerHTML = '<span class="det-no-colors">Color único</span>';
+        if (colorName) colorName.textContent = 'Único';
+      }
     }
-  }
+
+    // Measurements
+    const medidaContainer = document.getElementById('detMedidas');
+    const medidaOptions = document.getElementById('detMedidaOptions');
+    const medidaName = document.getElementById('detMedidaName');
+    if (medidaContainer && medidaOptions && medidaName) {
+      const medidas = p.medidas || [];
+      if (medidas.length > 0) {
+        medidaContainer.style.display = '';
+        currentMedida = medidas[0].name;
+        medidaName.textContent = currentMedida;
+        medidaOptions.innerHTML = medidas.map((m, i) => `
+          <button class="det-medida-btn${i === 0 ? ' active' : ''}" data-medida="${m.name}" data-price="${m.price}" data-codigo="${m.codigo}">
+            ${m.name}
+          </button>
+        `).join('');
+        medidaOptions.querySelectorAll('.det-medida-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const medida = btn.dataset.medida;
+            const price = parseFloat(btn.dataset.price);
+            const codigo = btn.dataset.codigo;
+            currentMedida = medida;
+            medidaOptions.querySelectorAll('.det-medida-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if (medidaName) medidaName.textContent = medida;
+            const pricing = document.getElementById('detPricing');
+            if (pricing && price) {
+              pricing.innerHTML = `<span class="det-current-price">${formatPrice(price)}</span>`;
+            }
+            const detTitle = document.getElementById('detTitle');
+            if (detTitle && codigo) {
+              detTitle.innerHTML = p.name + ' <span class="det-codigo">' + codigo + '</span>';
+            }
+          });
+        });
+      }
+    }
 
   if (desc) desc.innerHTML = (p.descripcionUno || p.shortDesc || '').replace(/\n/g, '<br>');
 
@@ -291,11 +329,15 @@ function renderInfo() {
   const addBtn = document.getElementById('detAddCart');
   if (addBtn) {
     addBtn.addEventListener('click', () => {
-      const existing = cart.find(item => item.id === p.id);
+      const variant = (p.medidas || []).find(v => v.name === currentMedida);
+      const cartPrice = variant ? variant.price : p.price;
+      const cartCodigo = variant ? variant.codigo : p.codigo;
+      const cartItem = { ...p, price: cartPrice, codigo: cartCodigo, qty: currentQty };
+      const existing = cart.find(item => item.id === p.id && item.codigo === cartCodigo);
       if (existing) {
         existing.qty += currentQty;
       } else {
-        cart.push({ ...p, qty: currentQty });
+        cart.push(cartItem);
       }
       saveCart();
       updateCartUI();

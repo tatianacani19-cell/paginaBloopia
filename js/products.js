@@ -206,81 +206,69 @@ async function loadProductsFromExcel() {
     }
 
     const active = rows.filter(r => r.Estado === 'Activo' && r.Nombre);
-    const hasColor = active.some(r => r.Color !== undefined && r.Color !== '');
 
-    if (hasColor) {
-      const groups = {};
-      for (const r of active) {
-        const key = `${r.Nombre}|${r.Categoria}|${r.Subcategoria}|${r.Precio}`;
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(r);
-      }
+    const groups = {};
+    for (const r of active) {
+      const key = `${r.Nombre}|${r.Categoria}|${r.Subcategoria}`;
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(r);
+    }
 
-      products = Object.values(groups).map((g, i) => {
-        const first = g[0];
-        const seenImages = [];
-        const colors = [];
-        let descUno = '', especs = '', envs = '';
-        for (const r of g) {
-          if (r.Imagen && !seenImages.includes(r.Imagen)) seenImages.push(r.Imagen);
-          if (r.Color) {
-            const existing = colors.find(c => c.name === r.Color);
-            if (existing) {
-              if (r.Imagen && !existing.images.includes(r.Imagen)) existing.images.push(r.Imagen);
-            } else {
-              colors.push({ name: r.Color, hex: getColorHex(r.Color), codigo: r.Codigo || '', image: r.Imagen || '', images: [r.Imagen || ''] });
-            }
+    products = Object.values(groups).map((g, i) => {
+      const first = g[0];
+      const seenImages = [];
+      const colors = [];
+      const medidaVariants = [];
+      let descUno = '', especs = '', envs = '';
+      for (const r of g) {
+        if (r.Imagen && !seenImages.includes(r.Imagen)) seenImages.push(r.Imagen);
+        if (r.Color) {
+          const existing = colors.find(c => c.name === r.Color);
+          if (existing) {
+            if (r.Imagen && !existing.images.includes(r.Imagen)) existing.images.push(r.Imagen);
+          } else {
+            colors.push({ name: r.Color, hex: getColorHex(r.Color), codigo: r.Codigo || '', image: r.Imagen || '', images: [r.Imagen || ''] });
           }
-          if (!descUno && r.DescripcionUno) descUno = String(r.DescripcionUno);
-          if (!especs && r.Especificaciones) especs = String(r.Especificaciones);
-          if (!envs && r.Envios) envs = String(r.Envios);
         }
-        const images = seenImages.length > 0 ? seenImages : colors.map(c => c.image).filter(Boolean);
-        return {
-          id: i + 1,
-          codigo: first.Codigo || '',
-          name: first.Nombre,
-          category: normalizeCategory(first.Categoria),
-          subcategory: normalizeSubcategory(first.Subcategoria),
-          price: Number(first.Precio) || 0,
-          originalPrice: null,
-          image: images[0] || '',
-          hoverImage: images[1] || images[0] || '',
-          badge: null,
-          images: images,
-          colors: colors,
-          shortDesc: first.Descripcion || '',
-          description: first.Descripcion || '',
-          descripcionUno: descUno,
-          especificaciones: especs,
-          envios: envs,
-          specifications: [],
-          shipping: '',
-        };
-      });
-    } else {
-      products = active.map((r, i) => ({
+        if (r.medidas) {
+          const existing = medidaVariants.find(v => v.name === r.medidas);
+          if (!existing) {
+            medidaVariants.push({
+              name: r.medidas,
+              price: Number(r.Precio) || 0,
+              codigo: r.Codigo || ''
+            });
+          }
+        }
+        if (!descUno && r.DescripcionUno) descUno = String(r.DescripcionUno);
+        if (!especs && r.Especificaciones) especs = String(r.Especificaciones);
+        if (!envs && r.Envios) envs = String(r.Envios);
+      }
+      const images = seenImages.length > 0 ? seenImages : colors.map(c => c.image).filter(Boolean);
+      const defaultPrice = medidaVariants.length > 0 ? medidaVariants[0].price : (Number(first.Precio) || 0);
+      return {
         id: i + 1,
-        codigo: r.Codigo || '',
-        name: r.Nombre,
-        category: normalizeCategory(r.Categoria),
-        subcategory: normalizeSubcategory(r.Subcategoria),
-        price: Number(r.Precio) || 0,
+        codigo: first.Codigo || '',
+        name: first.Nombre,
+        category: normalizeCategory(first.Categoria),
+        subcategory: normalizeSubcategory(first.Subcategoria),
+        price: defaultPrice,
         originalPrice: null,
-        image: r.Imagen || '',
-        hoverImage: '',
+        image: images[0] || '',
+        hoverImage: images[1] || images[0] || '',
         badge: null,
-        images: r.Imagen ? [r.Imagen] : [],
-        colors: [],
-        shortDesc: r.Descripcion || '',
-        description: r.Descripcion || '',
-        descripcionUno: r.DescripcionUno ? String(r.DescripcionUno) : '',
-        especificaciones: r.Especificaciones ? String(r.Especificaciones) : '',
-        envios: r.Envios ? String(r.Envios) : '',
+        images: images,
+        colors: colors,
+        medidas: medidaVariants,
+        shortDesc: first.Descripcion || '',
+        description: first.Descripcion || '',
+        descripcionUno: descUno,
+        especificaciones: especs,
+        envios: envs,
         specifications: [],
         shipping: '',
-      }));
-    }
+      };
+    });
   } catch (e) {
     console.error('Error al cargar el catálogo desde Excel:', e);
   }
