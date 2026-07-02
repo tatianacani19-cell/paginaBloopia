@@ -190,7 +190,8 @@ function renderInfo() {
       : '';
   }
 
-  if (title) title.innerHTML = ((p.colors && p.colors[0] && p.colors[0].title) || p.name) + ' <span class="det-codigo">' + (p.codigo || '') + '</span>';
+  const initialCode = (p.colors && p.colors[0] && p.colors[0].codigo) || p.codigo || '';
+  if (title) title.innerHTML = ((p.colors && p.colors[0] && p.colors[0].title) || p.name) + ' <span class="det-codigo">' + initialCode + '</span>';
 
   if (pricing) {
     let html = '';
@@ -236,7 +237,7 @@ function renderInfo() {
           btn.classList.add('active');
           if (colorName) colorName.textContent = color.name;
           const detTitle = document.getElementById('detTitle');
-          if (detTitle) detTitle.innerHTML = (color.title || p.name) + ' <span class="det-codigo">' + (p.codigo || '') + '</span>';
+          if (detTitle) detTitle.innerHTML = (color.title || p.name) + ' <span class="det-codigo">' + (color.codigo || p.codigo || '') + '</span>';
           updateGalleryForColor(color);
         });
       });
