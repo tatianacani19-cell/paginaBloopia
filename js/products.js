@@ -153,6 +153,24 @@ function getColorHex(name) {
   return map[key] || '#cccccc';
 }
 
+function parseRichText(rStr) {
+  if (!rStr) return null;
+  const simple = rStr.match(/^<t[^>]*>([\s\S]*)<\/t>$/);
+  if (simple) return simple[1];
+  let result = '';
+  const runRegex = /<r>([\s\S]*?)<\/r>/g;
+  let match;
+  while ((match = runRegex.exec(rStr)) !== null) {
+    const content = match[1];
+    const isBold = /<b\s*\/>/.test(content);
+    const txtMatch = content.match(/<t[^>]*>([\s\S]*)<\/t>/);
+    const txt = txtMatch ? txtMatch[1] : '';
+    if (isBold) result += '<strong>' + txt + '</strong>';
+    else result += txt;
+  }
+  return result || null;
+}
+
 async function loadProductsFromExcel() {
   try {
     const resp = await fetch('BD/Catalogo_Bloopia_Estructurado.xlsx?t=' + Date.now());
@@ -160,6 +178,29 @@ async function loadProductsFromExcel() {
     const wb = XLSX.read(buffer, { type: 'array' });
     const ws = wb.Sheets['Productos'];
     const rows = XLSX.utils.sheet_to_json(ws, { defval: '' });
+
+    const range = XLSX.utils.decode_range(ws['!ref']);
+    const richFields = ['Descripcion', 'DescripcionUno', 'Especificaciones', 'Envios'];
+    const headerRow = [];
+    for (let C = range.s.c; C <= range.e.c; C++) {
+      const addr = XLSX.utils.encode_cell({ r: range.s.r, c: C });
+      headerRow.push((ws[addr] || {}).v || '');
+    }
+    const fieldColIdx = {};
+    richFields.forEach(f => { const idx = headerRow.indexOf(f); if (idx >= 0) fieldColIdx[f] = idx; });
+    const dataStartRow = range.s.r + 1;
+    for (let i = 0; i < rows.length; i++) {
+      for (const field of richFields) {
+        const colIdx = fieldColIdx[field];
+        if (colIdx === undefined) continue;
+        const addr = XLSX.utils.encode_cell({ r: dataStartRow + i, c: colIdx });
+        const cell = ws[addr];
+        if (cell && cell.r) {
+          const html = parseRichText(cell.r);
+          if (html) rows[i][field] = html;
+        }
+      }
+    }
 
     const active = rows.filter(r => r.Estado === 'Activo' && r.Nombre);
     const hasColor = active.some(r => r.Color !== undefined && r.Color !== '');

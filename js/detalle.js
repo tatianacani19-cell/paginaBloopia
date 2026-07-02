@@ -226,7 +226,7 @@ function renderInfo() {
     }
   }
 
-  if (desc) desc.textContent = p.descripcionUno || p.shortDesc || '';
+  if (desc) desc.innerHTML = (p.descripcionUno || p.shortDesc || '').replace(/\n/g, '<br>');
 
   // Qty buttons
   const minusBtn = document.getElementById('detQtyMinus');
