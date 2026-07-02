@@ -1037,6 +1037,20 @@ input {
   margin-bottom: 4px;
   color: var(--text);
 }
+.product-codigo {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #999;
+  display: block;
+  margin-top: 2px;
+}
+.det-codigo {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #999;
+  display: block;
+  margin-top: 4px;
+}
 
 .product-category-tag {
   font-size: 0.7rem;

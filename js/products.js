@@ -235,6 +235,7 @@ async function loadProductsFromExcel() {
         const images = seenImages.length > 0 ? seenImages : colors.map(c => c.image).filter(Boolean);
         return {
           id: i + 1,
+          codigo: first.Codigo || '',
           name: first.Nombre,
           category: normalizeCategory(first.Categoria),
           subcategory: normalizeSubcategory(first.Subcategoria),
@@ -257,6 +258,7 @@ async function loadProductsFromExcel() {
     } else {
       products = active.map((r, i) => ({
         id: i + 1,
+        codigo: r.Codigo || '',
         name: r.Nombre,
         category: normalizeCategory(r.Categoria),
         subcategory: normalizeSubcategory(r.Subcategoria),

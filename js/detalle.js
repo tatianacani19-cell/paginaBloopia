@@ -190,7 +190,7 @@ function renderInfo() {
       : '';
   }
 
-  if (title) title.textContent = (p.colors && p.colors[0] && p.colors[0].title) || p.name;
+  if (title) title.innerHTML = ((p.colors && p.colors[0] && p.colors[0].title) || p.name) + ' <span class="det-codigo">' + (p.codigo || '') + '</span>';
 
   if (pricing) {
     let html = '';
@@ -236,7 +236,7 @@ function renderInfo() {
           btn.classList.add('active');
           if (colorName) colorName.textContent = color.name;
           const detTitle = document.getElementById('detTitle');
-          if (detTitle) detTitle.textContent = color.title || p.name;
+          if (detTitle) detTitle.innerHTML = (color.title || p.name) + ' <span class="det-codigo">' + (p.codigo || '') + '</span>';
           updateGalleryForColor(color);
         });
       });
@@ -354,7 +354,7 @@ function renderRelated() {
         ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
       </div>
       <div class="product-body">
-        <h3 class="product-name">${p.name}</h3>
+        <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <span class="product-price">${formatPrice(p.price)}</span>
         <button class="add-to-cart" data-id="${p.id}">

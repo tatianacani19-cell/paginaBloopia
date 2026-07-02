@@ -258,7 +258,7 @@ function renderProducts() {
         ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
       </div>
       <div class="product-body">
-        <h3 class="product-name">${p.name}</h3>
+        <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <span class="product-price">${formatPrice(p.price)}</span>
         <button class="add-to-cart" data-id="${p.id}">
