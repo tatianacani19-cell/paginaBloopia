@@ -112,6 +112,8 @@ function renderGallery() {
     });
   })();
 
+  bindThumbClicks();
+
   // Touch swipe on main image
   if (mainImageWrap) {
     let touchStartX = 0;
@@ -125,30 +127,37 @@ function renderGallery() {
       touchEndX = e.changedTouches[0].screenX;
       const diff = touchStartX - touchEndX;
       if (Math.abs(diff) > 50) {
-        const activeThumb = thumbs.querySelector('.det-thumb.active');
+        const curThumbs = document.getElementById('detThumbs');
+        const activeThumb = curThumbs?.querySelector('.det-thumb.active');
+        const allThumbs = curThumbs?.querySelectorAll('.det-thumb') || [];
         const idx = activeThumb ? parseInt(activeThumb.dataset.index) : 0;
-        if (diff > 0 && idx < images.length - 1) {
-          const nextThumb = thumbs.querySelector(`.det-thumb[data-index="${idx + 1}"]`);
+        if (diff > 0 && idx < allThumbs.length - 1) {
+          const nextThumb = curThumbs?.querySelector(`.det-thumb[data-index="${idx + 1}"]`);
           if (nextThumb) nextThumb.click();
         } else if (diff < 0 && idx > 0) {
-          const prevThumb = thumbs.querySelector(`.det-thumb[data-index="${idx - 1}"]`);
+          const prevThumb = curThumbs?.querySelector(`.det-thumb[data-index="${idx - 1}"]`);
           if (prevThumb) prevThumb.click();
         }
       }
     }, { passive: true });
   }
+}
 
+function bindThumbClicks() {
+  const thumbs = document.getElementById('detThumbs');
+  const mainImg = document.getElementById('detMainImg');
+  if (!thumbs || !mainImg) return;
   thumbs.querySelectorAll('.det-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       const idx = parseInt(thumb.dataset.index);
       thumbs.querySelectorAll('.det-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
-      const newSrc = images[idx].includes('w=') ? images[idx].replace(/w=\d+/, 'w=800') : images[idx];
-      mainImg.src = newSrc;
+      const imgSrc = thumb.querySelector('img')?.src || '';
+      mainImg.src = imgSrc.includes('w=') ? imgSrc.replace(/w=\d+/, 'w=800') : imgSrc;
 
       // Select corresponding color
       const colors = currentProduct.colors || [];
-      const matchedColor = colors.find(c => c.image === images[idx]);
+      const matchedColor = colors.find(c => c.images && c.images.includes(imgSrc));
       if (matchedColor) {
         const colorIdx = colors.indexOf(matchedColor);
         const colorBtns = document.querySelectorAll('.det-color-btn');
@@ -197,12 +206,26 @@ function renderInfo() {
     if (colors.length > 0) {
       currentColor = colors[0];
       colorName.textContent = currentColor.name;
+      updateGalleryForColor(currentColor);
       colorOptions.innerHTML = colors.map((c, i) => `
         <button class="det-color-btn${i === 0 ? ' active' : ''}" data-color="${i}"
           style="background:${c.hex}" title="${c.name}">
         </button>
       `).join('');
 
+      function updateGalleryForColor(color) {
+        const cImages = color.images && color.images.length > 0 ? color.images : [color.image || currentProduct.image];
+        const thumbs = document.getElementById('detThumbs');
+        const mainImg = document.getElementById('detMainImg');
+        if (!thumbs || !mainImg) return;
+        thumbs.innerHTML = cImages.map((img, i) => `
+          <div class="det-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+            <img src="${img}" alt="${currentProduct.name}" loading="lazy" decoding="async" />
+          </div>
+        `).join('');
+        mainImg.src = cImages[0].includes('w=') ? cImages[0].replace(/w=\d+/, 'w=800') : cImages[0];
+        bindThumbClicks();
+      }
       colorOptions.querySelectorAll('.det-color-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.dataset.color);
@@ -214,10 +237,7 @@ function renderInfo() {
           if (colorName) colorName.textContent = color.name;
           const detTitle = document.getElementById('detTitle');
           if (detTitle) detTitle.textContent = color.title || p.name;
-          const mainImg = document.getElementById('detMainImg');
-          if (mainImg && color.image) {
-            mainImg.src = color.image.includes('w=') ? color.image.replace(/w=\d+/, 'w=800') : color.image;
-          }
+          updateGalleryForColor(color);
         });
       });
     } else {

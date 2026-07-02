@@ -221,8 +221,11 @@ async function loadProductsFromExcel() {
         for (const r of g) {
           if (r.Imagen && !seenImages.includes(r.Imagen)) seenImages.push(r.Imagen);
           if (r.Color) {
-            if (!colors.find(c => c.name === r.Color)) {
-              colors.push({ name: r.Color, hex: getColorHex(r.Color), image: r.Imagen || '' });
+            const existing = colors.find(c => c.name === r.Color);
+            if (existing) {
+              if (r.Imagen && !existing.images.includes(r.Imagen)) existing.images.push(r.Imagen);
+            } else {
+              colors.push({ name: r.Color, hex: getColorHex(r.Color), image: r.Imagen || '', images: [r.Imagen || ''] });
             }
           }
           if (!descUno && r.DescripcionUno) descUno = String(r.DescripcionUno);
