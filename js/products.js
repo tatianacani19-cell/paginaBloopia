@@ -93,64 +93,67 @@ function normalizeSubcategory(sub) {
   return subcategoryMap[key] || key.replace(/[^a-z0-9áéíóúñ]/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '').replace(/[á]/g, 'a').replace(/[é]/g, 'e').replace(/[í]/g, 'i').replace(/[ó]/g, 'o').replace(/[ú]/g, 'u').replace(/[ñ]/g, 'n');
 }
 
+const colorHexMap = {
+  'negro': '#1a1a1a',
+  'blanco': '#ffffff',
+  'rosado': '#f5a0b0',
+  'rosa': '#f5a0b0',
+  'rosa claro': '#fcc',
+  'rojo': '#cc3333',
+  'rojo oscuro': '#8b0000',
+  'azul': '#3b5998',
+  'azul claro': '#a8d8ea',
+  'azul oscuro': '#1a2a4a',
+  'celeste': '#a8d8ea',
+  'gris': '#8c8c8c',
+  'gris oscuro': '#4a4a4a',
+  'gris claro': '#b0b0b0',
+  'plateado': '#c0c0c0',
+  'beige': '#d4c9b0',
+  'marrón': '#6b3a2a',
+  'marron': '#6b3a2a',
+  'café': '#6b3a2a',
+  'verde': '#4a8c5c',
+  'verde claro': '#7ec850',
+  'naranja': '#f0a030',
+  'amarillo': '#ffd700',
+  'dorado': '#c9a94e',
+  'vino tinto': '#722f37',
+  'purpura': '#800080',
+  'púrpura': '#800080',
+  'morado': '#800080',
+  'violeta': '#8a2be2',
+  'lavanda': '#b39eb5',
+  'terracota': '#c9663e',
+  'crema': '#f5f0eb',
+  'vainilla': '#f5e6cc',
+  'melocotón': '#ffdab9',
+  'menta': '#98ff98',
+  'mostaza': '#ffdb58',
+  'oliva': '#808000',
+  'salmón': '#fa8072',
+  'fucsia': '#ff00ff',
+  'turquesa': '#40e0d0',
+  'coral': '#ff7f50',
+  'madera': '#c9a94e',
+  'natural': '#c9a94e',
+  'multicolor': '#f0a030',
+  'transparente': '#f0f0f0',
+};
+
 function getColorHex(name) {
-  const map = {
-    'negro': '#1a1a1a',
-    'blanco': '#ffffff',
-    'rosado': '#f5a0b0',
-    'rosa': '#f5a0b0',
-    'rosa claro': '#fcc',
-    'rojo': '#cc3333',
-    'rojo oscuro': '#8b0000',
-    'azul': '#3b5998',
-    'azul claro': '#a8d8ea',
-    'azul oscuro': '#1a2a4a',
-    'celeste': '#a8d8ea',
-    'gris': '#8c8c8c',
-    'gris oscuro': '#4a4a4a',
-    'gris claro': '#b0b0b0',
-    'plateado': '#c0c0c0',
-    'beige': '#d4c9b0',
-    'marrón': '#6b3a2a',
-    'marron': '#6b3a2a',
-    'café': '#6b3a2a',
-    'verde': '#4a8c5c',
-    'verde claro': '#7ec850',
-    'naranja': '#f0a030',
-    'amarillo': '#ffd700',
-    'dorado': '#c9a94e',
-    'vino tinto': '#722f37',
-    'purpura': '#800080',
-    'púrpura': '#800080',
-    'morado': '#800080',
-    'violeta': '#8a2be2',
-    'lavanda': '#b39eb5',
-    'terracota': '#c9663e',
-    'crema': '#f5f0eb',
-    'vainilla': '#f5e6cc',
-    'melocotón': '#ffdab9',
-    'menta': '#98ff98',
-    'mostaza': '#ffdb58',
-    'oliva': '#808000',
-    'salmón': '#fa8072',
-    'fucsia': '#ff00ff',
-    'turquesa': '#40e0d0',
-    'coral': '#ff7f50',
-    'madera': '#c9a94e',
-    'natural': '#c9a94e',
-    'multicolor': '#f0a030',
-    'transparente': '#f0f0f0',
-    'negro con rosado': 'linear-gradient(135deg, #f5a0b0 50%, #1a1a1a 50%)',
-    'negro con rosa': 'linear-gradient(135deg, #f5a0b0 50%, #1a1a1a 50%)',
-    'negro con azul': 'linear-gradient(135deg, #4a5a7a 50%, #1a1a1a 50%)',
-    'negro con beige': 'linear-gradient(135deg, #d4c9b0 50%, #1a1a1a 50%)',
-    'negro con gris': 'linear-gradient(135deg, #8c8c8c 50%, #1a1a1a 50%)',
-    'azul con blanco': 'linear-gradient(135deg, #ffffff 50%, #3b5998 50%)',
-    'rojo con negro': 'linear-gradient(135deg, #1a1a1a 50%, #cc3333 50%)',
-    'blanco con negro': 'linear-gradient(135deg, #1a1a1a 50%, #ffffff 50%)',
-  };
   const key = name.trim().toLowerCase().replace(/\s+/g, ' ');
-  return map[key] || '#cccccc';
+  const direct = colorHexMap[key];
+  if (direct) return direct;
+
+  const parts = key.split(/\s+(?:con|y)\s+/);
+  if (parts.length === 2) {
+    const c1 = colorHexMap[parts[0]];
+    const c2 = colorHexMap[parts[1]];
+    if (c1 && c2) return `linear-gradient(135deg, ${c2} 50%, ${c1} 50%)`;
+  }
+
+  return '#cccccc';
 }
 
 function parseRichText(rStr) {
