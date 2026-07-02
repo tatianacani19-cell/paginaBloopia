@@ -105,6 +105,68 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  home: {
+    displayName: 'Hogar',
+    description: 'Transforma tu hogar con organización, estilo y confort. Encuentra todo para hacer de tu casa un espacio único.',
+    heroImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'organizadores', label: 'Organizadores',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=800&q=80&fm=webp',
+          title: 'Organizadores para el Hogar',
+          desc: 'Mantén cada espacio en orden con nuestros organizadores versátiles y funcionales.',
+          features: ['Aprovecha el espacio', 'Diseño moderno', 'Fácil de armar']
+        }
+      },
+      {
+        key: 'limpieza', label: 'Limpieza',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1585421514284-efb74c2b69ba?w=800&q=80&fm=webp',
+          title: 'Productos de Limpieza',
+          desc: 'Equipa tu hogar con las mejores herramientas para mantenerlo impecable.',
+          features: ['Alta eficiencia', 'Fáciles de usar', 'Resultados profesionales']
+        }
+      },
+      {
+        key: 'humificadores', label: 'Humificadores',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1625225233840-695456021cde?w=800&q=80&fm=webp',
+          title: 'Humificadores',
+          desc: 'Crea un ambiente saludable y confortable con nuestros humidificadores.',
+          features: ['Silencioso', 'Fácil limpieza', 'Ideal para cualquier espacio']
+        }
+      },
+      {
+        key: 'iluminacion', label: 'Iluminación',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80&fm=webp',
+          title: 'Iluminación para el Hogar',
+          desc: 'Ambienta cada rincón con nuestra colección de lámparas y luces LED.',
+          features: ['Diseño único', 'Ahorro energético', 'Fácil instalación']
+        }
+      },
+      {
+        key: 'muebles', label: 'Muebles',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80&fm=webp',
+          title: 'Muebles',
+          desc: 'Sillas, mesas y escritorios diseñados para brindar comodidad y estilo a tu hogar.',
+          features: ['Materiales resistentes', 'Diseño ergonómico', 'Estilo moderno']
+        }
+      },
+      {
+        key: 'decoracion', label: 'Decoración y Bienestar',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1586105251261-72a756497a11?w=800&q=80&fm=webp',
+          title: 'Decoración y Bienestar',
+          desc: 'Complementa tu hogar con accesorios que aportan personalidad y confort.',
+          features: ['Estilo único', 'Bienestar integral', 'Calidad superior']
+        }
+      }
+    ]
   }
 };
 

@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Categoría</title>
+  <title>BLOOPIA — Hogar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    if (!window.location.search.includes('category=')) {
+      const url = new URL(window.location);
+      url.searchParams.set('category', 'home');
+      window.history.replaceState({}, '', url);
+    }
+  </script>
 </head>
 <body>
 
@@ -101,12 +108,12 @@
 
   <!-- ========== CATEGORY BANNER ========== -->
   <section class="cat-banner">
-    <div class="cat-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fm=webp')"></div>
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title">BEBÉS</h1>
-      <p class="cat-banner-desc">Todo para el cuidado, comodidad y desarrollo de tu bebé, con la mejor calidad y diseño.</p>
+      <h1 class="cat-banner-title">HOGAR</h1>
+      <p class="cat-banner-desc">Transforma tu hogar con organización, estilo y confort. Encuentra todo para hacer de tu casa un espacio único.</p>
     </div>
   </section>
 
@@ -129,7 +136,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para los más pequeños.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tu hogar.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -140,7 +147,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu bebé.</p>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu hogar.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>
@@ -153,22 +160,22 @@
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">¡Oferta Especial!</span>
           <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
-          <p class="promo-carousel-desc">En coches, cunas y muebles para bebé. La mejor calidad al mejor precio.</p>
+          <p class="promo-carousel-desc">En organizadores, muebles y decoración para el hogar. Renueva tus espacios al mejor precio.</p>
           <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-gift"></i>
+          <i class="fas fa-couch"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">Recién Llegado</span>
           <h2 class="promo-carousel-title">Nueva Colección</h2>
-          <p class="promo-carousel-desc">Juguetes sensoriales, andaderas y sets de baño. Lo último para estimular a tu bebé.</p>
+          <p class="promo-carousel-desc">Iluminación LED, humidificadores y accesorios de bienestar. Lo último para tu hogar.</p>
           <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-lightbulb"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
