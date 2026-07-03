@@ -167,6 +167,32 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  kitchen: {
+    displayName: 'Cocina',
+    description: 'Equipa tu cocina con los mejores utensilios, electrodomésticos y accesorios. Prepara platillos increíbles con estilo y funcionalidad.',
+    heroImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'herramientas', label: 'Herramientas y Utensilios',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Herramientas y Utensilios',
+          desc: 'Todo lo que necesitas para preparar, cocinar y servir. Cuchillos, ollas, sartenes y más.',
+          features: ['Materiales de calidad', 'Diseño funcional', 'Fáciles de limpiar']
+        }
+      },
+      {
+        key: 'oster', label: 'Oster',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Electrodomésticos Oster',
+          desc: 'Licuadoras, freidoras de aire, cafeteras y más. La mejor tecnología para tu cocina.',
+          features: ['Tecnología de punta', 'Durabilidad garantizada', 'Resultados profesionales']
+        }
+      }
+    ]
   }
 };
 

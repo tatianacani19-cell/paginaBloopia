@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Detalle del Producto</title>
+  <title>BLOOPIA — Cocina</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    if (!window.location.search.includes('category=')) {
+      const url = new URL(window.location);
+      url.searchParams.set('category', 'kitchen');
+      window.history.replaceState({}, '', url);
+    }
+  </script>
 </head>
 <body>
 
@@ -99,159 +106,106 @@
     </button>
   </div>
 
-  <!-- ========== BREADCRUMB ========== -->
-  <nav class="det-breadcrumb">
-    <div class="container">
-      <a href="index.html">Inicio</a>
-      <span class="det-breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-      <a href="categoria.html?category=babies" id="detBreadCat">Categoría</a>
-      <span class="det-breadcrumb-sep"><i class="fas fa-chevron-right"></i></span>
-      <span id="detBreadName">Producto</span>
+  <!-- ========== CATEGORY BANNER ========== -->
+  <section class="cat-banner">
+    <div class="cat-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-overlay"></div>
+    <div class="container cat-banner-content">
+      <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+      <h1 class="cat-banner-title">COCINA</h1>
+      <p class="cat-banner-desc">Equipa tu cocina con los mejores utensilios, electrodomésticos y accesorios. Prepara platillos increíbles con estilo y funcionalidad.</p>
+    </div>
+  </section>
+
+  <!-- ========== SUBCATEGORY NAV ========== -->
+  <nav class="subcat-nav" id="subcatNav">
+    <div class="subcat-wrapper">
+      <button class="subcat-arrow subcat-arrow-left" id="subcatArrowLeft" aria-label="Anterior">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <div class="subcat-track" id="subcatTrack"></div>
+      <button class="subcat-arrow subcat-arrow-right" id="subcatArrowRight" aria-label="Siguiente">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </nav>
-  <!-- ========== BACK TO SUBCATEGORY ========== -->
-  <div class="det-back-bar">
-    <div class="container">
-      <a href="#" id="detBackLink" class="det-back-link"><i class="fas fa-arrow-left"></i> Volver a <span id="detBackLabel">Subcategoría</span></a>
-    </div>
-  </div>
 
-  <!-- ========== PRODUCT DETAIL ========== -->
-  <section class="det-section">
-    <div class="container">
-      <div class="det-layout">
-
-        <!-- LEFT: GALLERY -->
-        <div class="det-gallery">
-          <div class="det-main-image" id="detMainImage">
-            <img src="" alt="" id="detMainImg" />
-            <div class="det-lens" id="detLens"></div>
-            <button class="det-zoom-btn" id="detZoomBtn" aria-label="Ampliar imagen">
-              <i class="fas fa-expand"></i>
-            </button>
-          </div>
-          <div class="det-zoom-result" id="detZoomResult"></div>
-          <div class="det-thumbs" id="detThumbs"></div>
-        </div>
-
-        <!-- RIGHT: INFO -->
-        <div class="det-info">
-          <div class="det-badge-wrap" id="detBadgeWrap"></div>
-          <h1 class="det-title" id="detTitle"></h1>
-          <div class="det-pricing" id="detPricing"></div>
-
-          <!-- COLORS -->
-          <div class="det-colors" id="detColors">
-            <span class="det-colors-label">Color: <strong id="detColorName"></strong></span>
-            <div class="det-color-options" id="detColorOptions"></div>
-          </div>
-
-          <!-- MEASUREMENTS -->
-          <div class="det-medidas" id="detMedidas" style="display:none">
-            <span class="det-medidas-label">Medida: <strong id="detMedidaName"></strong></span>
-            <div class="det-medida-options" id="detMedidaOptions"></div>
-          </div>
-
-          <!-- SHORT DESC -->
-          <p class="det-desc" id="detDesc"></p>
-
-          <!-- QUANTITY + ADD TO CART -->
-          <div class="det-actions">
-            <div class="det-qty">
-              <button class="det-qty-btn" id="detQtyMinus"><i class="fas fa-minus"></i></button>
-              <span class="det-qty-value" id="detQtyValue">1</span>
-              <button class="det-qty-btn" id="detQtyPlus"><i class="fas fa-plus"></i></button>
-            </div>
-            <button class="btn btn-primary det-add-cart" id="detAddCart">
-              <i class="fas fa-shopping-bag"></i> Agregar al Carrito
-            </button>
-          </div>
-
-          <!-- FEATURE ICONS -->
-          <div class="det-features">
-            <div class="det-feature">
-              <div class="det-feature-icon"><i class="fas fa-wallet"></i></div>
-              <div class="det-feature-text">
-                <strong>Pagos 100% Seguros</strong>
-                <span>Múltiples métodos de pago</span>
-              </div>
-            </div>
-            <div class="det-feature">
-              <div class="det-feature-icon"><i class="fas fa-arrows-alt"></i></div>
-              <div class="det-feature-text">
-                <strong>Ajustable</strong>
-                <span>Se adapta a tus necesidades</span>
-              </div>
-            </div>
-            <div class="det-feature">
-              <div class="det-feature-icon"><i class="fas fa-palette"></i></div>
-              <div class="det-feature-text">
-                <strong>Colores Modernos</strong>
-                <span>Variedad de tonos actuales</span>
-              </div>
-            </div>
-            <div class="det-feature">
-              <div class="det-feature-icon"><i class="fas fa-truck"></i></div>
-              <div class="det-feature-text">
-                <strong>Envíos Nacionales</strong>
-                <span>Entregas en toda Colombia</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ========== SUBCATEGORY BANNER ========== -->
+  <section class="subcat-banner" id="subcatBanner">
+    <div class="subcat-banner-bg" id="subcatBannerBg"></div>
+    <div class="subcat-banner-overlay"></div>
+    <div class="subcat-banner-content container">
+      <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tu cocina.</p>
+      <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
 
-  <!-- ========== ACCORDION ========== -->
-  <section class="det-accordion-section">
-    <div class="container">
-      <div class="det-accordion">
-        <div class="det-acc-item">
-          <button class="det-acc-header active">
-            <span>Descripción</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="det-acc-body" style="max-height: none;">
-            <p id="detDescription"></p>
-          </div>
-        </div>
-        <div class="det-acc-item">
-          <button class="det-acc-header">
-            <span>Especificaciones</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="det-acc-body">
-            <ul id="detSpecifications"></ul>
-          </div>
-        </div>
-        <div class="det-acc-item">
-          <button class="det-acc-header">
-            <span>Envíos y Devoluciones</span>
-            <i class="fas fa-chevron-down"></i>
-          </button>
-          <div class="det-acc-body">
-            <p id="detShipping"></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== RELATED PRODUCTS ========== -->
+  <!-- ========== PRODUCTS ========== -->
   <section class="section section-gray">
     <div class="container">
       <div class="section-header reveal reveal-up">
-        <span class="section-label">Relacionados</span>
-        <h2 class="section-title">Productos Relacionados</h2>
-        <p class="section-desc">Descubre más productos de esta categoría.</p>
+        <span class="section-label" id="productsLabel">Productos</span>
+        <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu cocina.</p>
       </div>
-      <div class="product-grid reveal reveal-stagger-children" id="relatedGrid"></div>
+      <div class="product-grid" id="categoryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== PROMO CAROUSEL ========== -->
+  <section class="promo-carousel" id="promoCarousel">
+    <div class="promo-carousel-track" id="promoCarouselTrack">
+      <div class="promo-carousel-slide active" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">¡Oferta Especial!</span>
+          <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
+          <p class="promo-carousel-desc">En utensilios de cocina, ollas y sartenes. Renueva tu cocina al mejor precio.</p>
+          <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+      </div>
+      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">Recién Llegado</span>
+          <h2 class="promo-carousel-title">Nueva Colección</h2>
+          <p class="promo-carousel-desc">Freidoras de aire, licuadoras Oster y electrodomésticos de última generación para tu cocina.</p>
+          <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-blender"></i>
+        </div>
+      </div>
+      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">Envío Gratis</span>
+          <h2 class="promo-carousel-title">Compra +$150</h2>
+          <p class="promo-carousel-desc">Recibe tu pedido sin costo adicional en toda Colombia. Aprovecha esta oportunidad.</p>
+          <a href="#" class="promo-carousel-cta">Ver más <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+      </div>
+    </div>
+
+    <button class="promo-carousel-arrow promo-carousel-arrow-left" id="promoCarouselPrev" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="promo-carousel-arrow promo-carousel-arrow-right" id="promoCarouselNext" aria-label="Siguiente">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <div class="promo-carousel-dots" id="promoCarouselDots">
+      <span class="promo-carousel-dot active" data-index="0"></span>
+      <span class="promo-carousel-dot" data-index="1"></span>
+      <span class="promo-carousel-dot" data-index="2"></span>
     </div>
   </section>
 
   <!-- ========== FOOTER ========== -->
-  <div class="det-footer-spacer"></div>
   <div id="footer-placeholder"></div>
   <script>
     fetch('footer.html')
@@ -281,7 +235,7 @@
     <div class="cart-footer" id="cartFooter">
       <div class="cart-total">
         <span>Total</span>
-        <span id="cartTotal">$0</span>
+        <span id="cartTotal">$0.00</span>
       </div>
       <button class="btn btn-primary cart-checkout" id="checkoutBtn">
         <i class="fab fa-whatsapp"></i> Pagar por WhatsApp
@@ -324,18 +278,10 @@
     </div>
   </div>
 
-  <!-- ========== IMAGE ZOOM MODAL ========== -->
-  <div class="det-modal" id="detModal">
-    <span class="det-modal-close" id="detModalClose"><i class="fas fa-times"></i></span>
-    <button class="det-modal-arrow det-modal-arrow-left" id="detModalPrev"><i class="fas fa-chevron-left"></i></button>
-    <img class="det-modal-content" id="detModalImg" />
-    <button class="det-modal-arrow det-modal-arrow-right" id="detModalNext"><i class="fas fa-chevron-right"></i></button>
-  </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="js/products.js"></script>
   <script src="js/script.js"></script>
-  <script src="js/detalle.js"></script>
+  <script src="js/categoria.js"></script>
 </body>
 </html>
