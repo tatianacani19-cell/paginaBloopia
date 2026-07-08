@@ -193,6 +193,14 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  solar: {
+    displayName: 'Energía Solar',
+    description: 'Aprovecha la energía del sol con nuestros paneles solares, reflectores LED y ventiladores solares. Eficiencia energética para tu hogar.',
+    heroImage: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
   }
 };
 
