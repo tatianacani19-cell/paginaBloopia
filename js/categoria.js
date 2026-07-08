@@ -255,6 +255,77 @@ const categoryConfig = {
       }
     ]
   },
+  entertainment: {
+    displayName: 'Entretenimiento',
+    description: 'Vive experiencias únicas desde la comodidad de tu hogar. Juegos de mesa, vehículos, arte, música y mucho más para toda la familia.',
+    heroImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'juegos_mesa', label: 'Juegos de Mesa',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=800&q=80&fm=webp',
+          title: 'Juegos de Mesa',
+          desc: 'Diviértete en familia con nuestra colección de juegos de mesa, cartas y estrategia para todas las edades.',
+          features: ['Diversión garantizada', 'Para toda la familia', 'Desarrolla la mente']
+        }
+      },
+      {
+        key: 'vehiculos', label: 'Vehículos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800&q=80&fm=webp',
+          title: 'Vehículos',
+          desc: 'Autos, motos y vehículos a control remoto para grandes y pequeños. Velocidad y diversión asegurada.',
+          features: ['Control remoto', 'Alta velocidad', 'Diseños realistas']
+        }
+      },
+      {
+        key: 'arte_creatividad', label: 'Arte y Creatividad',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80&fm=webp',
+          title: 'Arte y Creatividad',
+          desc: 'Libera tu imaginación con sets de arte, manualidades y creatividad para todas las edades.',
+          features: ['Estimula la creatividad', 'Materiales seguros', 'Horas de diversión']
+        }
+      },
+      {
+        key: 'musica', label: 'Música',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80&fm=webp',
+          title: 'Música',
+          desc: 'Instrumentos musicales y accesorios para que descubras y disfrutes del mundo de la música.',
+          features: ['Calidad de sonido', 'Fáciles de usar', 'Para principiantes y expertos']
+        }
+      },
+      {
+        key: 'roles_imaginacion', label: 'Roles e Imaginación',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&fm=webp',
+          title: 'Roles e Imaginación',
+          desc: 'Disfraces, accesorios y juguetes de rol para que los pequeños creen sus propias aventuras.',
+          features: ['Fomenta la imaginación', 'Juego creativo', 'Disfraces divertidos']
+        }
+      },
+      {
+        key: 'deportivos', label: 'Deportivos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fm=webp',
+          title: 'Juguetes Deportivos',
+          desc: 'Pelotas, aros y accesorios deportivos para mantenerte activo mientras te diviertes.',
+          features: ['Actividad física', 'Coordinación', 'Diversión al aire libre']
+        }
+      },
+      {
+        key: 'coleccionables', label: 'Coleccionables',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1566576912321-b58f8b7e3cfe?w=800&q=80&fm=webp',
+          title: 'Coleccionables',
+          desc: 'Figuras, muñecos y artículos coleccionables que todo fanático debe tener.',
+          features: ['Edición especial', 'Detalles únicos', 'Para coleccionistas']
+        }
+      }
+    ]
+  },
   beauty: {
     displayName: 'Belleza',
     description: 'Resalta tu belleza natural con productos de alta calidad. Cuidado capilar, maquillaje, masajeadores y bienestar para consentirte.',
