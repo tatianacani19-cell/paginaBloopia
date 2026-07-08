@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Categoría</title>
+  <title>BLOOPIA — Mascotas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+  <script>
+    if (!window.location.search.includes('category=')) {
+      const url = new URL(window.location);
+      url.searchParams.set('category', 'pets');
+      window.history.replaceState({}, '', url);
+    }
+  </script>
 </head>
 <body>
 
@@ -101,12 +108,12 @@
 
   <!-- ========== CATEGORY BANNER ========== -->
   <section class="cat-banner">
-    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80&fm=webp')"></div>
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title" id="catHeroTitle">BEBÉS</h1>
-      <p class="cat-banner-desc" id="catHeroDesc">Todo para el cuidado, comodidad y desarrollo de tu bebé, con la mejor calidad y diseño.</p>
+      <h1 class="cat-banner-title" id="catHeroTitle">MASCOTAS</h1>
+      <p class="cat-banner-desc" id="catHeroDesc">Todo para la felicidad y bienestar de tu mejor amigo. Alimentación, higiene, paseo, seguridad y cuidado para perros y gatos.</p>
     </div>
   </section>
 
@@ -129,7 +136,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para los más pequeños.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tus mascotas.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -140,7 +147,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu bebé.</p>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu mascota.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>
@@ -153,18 +160,18 @@
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">¡Oferta Especial!</span>
           <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
-          <p class="promo-carousel-desc">En coches, cunas y muebles para bebé. La mejor calidad al mejor precio.</p>
+          <p class="promo-carousel-desc">En alimentadores, camas y accesorios para mascotas. Consentir a tu peludo nunca fue tan fácil.</p>
           <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-gift"></i>
+          <i class="fas fa-paw"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">Recién Llegado</span>
           <h2 class="promo-carousel-title">Nueva Colección</h2>
-          <p class="promo-carousel-desc">Juguetes sensoriales, andaderas y sets de baño. Lo último para estimular a tu bebé.</p>
+          <p class="promo-carousel-desc">Correas retráctiles, mochilas transportadoras y fuentes de agua. Lo último para el bienestar de tu mascota.</p>
           <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">

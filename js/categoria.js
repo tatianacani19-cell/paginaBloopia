@@ -201,6 +201,59 @@ const categoryConfig = {
     subcategories: [
       { key: 'todos', label: 'Todos' }
     ]
+  },
+  pets: {
+    displayName: 'Mascotas',
+    description: 'Todo para la felicidad y bienestar de tu mejor amigo. Alimentación, higiene, paseo, seguridad y cuidado para perros y gatos.',
+    heroImage: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'alimentacion', label: 'Alimentación',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1565708097881-bbf62e01cfa4?w=800&q=80&fm=webp',
+          title: 'Alimentación para Mascotas',
+          desc: 'Comederos inteligentes, fuentes de agua y dispensadores automáticos para la alimentación de tus mascotas.',
+          features: ['Automático', 'Fácil de limpiar', 'Materiales seguros']
+        }
+      },
+      {
+        key: 'higiene', label: 'Higiene',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=800&q=80&fm=webp',
+          title: 'Higiene para Mascotas',
+          desc: 'Cepillos removedores de pelo, kits de peluquería y accesorios de aseo para mantener a tu mascota limpia.',
+          features: ['Remueve el pelo', 'Fácil de usar', 'Resultados profesionales']
+        }
+      },
+      {
+        key: 'paseo', label: 'Paseo',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1547203664-375c0e6b1db3?w=800&q=80&fm=webp',
+          title: 'Paseo y Transporte',
+          desc: 'Correas retráctiles, coches, mochilas y bolsos transportadores para pasear con tu mascota cómodamente.',
+          features: ['Cómodo', 'Resistente', 'Seguro']
+        }
+      },
+      {
+        key: 'seguridad', label: 'Seguridad',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&q=80&fm=webp',
+          title: 'Seguridad para Mascotas',
+          desc: 'Cercas, corrales plegables y jaulas portátiles para mantener a tu mascota segura en todo momento.',
+          features: ['Fácil instalación', 'Portátil', 'Materiales resistentes']
+        }
+      },
+      {
+        key: 'cuidado_gatos', label: 'Cuidado Gatos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1574231164645-d6f0e8553590?w=800&q=80&fm=webp',
+          title: 'Cuidado para Gatos',
+          desc: 'Areneros plegables, tapetes entrenadores y accesorios esenciales para el cuidado de tu gato.',
+          features: ['Plegable', 'Antiderrames', 'Fácil limpieza']
+        }
+      }
+    ]
   }
 };
 
