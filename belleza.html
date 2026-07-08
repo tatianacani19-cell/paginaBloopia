@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Cocina</title>
+  <title>BLOOPIA — Belleza</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -13,7 +13,7 @@
   <script>
     if (!window.location.search.includes('category=')) {
       const url = new URL(window.location);
-      url.searchParams.set('category', 'kitchen');
+      url.searchParams.set('category', 'beauty');
       window.history.replaceState({}, '', url);
     }
   </script>
@@ -54,8 +54,8 @@
               <li><a href="hogar.html">Hogar</a></li>
               <li><a href="cocina.html">Cocina</a></li>
               <li><a href="solar.html">Energia Solar</a></li>
-              <li><a href="mascotas.html">Mascotas</a></li>
               <li><a href="belleza.html">Belleza</a></li>
+              <li><a href="#">Mascotas</a></li>
               <li><a href="#">Entretenimiento</a></li>
               <li><a href="#">Fitness</a></li>
               <li><a href="#">Herramientas</a></li>
@@ -108,12 +108,12 @@
 
   <!-- ========== CATEGORY BANNER ========== -->
   <section class="cat-banner">
-    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80&fm=webp')"></div>
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title" id="catHeroTitle">COCINA</h1>
-      <p class="cat-banner-desc" id="catHeroDesc">Equipa tu cocina con los mejores utensilios, electrodomésticos y accesorios. Prepara platillos increíbles con estilo y funcionalidad.</p>
+      <h1 class="cat-banner-title" id="catHeroTitle">BELLEZA</h1>
+      <p class="cat-banner-desc" id="catHeroDesc">Resalta tu belleza natural con productos de alta calidad. Cuidado capilar, maquillaje, masajeadores y bienestar para consentirte.</p>
     </div>
   </section>
 
@@ -136,7 +136,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tu cocina.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección de belleza y cuidado personal.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -147,7 +147,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu cocina.</p>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas en belleza y cuidado personal.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>
@@ -160,25 +160,25 @@
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">¡Oferta Especial!</span>
           <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
-          <p class="promo-carousel-desc">En utensilios de cocina, ollas y sartenes. Renueva tu cocina al mejor precio.</p>
+          <p class="promo-carousel-desc">En planchas, masajeadores y organizadores de maquillaje. Renueva tu rutina de belleza al mejor precio.</p>
           <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-utensils"></i>
-        </div>
-      </div>
-      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-        <div class="promo-carousel-content">
-          <span class="promo-carousel-badge">Recién Llegado</span>
-          <h2 class="promo-carousel-title">Nueva Colección</h2>
-          <p class="promo-carousel-desc">Freidoras de aire, licuadoras Oster y electrodomésticos de última generación para tu cocina.</p>
-          <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
-        </div>
-        <div class="promo-carousel-icon">
-          <i class="fas fa-blender"></i>
+          <i class="fas fa-spa"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="promo-carousel-content">
+          <span class="promo-carousel-badge">Recién Llegado</span>
+          <h2 class="promo-carousel-title">Nueva Colección</h2>
+          <p class="promo-carousel-desc">Depiladores IPL, espejos LED y lámparas fotónicas. Lo último en tecnología de belleza.</p>
+          <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="promo-carousel-icon">
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">Envío Gratis</span>
           <h2 class="promo-carousel-title">Compra +$150</h2>
@@ -261,8 +261,8 @@
           <a href="hogar.html">Hogar</a>
           <a href="cocina.html">Cocina</a>
           <a href="solar.html">Energia Solar</a>
-          <a href="mascotas.html">Mascotas</a>
           <a href="belleza.html">Belleza</a>
+          <a href="#">Mascotas</a>
           <a href="#">Entretenimiento</a>
           <a href="#">Fitness</a>
           <a href="#">Herramientas</a>
