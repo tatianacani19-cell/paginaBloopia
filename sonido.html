@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Hogar</title>
+  <title>BLOOPIA — Sonido</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -13,7 +13,7 @@
   <script>
     if (!window.location.search.includes('category=')) {
       const url = new URL(window.location);
-      url.searchParams.set('category', 'home');
+      url.searchParams.set('category', 'audio');
       window.history.replaceState({}, '', url);
     }
   </script>
@@ -108,12 +108,12 @@
 
   <!-- ========== CATEGORY BANNER ========== -->
   <section class="cat-banner">
-    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=1200&q=80&fm=webp')"></div>
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title" id="catHeroTitle">HOGAR</h1>
-      <p class="cat-banner-desc" id="catHeroDesc">Transforma tu hogar con organización, estilo y confort. Encuentra todo para hacer de tu casa un espacio único.</p>
+      <h1 class="cat-banner-title" id="catHeroTitle">SONIDO</h1>
+      <p class="cat-banner-desc" id="catHeroDesc">Sumérgete en una experiencia sonora excepcional. Encuentra cabinas, parlantes y barras de sonido con la mejor calidad.</p>
     </div>
   </section>
 
@@ -136,7 +136,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tu hogar.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección de sonido pensada para ti.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -147,7 +147,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu hogar.</p>
+        <p class="section-desc" id="productsDesc">Encuentra el equipo de sonido ideal para cada ocasión.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>
@@ -160,22 +160,22 @@
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">¡Oferta Especial!</span>
           <h2 class="promo-carousel-title">Hasta 30% OFF</h2>
-          <p class="promo-carousel-desc">En organizadores, muebles y decoración para el hogar. Renueva tus espacios al mejor precio.</p>
+          <p class="promo-carousel-desc">En cabinas, parlantes y barras de sonido. Lleva el mejor audio al mejor precio.</p>
           <a href="#" class="promo-carousel-cta">Aprovechar <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-couch"></i>
+          <i class="fas fa-music"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
         <div class="promo-carousel-content">
           <span class="promo-carousel-badge">Recién Llegado</span>
           <h2 class="promo-carousel-title">Nueva Colección</h2>
-          <p class="promo-carousel-desc">Iluminación LED, humidificadores y accesorios de bienestar. Lo último para tu hogar.</p>
+          <p class="promo-carousel-desc">Parlantes portátiles, barras de sonido y cabinas profesionales. Lo último en audio.</p>
           <a href="#" class="promo-carousel-cta">Descubrir <i class="fas fa-arrow-right"></i></a>
         </div>
         <div class="promo-carousel-icon">
-          <i class="fas fa-lightbulb"></i>
+          <i class="fas fa-headphones"></i>
         </div>
       </div>
       <div class="promo-carousel-slide" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">

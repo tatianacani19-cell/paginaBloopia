@@ -475,6 +475,32 @@ const categoryConfig = {
     subcategories: [
       { key: 'todos', label: 'Todos' }
     ]
+  },
+  audio: {
+    displayName: 'Sonido',
+    description: 'Sumérgete en una experiencia sonora excepcional. Encuentra cabinas, parlantes y barras de sonido con la mejor calidad.',
+    heroImage: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'cabinas', label: 'Cabinas',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=800&q=80&fm=webp',
+          title: 'Cabinas de Sonido',
+          desc: 'Cabinas profesionales con potente sonido para tus eventos y celebraciones.',
+          features: ['Sonido envolvente', 'Potencia superior', 'Conexión Bluetooth']
+        }
+      },
+      {
+        key: 'parlantes', label: 'Parlantes y Barras de Sonido',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1558089687-f282ffcbc126?w=800&q=80&fm=webp',
+          title: 'Parlantes y Barras de Sonido',
+          desc: 'Parlantes portátiles y barras de sonido para disfrutar tu música favorita en cualquier lugar.',
+          features: ['Portátil', 'Bluetooth', 'Calidad de audio']
+        }
+      }
+    ]
   }
 };
 
