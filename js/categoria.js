@@ -467,6 +467,14 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  tools: {
+    displayName: 'Herramientas',
+    description: 'Las herramientas perfectas para cada proyecto del hogar. Encuentra calidad, durabilidad y rendimiento en un solo lugar.',
+    heroImage: 'https://images.unsplash.com/photo-1581783898377-1c85bf937427?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
   }
 };
 
