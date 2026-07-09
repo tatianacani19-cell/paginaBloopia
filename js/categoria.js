@@ -323,6 +323,15 @@ const categoryConfig = {
           desc: 'Figuras, muñecos y artículos coleccionables que todo fanático debe tener.',
           features: ['Edición especial', 'Detalles únicos', 'Para coleccionistas']
         }
+      },
+      {
+        key: 'construccion', label: 'Construcción',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80&fm=webp',
+          title: 'Construcción',
+          desc: 'Sets de construcción, bloques y pistas para crear y construir sin límites. Desarrolla habilidades mientras te diviertes.',
+          features: ['Estimula la creatividad', 'Piezas ensamblables', 'Horas de construcción']
+        }
       }
     ]
   },
