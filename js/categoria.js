@@ -501,6 +501,86 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  tech: {
+    displayName: 'Tecnología',
+    description: 'Lo último en innovación tecnológica para tu día a día. Drones, proyectores, smartwatches, accesorios y más.',
+    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'drones_camaras', label: 'Drones y Cámaras',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=800&q=80&fm=webp',
+          title: 'Drones y Cámaras',
+          desc: 'Captura cada momento desde el aire con nuestros drones plegables y cámaras de acción.',
+          features: ['Cámara HD', 'Plegable', 'Fácil de manejar']
+        }
+      },
+      {
+        key: 'tv_streaming', label: 'TV y Streaming',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1593359677879-a4ca92ba5acb?w=800&q=80&fm=webp',
+          title: 'TV y Streaming',
+          desc: 'Dispositivos de streaming para convertir tu TV en un centro de entretenimiento inteligente.',
+          features: ['Streaming HD', 'Fácil instalación', 'Control remoto']
+        }
+      },
+      {
+        key: 'computacion', label: 'Computación',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?w=800&q=80&fm=webp',
+          title: 'Computación',
+          desc: 'Bases refrigerantes, combos de teclado y mouse, escáneres y más para tu setup perfecto.',
+          features: ['Ergonómico', 'Inalámbrico', 'Alto rendimiento']
+        }
+      },
+      {
+        key: 'iluminacion_contenido', label: 'Iluminación y Contenido',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80&fm=webp',
+          title: 'Iluminación y Contenido',
+          desc: 'Aros de luz RGB, palos de selfie y lámparas LED para creadores de contenido.',
+          features: ['Luz ajustable', 'RGB', 'Portátil']
+        }
+      },
+      {
+        key: 'proyectores', label: 'Proyectores',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80&fm=webp',
+          title: 'Proyectores',
+          desc: 'Proyectores inteligentes Full HD y 4K para cine en casa y presentaciones.',
+          features: ['Full HD 4K', 'Miracast', 'Sonido integrado']
+        }
+      },
+      {
+        key: 'smartwatch_gadgets', label: 'SmartWatch y Gadgets',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80&fm=webp',
+          title: 'SmartWatch y Gadgets',
+          desc: 'Relojes inteligentes, combos y gadgets tecnológicos para tu día a día.',
+          features: ['Bluetooth', 'Notificaciones', 'Monitoreo']
+        }
+      },
+      {
+        key: 'energia_bienestar', label: 'Energía y Bienestar',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80&fm=webp',
+          title: 'Energía y Bienestar',
+          desc: 'Baterías recargables, cargadores y accesorios de bienestar con calor terapéutico.',
+          features: ['Recargable', 'Eficiente', 'Terapéutico']
+        }
+      },
+      {
+        key: 'accesorios', label: 'Accesorios',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?w=800&q=80&fm=webp',
+          title: 'Accesorios Tecnológicos',
+          desc: 'Soportes, bases, ventiladores y más accesorios para complementar tu experiencia tecnológica.',
+          features: ['Versátil', 'Resistente', 'Fácil instalación']
+        }
+      }
+    ]
   }
 };
 
