@@ -335,6 +335,68 @@ const categoryConfig = {
       }
     ]
   },
+  fitness: {
+    displayName: 'Fitness',
+    description: 'Alcanza tus metas de entrenamiento con equipamiento profesional, pesas, bandas de resistencia y accesorios para cardio, fuerza y yoga.',
+    heroImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'cardio', label: 'Cardio',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fm=webp',
+          title: 'Cardio',
+          desc: 'Equipo cardiovascular para mejorar tu resistencia y quemar calorías de forma eficiente.',
+          features: ['Mejora tu condición física', 'Quema calorías', 'Bajo impacto']
+        }
+      },
+      {
+        key: 'fuerza', label: 'Fuerza',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a67?w=800&q=80&fm=webp',
+          title: 'Fuerza',
+          desc: 'Pesas, mancuernas y equipamiento para desarrollar fuerza y tonificar tus músculos.',
+          features: ['Desarrollo muscular', 'Resistencia progresiva', 'Material duradero']
+        }
+      },
+      {
+        key: 'abdominales', label: 'Abdominales',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80&fm=webp',
+          title: 'Abdominales',
+          desc: 'Ruedas abdominales, tablas y accesorios para fortalecer tu core y definir tu abdomen.',
+          features: ['Fortalecimiento del core', 'Ejercicios guiados', ' Resultados rápidos']
+        }
+      },
+      {
+        key: 'yoga', label: 'Yoga',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80&fm=webp',
+          title: 'Yoga y Flexibilidad',
+          desc: 'Mat, bloques y accesorios para tu práctica de yoga y estiramientos diarios.',
+          features: ['Flexibilidad', 'Relajación', 'Bienestar integral']
+        }
+      },
+      {
+        key: 'resistencia', label: 'Resistencia',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80&fm=webp',
+          title: 'Resistencia',
+          desc: 'Bandas, ligas y equipos de resistencia para potenciar tu entrenamiento funcional.',
+          features: ['Entrenamiento funcional', 'Portátil', 'Versátil']
+        }
+      },
+      {
+        key: 'equipamiento', label: 'Equipamiento',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1571902943202-025ec1bff0f2?w=800&q=80&fm=webp',
+          title: 'Equipamiento',
+          desc: 'Bancas, soportes y todo el equipamiento necesario para tu gimnasio en casa.',
+          features: ['Estabilidad', 'Resistencia', 'Diseño profesional']
+        }
+      }
+    ]
+  },
   beauty: {
     displayName: 'Belleza',
     description: 'Resalta tu belleza natural con productos de alta calidad. Cuidado capilar, maquillaje, masajeadores y bienestar para consentirte.',
