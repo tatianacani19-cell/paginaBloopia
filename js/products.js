@@ -139,6 +139,10 @@ const colorHexMap = {
   'natural': '#c9a94e',
   'multicolor': '#f0a030',
   'transparente': '#f0f0f0',
+  'rosado mono': '#f5a0b0',
+  'verde rana': '#4a8c5c',
+  'beige leon': '#d4c9b0',
+  'rosado jirafa': '#f5a0b0',
 };
 
 function getColorHex(name) {
