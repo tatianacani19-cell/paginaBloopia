@@ -593,11 +593,10 @@ input {
   white-space: nowrap;
   will-change: transform;
   animation: marquee 45s linear infinite;
-  padding-right: 44px;
 }
 
 .announcement-content {
-  padding: 0 2rem;
+  padding: 0 8rem;
   color: var(--brand-green-dark);
   font-size: 0.78rem;
   font-weight: 500;
