@@ -543,6 +543,8 @@ function openCart() {
   cartSidebar.classList.add('active');
   cartOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  const wa = document.querySelector('.whatsapp-float');
+  if (wa) wa.style.display = 'none';
 }
 
 function closeCart() {
@@ -550,6 +552,8 @@ function closeCart() {
   cartSidebar.classList.remove('active');
   cartOverlay.classList.remove('active');
   document.body.style.overflow = '';
+  const wa = document.querySelector('.whatsapp-float');
+  if (wa) wa.style.display = '';
 }
 
 if (cartToggle) cartToggle.addEventListener('click', openCart);
