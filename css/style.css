@@ -5636,7 +5636,7 @@ input {
 /* Closing */
 .nos-closing {
   text-align: center;
-  padding-bottom: 380px;
+  padding-bottom: 500px;
 }
 
 .nos-closing-content {
@@ -5741,6 +5741,10 @@ input {
   .nos-section-title {
     font-size: 2rem;
   }
+
+  .nos-closing {
+    padding-bottom: 320px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -5843,6 +5847,10 @@ input {
     width: 100px;
     height: 60px;
     font-size: 0.65rem;
+  }
+
+  .nos-closing {
+    padding-bottom: 200px;
   }
 
   .nos-closing-content h2 {
