@@ -5795,6 +5795,35 @@ input {
 
   .nos-cards-4 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .nos-card {
+    padding: 20px 16px;
+  }
+
+  .nos-card-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .nos-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .nos-card p {
+    font-size: 0.78rem;
+  }
+
+  .nos-section-heart .nos-header-center {
+    display: none;
+  }
+
+  .nos-section-heart .nos-logo-text {
+    text-align: center;
   }
 
   .nos-card-sm h4 {
