@@ -283,10 +283,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && checkoutModal?.classList.contains('active')) closeCheckoutModal();
 });
 
-const shippingCosts = {
-  'Bogotá': { label: '$10.000 COP', detail: 'El precio puede variar dependiendo del peso o tipo de producto' },
-  'Cundinamarca': { label: '$12.000 COP a $16.000 COP', detail: '' },
-};
+const shippingNote = 'El precio puede variar dependiendo del peso o tipo de producto';
 
 if (checkoutCity) {
   checkoutCity.addEventListener('change', function() {
@@ -295,12 +292,11 @@ if (checkoutCity) {
       checkoutShippingText.textContent = 'Selecciona una ciudad para ver el costo de envío';
       return;
     }
-    const info = shippingCosts[city];
-    if (info) {
-      checkoutShippingText.textContent = `Envío a ${city}: ${info.label}` + (info.detail ? ` (${info.detail})` : '');
-    } else {
-      checkoutShippingText.textContent = `Envío a ${city}: $15.000 COP`;
-    }
+    let label = '';
+    if (city === 'Bogotá') label = '$10.000 COP';
+    else if (city === 'Cundinamarca') label = '$12.000 COP a $16.000 COP';
+    else label = '$15.000 COP';
+    checkoutShippingText.textContent = `Envío a ${city}: ${label} (${shippingNote})`;
   });
 }
 
