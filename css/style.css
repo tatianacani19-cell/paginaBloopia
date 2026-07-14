@@ -5758,9 +5758,23 @@ input {
   }
 
   .nos-hero-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 280px;
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 320px;
+    gap: 8px;
+    margin: 12px auto 0;
+  }
+
+  .nos-hero-item i {
+    font-size: 1.2rem;
+  }
+
+  .nos-hero-item span {
+    font-size: 0.6rem;
+  }
+
+  .nos-hero-item {
+    gap: 6px;
+    padding: 6px;
   }
 
   .nos-hero-image {
