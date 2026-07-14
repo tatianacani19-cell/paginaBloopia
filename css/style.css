@@ -590,38 +590,33 @@ input {
 }
 
 .announcement-track {
-  position: relative;
-  width: 100%;
+  display: flex;
+  width: fit-content;
   height: 100%;
+  align-items: center;
+  animation: marquee 24s linear infinite;
 }
 
 .announcement-content {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
-  padding: 0 0.5rem;
+  padding: 0 3rem;
   color: var(--brand-green-dark);
   font-size: 0.78rem;
   font-weight: 500;
   font-family: var(--font);
   line-height: var(--announcement-height);
   letter-spacing: 0.02em;
-  opacity: 0.95;
-  animation: scroll 24s linear infinite;
-  animation-fill-mode: backwards;
+  flex-shrink: 0;
 }
 
-.announcement-content[aria-hidden="true"] {
-  animation-delay: 12s;
-}
-
-@keyframes scroll {
+@keyframes marquee {
   0% {
-    transform: translateX(100vw);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -652,11 +647,6 @@ input {
 
 .announcement-bar.is-hidden {
   transform: translateY(-100%);
-}
-
-/* Pause on hover for accessibility */
-.announcement-bar:hover .announcement-content {
-  animation-play-state: paused;
 }
 
 /* ========== HERO SLIDER ========== */
