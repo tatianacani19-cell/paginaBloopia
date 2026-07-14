@@ -281,5 +281,10 @@ async function loadProductsFromExcel() {
 productsReady = loadProductsFromExcel();
 
 function getFeaturedProducts() {
-  return products.slice(0, 8);
+  const codes = [
+    'BLO-BBY-095', 'BLO-BBY-037', 'BLO-PET-011', 'BLO-BBY-066',
+    'BLO-OST-014', 'BLO-OST-013', 'BLO-OST-010', 'BLO-OST-015',
+    'BLO-OST-009', 'BLO-OST-011', 'BLO-FTNE-021', 'BLO-FTNE-016'
+  ];
+  return codes.map(code => products.find(p => p.codigo === code)).filter(Boolean);
 }
