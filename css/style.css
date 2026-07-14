@@ -4996,7 +4996,7 @@ input {
 .nos-hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(155,93,229,0.08) 0%, rgba(56,217,197,0.08) 100%);
+  background: linear-gradient(135deg, #b8f0e8 0%, #d5f7f2 50%, #e8faf7 100%);
   z-index: 0;
 }
 
@@ -5024,7 +5024,7 @@ input {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--brand-purple);
-  background: rgba(155,93,229,0.1);
+  background: rgba(155,93,229,0.12);
   padding: 6px 16px;
   border-radius: 20px;
   width: fit-content;
@@ -5034,7 +5034,7 @@ input {
   font-family: var(--font-heading);
   font-size: 3.2rem;
   font-weight: 700;
-  color: var(--text);
+  color: #2d2d2d;
   line-height: 1.15;
 }
 
@@ -5047,21 +5047,22 @@ input {
 
 .nos-hero-text {
   font-size: 0.95rem;
-  color: var(--text-light);
+  color: #555;
   line-height: 1.7;
 }
 
 .nos-hero-right {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .nos-hero-image {
-  max-width: 85%;
+  width: 100%;
   height: auto;
-  border-radius: 20px;
-  object-fit: contain;
+  max-width: 600px;
+  display: block;
+  border-radius: 16px;
   box-shadow: 0 8px 40px rgba(155,93,229,0.15);
 }
 
@@ -5081,17 +5082,19 @@ input {
   justify-content: center;
   gap: 10px;
   aspect-ratio: 1;
-  background: var(--white);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255,255,255,0.8);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
   animation: nosFloat 3s ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.3s);
 }
 
 .nos-hero-item:hover {
   transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 12px 40px rgba(155,93,229,0.15);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 12px 40px rgba(56,217,197,0.2);
 }
 
 .nos-hero-item i {
@@ -5107,7 +5110,7 @@ input {
 .nos-hero-item span {
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--text-light);
+  color: #444;
 }
 
 @keyframes nosFloat {
