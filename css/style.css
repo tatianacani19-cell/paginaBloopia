@@ -5407,13 +5407,12 @@ input {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin-bottom: 48px;
 }
 
 .nos-logo-wrapper {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5437,7 +5436,7 @@ input {
 }
 
 .nos-logo-big {
-  width: 160px;
+  width: 240px;
   height: auto;
   position: relative;
   z-index: 2;
@@ -5510,8 +5509,6 @@ input {
 
 .nos-logo-text {
   max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .nos-logo-text h3 {
@@ -5724,12 +5721,12 @@ input {
   }
 
   .nos-logo-wrapper {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 
   .nos-logo-big {
-    width: 120px;
+    width: 160px;
   }
 
   .nos-palette-item {
