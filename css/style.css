@@ -6218,10 +6218,9 @@ input {
 }
 
 .env-steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 0;
-  align-items: start;
   position: relative;
 }
 
@@ -6229,8 +6228,24 @@ input {
   text-align: center;
   padding: 24px 16px;
   position: relative;
+  flex: 1;
+  max-width: 220px;
   animation: envFloat 4s ease-in-out infinite;
   animation-delay: calc(var(--i) * 0.3s);
+}
+
+.env-step::after {
+  content: '';
+  position: absolute;
+  top: 44px;
+  right: -12px;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-purple), #38d9c5);
+}
+
+.env-step:last-child::after {
+  display: none;
 }
 
 .env-step-number {
@@ -6349,7 +6364,12 @@ input {
     gap: 24px;
   }
 
-  .env-step-connector {
+  .env-steps {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .env-step::after {
     display: none;
   }
 
@@ -6400,8 +6420,13 @@ input {
   }
 
   .env-steps {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 16px;
+  }
+
+  .env-step {
+    max-width: 280px;
   }
 
   .env-guarantee-days {
