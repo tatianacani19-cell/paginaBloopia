@@ -1036,6 +1036,7 @@ function initRevealAnimations() {
       }
 
       el.classList.add('active');
+      el.classList.add('revealed');
       observer.unobserve(el);
     });
   }, {
@@ -1043,7 +1044,7 @@ function initRevealAnimations() {
     rootMargin: '0px 0px -40px 0px',
   });
 
-  document.querySelectorAll('.reveal:not(.reveal-stagger-children), .reveal-stagger-children').forEach((el) => {
+  document.querySelectorAll('.reveal:not(.reveal-stagger-children), .reveal-stagger-children, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
     observer.observe(el);
   });
 }
