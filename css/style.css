@@ -5131,6 +5131,10 @@ input {
   background: linear-gradient(135deg, rgba(155,93,229,0.04) 0%, rgba(56,217,197,0.04) 100%);
 }
 
+.nos-section-heart {
+  background: linear-gradient(135deg, #b8f0e8 0%, #d5f7f2 50%, #e8faf7 100%);
+}
+
 .nos-header-center {
   text-align: center;
   margin-bottom: 56px;
