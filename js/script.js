@@ -457,23 +457,79 @@ const searchOverlay = document.getElementById('searchOverlay');
 const searchClose = document.getElementById('searchClose');
 const searchInput = document.getElementById('searchInput');
 
+let searchResultsEl = null;
+
 if (searchToggle && searchOverlay) {
   searchToggle.addEventListener('click', () => {
     searchOverlay.classList.toggle('active');
     if (searchOverlay.classList.contains('active')) {
       setTimeout(() => searchInput?.focus(), 100);
+    } else {
+      clearSearchResults();
     }
   });
 
   if (searchClose) {
     searchClose.addEventListener('click', () => {
       searchOverlay.classList.remove('active');
+      clearSearchResults();
     });
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') searchOverlay.classList.remove('active');
+    if (e.key === 'Escape') {
+      searchOverlay.classList.remove('active');
+      clearSearchResults();
+    }
   });
+
+  searchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch(searchInput.value.trim());
+    }
+  });
+}
+
+function clearSearchResults() {
+  if (searchResultsEl) {
+    searchResultsEl.innerHTML = '';
+    searchResultsEl.style.display = 'none';
+  }
+}
+
+function performSearch(query) {
+  if (!query || query.length < 2) return;
+  if (!searchResultsEl) {
+    searchResultsEl = document.createElement('div');
+    searchResultsEl.className = 'search-results';
+    searchOverlay?.appendChild(searchResultsEl);
+  }
+
+  const q = query.toLowerCase();
+  const matches = products.filter(p =>
+    p.name.toLowerCase().includes(q) ||
+    (p.shortDesc && p.shortDesc.toLowerCase().includes(q)) ||
+    (p.description && p.description.toLowerCase().includes(q)) ||
+    (p.codigo && p.codigo.toLowerCase().includes(q))
+  ).slice(0, 12);
+
+  if (matches.length === 0) {
+    searchResultsEl.innerHTML = `<div class="search-results-empty"><i class="fas fa-search"></i> No se encontraron resultados para "${query}"</div>`;
+  } else {
+    searchResultsEl.innerHTML = matches.map(p => `
+      <a href="detalle.html?id=${p.id}" class="search-result-item" onclick="document.getElementById('searchOverlay')?.classList.remove('active')">
+        <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'" />
+        <div class="search-result-info">
+          <span class="search-result-name">${p.name}</span>
+          <span class="search-result-category">${categoryNames[p.category] || p.category}</span>
+          <span class="search-result-price">${formatPrice(p.price)}</span>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  searchResultsEl.style.display = '';
 }
 
 // ========== CART SIDEBAR ==========

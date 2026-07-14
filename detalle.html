@@ -332,6 +332,139 @@
     <button class="det-modal-arrow det-modal-arrow-right" id="detModalNext"><i class="fas fa-chevron-right"></i></button>
   </div>
 
+  <div class="checkout-overlay" id="checkoutOverlay"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal-header">
+      <h3>Información de envío</h3>
+      <button id="checkoutModalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="checkout-modal-body">
+      <form id="checkoutForm" autocomplete="off">
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>País</label>
+            <input type="text" value="Colombia" readonly />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Nombres *</label>
+            <input type="text" id="chkName" required placeholder="Tus nombres" />
+          </div>
+          <div class="checkout-field">
+            <label>Apellidos *</label>
+            <input type="text" id="chkLastName" required placeholder="Tus apellidos" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Correo electrónico *</label>
+            <input type="email" id="chkEmail" required placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="checkout-field">
+            <label>Teléfono *</label>
+            <input type="tel" id="chkPhone" required placeholder="3001234567" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Número de identificación *</label>
+            <input type="text" id="chkId" required placeholder="CC o NIT" />
+          </div>
+          <div class="checkout-field">
+            <label>Provincia / Estado</label>
+            <input type="text" id="chkState" placeholder="Ej: Cundinamarca" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Dirección *</label>
+            <input type="text" id="chkAddress" required placeholder="Cra 1 # 2-3" />
+          </div>
+          <div class="checkout-field">
+            <label>Casa / Apto / Oficina</label>
+            <input type="text" id="chkApt" placeholder="Opcional" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Ciudad / Departamento *</label>
+            <select id="chkCity" required>
+              <option value="">Selecciona una ciudad</option>
+              <option value="Amazonas">Amazonas</option>
+              <option value="Antioquia">Antioquia</option>
+              <option value="Arauca">Arauca</option>
+              <option value="Atlántico">Atlántico</option>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Bolívar">Bolívar</option>
+              <option value="Boyacá">Boyacá</option>
+              <option value="Caldas">Caldas</option>
+              <option value="Caquetá">Caquetá</option>
+              <option value="Casanare">Casanare</option>
+              <option value="Cauca">Cauca</option>
+              <option value="Cesar">Cesar</option>
+              <option value="Chocó">Chocó</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="Cundinamarca">Cundinamarca</option>
+              <option value="Guainía">Guainía</option>
+              <option value="Guaviare">Guaviare</option>
+              <option value="Huila">Huila</option>
+              <option value="La Guajira">La Guajira</option>
+              <option value="Magdalena">Magdalena</option>
+              <option value="Meta">Meta</option>
+              <option value="Nariño">Nariño</option>
+              <option value="Norte de Santander">Norte de Santander</option>
+              <option value="Putumayo">Putumayo</option>
+              <option value="Quindío">Quindío</option>
+              <option value="Risaralda">Risaralda</option>
+              <option value="Santander">Santander</option>
+              <option value="Sucre">Sucre</option>
+              <option value="Tolima">Tolima</option>
+              <option value="Valle del Cauca">Valle del Cauca</option>
+              <option value="Vaupés">Vaupés</option>
+              <option value="Vichada">Vichada</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkout-shipping-info" id="checkoutShippingInfo">
+          <i class="fas fa-truck"></i>
+          <span id="checkoutShippingText">Selecciona una ciudad para ver el costo de envío</span>
+        </div>
+        <div class="checkout-section-title">Método de pago *</div>
+        <div class="checkout-payment-options" id="checkoutPaymentOptions">
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="addi-sistecredito" required />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Paga a crédito</span>
+              <span class="checkout-payment-desc">Addi o Sistecrédito</span>
+            </div>
+          </label>
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="transferencia" />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Transferencia bancaria</span>
+              <span class="checkout-payment-desc">Bancolombia, Banco de Bogotá, Nequi o Bre-B</span>
+            </div>
+          </label>
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="contraentrega" />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Contraentrega</span>
+              <span class="checkout-payment-desc">Paga al recibir tu pedido</span>
+            </div>
+          </label>
+        </div>
+        <div class="checkout-payment-note">
+          <i class="fas fa-info-circle"></i>
+          Si se compra con Addi o Sistecrédito el valor puede aumentar, se verificará internamente y se notificará.
+        </div>
+        <button type="submit" class="btn btn-primary checkout-submit" id="checkoutSubmitBtn">
+          <i class="fab fa-whatsapp"></i> Enviar cotización por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
   <script src="js/products.js"></script>
