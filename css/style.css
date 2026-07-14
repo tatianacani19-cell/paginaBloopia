@@ -6095,6 +6095,12 @@ input {
   line-height: 1.6;
 }
 
+.env-carriers-section .env-section-title,
+.env-carriers-section .env-desc,
+.env-carriers-section .env-carriers-note {
+  color: #fff;
+}
+
 .env-guarantee-card {
   max-width: 500px;
   margin: 0 auto;
