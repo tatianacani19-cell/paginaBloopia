@@ -5794,7 +5794,7 @@ input {
   }
 
   .nos-cards-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .nos-card-sm h4 {
