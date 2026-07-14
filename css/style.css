@@ -1769,7 +1769,7 @@ input {
 /* ========== WHATSAPP FLOAT ========== */
 .whatsapp-float {
   position: fixed;
-  bottom: 24px;
+  bottom: 100px;
   right: 24px;
   width: 56px;
   height: 56px;
@@ -1798,7 +1798,7 @@ input {
 
 .whatsapp-float-tooltip {
   position: fixed;
-  bottom: 36px;
+  bottom: 112px;
   right: 90px;
   background: #fff;
   color: #333;
