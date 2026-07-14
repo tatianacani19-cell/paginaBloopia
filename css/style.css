@@ -6380,7 +6380,7 @@ input {
 }
 
 .env-section-last {
-  padding-bottom: 400px;
+  padding-bottom: 500px;
 }
 
 @media (max-width: 1024px) {
@@ -6433,6 +6433,10 @@ input {
   .env-help-icon {
     display: none;
   }
+
+  .env-section-last {
+    padding-bottom: 300px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -6473,16 +6477,38 @@ input {
   }
 
   .env-steps {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
   }
 
   .env-step {
-    max-width: 280px;
+    flex: 1;
+    min-width: 140px;
+    max-width: 160px;
+    padding: 16px 10px;
+  }
+
+  .env-step-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .env-step h4 {
+    font-size: 0.72rem;
+  }
+
+  .env-step::after {
+    display: none;
   }
 
   .env-guarantee-days {
     font-size: 2.5rem;
+  }
+
+  .env-section-last {
+    padding-bottom: 180px;
   }
 }
