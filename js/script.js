@@ -264,7 +264,7 @@ function checkoutWhatsApp() {
   let message = '¡Hola! Me gustaría pedir lo siguiente de BLOOPIA:\n\n';
 
   cart.forEach(item => {
-    message += `• ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
+    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
   });
 
   message += `\nTotal: ${formatPrice(getCartTotal())}`;
