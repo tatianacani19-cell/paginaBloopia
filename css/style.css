@@ -2119,6 +2119,8 @@ input {
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .cart-overlay.active {
@@ -2140,6 +2142,21 @@ input {
 
 .cart-sidebar.active {
   transform: translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .cart-sidebar {
+    left: auto;
+    right: 0;
+    width: 25vw;
+    min-width: 320px;
+    max-width: 480px;
+    transform: translateX(100%);
+  }
+
+  .cart-sidebar.active {
+    transform: translateX(0);
+  }
 }
 
 .cart-header {
