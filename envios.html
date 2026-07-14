@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLOOPIA — Envíos, Garantías y Devoluciones</title>
+  <meta name="description" content="Conoce nuestras políticas de envíos, garantías y devoluciones. Compra con tranquilidad en Bloopia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="top-bar" id="topBar">
+    <button class="top-bar-arrow top-bar-arrow-left" id="topBarPrev" aria-label="Anterior">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <div class="top-bar-track">
+      <span class="top-bar-slide" id="topBarSlide"></span>
+    </div>
+    <button class="top-bar-arrow top-bar-arrow-right" id="topBarNext" aria-label="Siguiente">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <!-- ========== NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="logo">
+        <img src="assets/LOGOBLOOPIA.webp" alt="BLOOPIA" class="logo-img" decoding="async" />
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a href="#">Categorías <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="categoria.html?category=babies">Bebés</a></li>
+              <li><a href="hogar.html">Hogar</a></li>
+              <li><a href="cocina.html">Cocina</a></li>
+              <li><a href="solar.html">Energia Solar</a></li>
+              <li><a href="mascotas.html">Mascotas</a></li>
+              <li><a href="belleza.html">Belleza</a></li>
+              <li><a href="entretenimiento.html">Entretenimiento</a></li>
+              <li><a href="fitness.html">Fitness</a></li>
+              <li><a href="herramientas.html">Herramientas</a></li>
+              <li><a href="sonido.html">Sonido</a></li>
+              <li><a href="tecnologia.html">Tecnología</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#">Novedades</a></li>
+          <li><a href="envios.html" class="active">Envíos y devoluciones</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="action-btn search-btn" id="searchToggle" aria-label="Buscar">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="action-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="env-hero">
+      <div class="env-hero-bg"></div>
+      <div class="container env-hero-container">
+        <div class="env-hero-left reveal reveal-left">
+          <span class="env-hero-badge reveal reveal-up">BLOOPIA</span>
+          <h1 class="env-hero-title reveal reveal-up">Envíos, Garantías y Devoluciones</h1>
+          <p class="env-hero-text reveal reveal-up">Todo lo que necesitas saber sobre nuestros envíos, tiempos de entrega y políticas de garantía para comprar con tranquilidad.</p>
+        </div>
+        <div class="env-hero-right reveal reveal-right">
+          <div class="env-hero-illustration">
+            <i class="fas fa-truck-fast"></i>
+            <i class="fas fa-box"></i>
+            <i class="fas fa-shield-halved"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== INFORMACION DE ENVIOS ========== -->
+    <section class="env-section env-section-white">
+      <div class="container">
+        <div class="env-header-center reveal reveal-up">
+          <h2 class="env-section-title">Información de Envíos</h2>
+          <p class="env-desc">Conoce los tiempos y costos de entrega según tu ubicación.</p>
+        </div>
+        <div class="env-cards-grid">
+          <article class="env-card reveal reveal-up" style="--i:1">
+            <div class="env-card-icon"><i class="fas fa-city"></i></div>
+            <h3>Bogotá</h3>
+            <div class="env-card-detail">
+              <span class="env-card-label">Tiempo de entrega</span>
+              <span class="env-card-value">Entre 1 y 2 días hábiles</span>
+              <span class="env-card-sub">Dependiendo de la zona.</span>
+            </div>
+            <div class="env-card-detail">
+              <span class="env-card-label">Costo</span>
+              <span class="env-card-value">$10.000</span>
+            </div>
+            <div class="env-card-detail">
+              <span class="env-card-label">Cobertura</span>
+              <span class="env-card-value">Toda Bogotá. Municipios aledaños.</span>
+            </div>
+          </article>
+          <article class="env-card env-card-highlight reveal reveal-up" style="--i:2">
+            <div class="env-card-badge">Mismo día</div>
+            <div class="env-card-icon"><i class="fas fa-clock"></i></div>
+            <h3>Entrega el mismo día</h3>
+            <p class="env-card-note">La disponibilidad puede variar según el tipo de producto y la zona de entrega.</p>
+          </article>
+          <article class="env-card reveal reveal-up" style="--i:3">
+            <div class="env-card-icon"><i class="fas fa-location-dot"></i></div>
+            <h3>Soacha y Usme</h3>
+            <div class="env-card-detail">
+              <span class="env-card-label">Costo</span>
+              <span class="env-card-value">Entre $12.000 y $16.000</span>
+            </div>
+          </article>
+          <article class="env-card reveal reveal-up" style="--i:4">
+            <div class="env-card-icon"><i class="fas fa-globe"></i></div>
+            <h3>Envíos Nacionales</h3>
+            <div class="env-card-detail">
+              <span class="env-card-label">Tiempo de entrega</span>
+              <span class="env-card-value">Entre 1 y 5 días hábiles</span>
+              <span class="env-card-sub">Dependiendo del destino.</span>
+            </div>
+            <div class="env-card-detail">
+              <span class="env-card-label">Cobertura</span>
+              <span class="env-card-value">Todas las ciudades principales de Colombia. Cobertura nacional.</span>
+            </div>
+            <div class="env-card-detail">
+              <span class="env-card-label">Costo</span>
+              <span class="env-card-value">Desde $15.000 hasta $25.000</span>
+            </div>
+          </article>
+        </div>
+        <div class="env-notice reveal reveal-up">
+          <i class="fas fa-info-circle"></i>
+          <span>Para trayectos especiales, veredas o corregimientos el valor del envío puede aumentar.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TRANSPORTADORAS ========== -->
+    <section class="env-section env-section-alt">
+      <div class="container">
+        <div class="env-header-center reveal reveal-up">
+          <h2 class="env-section-title">Transportadoras</h2>
+          <p class="env-desc">Trabajamos con las mejores empresas de logística para garantizar entregas seguras.</p>
+        </div>
+        <div class="env-carriers reveal reveal-up">
+          <div class="env-carrier-card">
+            <i class="fas fa-truck"></i>
+            <span>Servientrega</span>
+          </div>
+          <div class="env-carrier-card">
+            <i class="fas fa-truck-fast"></i>
+            <span>Inter Rapidísimo</span>
+          </div>
+          <div class="env-carrier-card">
+            <i class="fas fa-boxes"></i>
+            <span>Coordinadora</span>
+          </div>
+          <div class="env-carrier-card">
+            <i class="fas fa-ship"></i>
+            <span>Envía</span>
+          </div>
+        </div>
+        <p class="env-carriers-note reveal reveal-up">La transportadora será seleccionada por Bloopia según la disponibilidad y la mejor opción logística para garantizar una entrega rápida y segura.</p>
+      </div>
+    </section>
+
+    <!-- ========== GARANTIA ========== -->
+    <section class="env-section env-section-white">
+      <div class="container">
+        <div class="env-header-center reveal reveal-up">
+          <h2 class="env-section-title">Garantía Bloopia</h2>
+        </div>
+        <div class="env-guarantee-card reveal reveal-up">
+          <div class="env-guarantee-icon">
+            <i class="fas fa-shield"></i>
+          </div>
+          <h3>Todos nuestros productos cuentan con:</h3>
+          <div class="env-guarantee-highlight">
+            <span class="env-guarantee-days">15</span>
+            <span class="env-guarantee-label">días de garantía</span>
+          </div>
+          <div class="env-guarantee-list">
+            <p><i class="fas fa-check-circle"></i> Productos con fallas de funcionamiento.</p>
+            <p><i class="fas fa-check-circle"></i> Productos entregados incompletos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== NO CUBRE ========== -->
+    <section class="env-section env-section-alt">
+      <div class="container">
+        <div class="env-header-center reveal reveal-up">
+          <h2 class="env-section-title">La garantía NO cubre</h2>
+        </div>
+        <div class="env-nocover-grid">
+          <div class="env-nocover-item reveal reveal-up" style="--i:1">
+            <i class="fas fa-hand-fist"></i>
+            <span>Golpes dados al aparato o producto.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:2">
+            <i class="fas fa-ban"></i>
+            <span>Mal uso o mal trato del producto.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:3">
+            <i class="fas fa-tools"></i>
+            <span>Mantenimiento normal del producto.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:4">
+            <i class="fas fa-paint-roller"></i>
+            <span>Desgaste de pintura.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:5">
+            <i class="fas fa-bolt"></i>
+            <span>Conexión en tomas eléctricas defectuosas o sobrevoltajes.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:6">
+            <i class="fas fa-user-slash"></i>
+            <span>Intervención por personas ajenas al personal técnico de Bloopia Store.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:7">
+            <i class="fas fa-copyright"></i>
+            <span>Productos falsificados o no distribuidos por Bloopia Store.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:8">
+            <i class="fas fa-pen-ruler"></i>
+            <span>Modificaciones del producto.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:9">
+            <i class="fas fa-blender-phone"></i>
+            <span>Hélice, escobillas o clavija quebrada.</span>
+          </div>
+          <div class="env-nocover-item reveal reveal-up" style="--i:10">
+            <i class="fas fa-box-open"></i>
+            <span>Carcaza quebrada.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DEVOLUCIONES ========== -->
+    <section class="env-section env-section-white">
+      <div class="container">
+        <div class="env-header-center reveal reveal-up">
+          <h2 class="env-section-title">Proceso de Devolución</h2>
+          <p class="env-desc">Así de fácil es gestionar tu devolución o cambio.</p>
+        </div>
+        <div class="env-steps">
+          <div class="env-step reveal reveal-up" style="--i:1">
+            <div class="env-step-number">1</div>
+            <div class="env-step-icon"><i class="fas fa-headset"></i></div>
+            <h4>El cliente se comunica con Bloopia</h4>
+          </div>
+          <div class="env-step-connector"></div>
+          <div class="env-step reveal reveal-up" style="--i:2">
+            <div class="env-step-number">2</div>
+            <div class="env-step-icon"><i class="fas fa-search"></i></div>
+            <h4>Nuestro equipo revisa el caso</h4>
+          </div>
+          <div class="env-step-connector"></div>
+          <div class="env-step reveal reveal-up" style="--i:3">
+            <div class="env-step-number">3</div>
+            <div class="env-step-icon"><i class="fas fa-clipboard-check"></i></div>
+            <h4>Se valida la garantía o devolución</h4>
+          </div>
+          <div class="env-step-connector"></div>
+          <div class="env-step reveal reveal-up" style="--i:4">
+            <div class="env-step-number">4</div>
+            <div class="env-step-icon"><i class="fas fa-rotate"></i></div>
+            <h4>Se realiza el cambio, reposición o solución</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AYUDA ========== -->
+    <section class="env-section env-section-alt">
+      <div class="container">
+        <div class="env-help-card reveal reveal-up">
+          <div class="env-help-content">
+            <h2>¿Necesitas ayuda?</h2>
+            <p>Si tienes dudas sobre un envío, garantía o devolución, nuestro equipo está listo para ayudarte.</p>
+            <a href="https://wa.me/573102898133" target="_blank" class="btn btn-whatsapp env-help-btn">
+              <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+          </div>
+          <div class="env-help-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('footer.html')
+      .then(r => r.text())
+      .then(h => { document.getElementById('footer-placeholder').outerHTML = h; });
+  </script>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver Arriba">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ========== CART OVERLAY ========== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button id="cartClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Tu carrito está vacío</p>
+        <span>Agrega algunos productos para empezar</span>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <div class="cart-shipping-note">El costo del envío se calcula al finalizar la compra</div>
+      <button class="btn btn-primary cart-checkout" id="checkoutBtn">
+        <i class="fab fa-whatsapp"></i> Pagar por WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== MOBILE MENU ========== -->
+  <div class="mob-menu-overlay" id="mobMenuOverlay"></div>
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-menu-header">
+      <img src="assets/LOGOBLOOPIA.webp" alt="BLOOPIA" class="mob-menu-logo" loading="lazy" decoding="async" />
+      <button class="mob-menu-close" id="mobMenuClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mob-menu-body">
+      <ul class="mob-menu-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#" class="mob-cat-toggle">Categorías <i class="fas fa-chevron-down"></i></a></li>
+      </ul>
+      <div class="mob-menu-categories">
+        <div class="mob-menu-cat-grid">
+          <a href="categoria.html?category=babies">Bebés</a>
+          <a href="hogar.html">Hogar</a>
+          <a href="cocina.html">Cocina</a>
+          <a href="solar.html">Energia Solar</a>
+          <a href="mascotas.html">Mascotas</a>
+          <a href="belleza.html">Belleza</a>
+          <a href="entretenimiento.html">Entretenimiento</a>
+          <a href="fitness.html">Fitness</a>
+          <a href="herramientas.html">Herramientas</a>
+          <a href="sonido.html">Sonido</a>
+          <a href="tecnologia.html">Tecnología</a>
+        </div>
+      </div>
+      <ul class="mob-menu-links">
+        <li><a href="envios.html">Envíos y devoluciones</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== CHECKOUT MODAL ========== -->
+  <div class="checkout-overlay" id="checkoutOverlay"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="checkout-modal-header">
+      <h3>Información de envío</h3>
+      <button id="checkoutModalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="checkout-modal-body">
+      <form id="checkoutForm" autocomplete="off">
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>País</label>
+            <input type="text" value="Colombia" readonly />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Nombres *</label>
+            <input type="text" id="chkName" required placeholder="Tus nombres" />
+          </div>
+          <div class="checkout-field">
+            <label>Apellidos *</label>
+            <input type="text" id="chkLastName" required placeholder="Tus apellidos" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Correo electrónico *</label>
+            <input type="email" id="chkEmail" required placeholder="correo@ejemplo.com" />
+          </div>
+          <div class="checkout-field">
+            <label>Teléfono *</label>
+            <input type="tel" id="chkPhone" required placeholder="3001234567" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Número de identificación *</label>
+            <input type="text" id="chkId" required placeholder="CC o NIT" />
+          </div>
+          <div class="checkout-field">
+            <label>Provincia / Estado</label>
+            <input type="text" id="chkState" placeholder="Ej: Cundinamarca" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Dirección *</label>
+            <input type="text" id="chkAddress" required placeholder="Cra 1 # 2-3" />
+          </div>
+          <div class="checkout-field">
+            <label>Casa / Apto / Oficina</label>
+            <input type="text" id="chkApt" placeholder="Opcional" />
+          </div>
+        </div>
+        <div class="checkout-row">
+          <div class="checkout-field">
+            <label>Ciudad / Departamento *</label>
+            <select id="chkCity" required>
+              <option value="">Selecciona una ciudad</option>
+              <option value="Amazonas">Amazonas</option>
+              <option value="Antioquia">Antioquia</option>
+              <option value="Araca">Arauca</option>
+              <option value="Atlántico">Atlántico</option>
+              <option value="Bogotá">Bogotá</option>
+              <option value="Bolívar">Bolívar</option>
+              <option value="Boyacá">Boyacá</option>
+              <option value="Caldas">Caldas</option>
+              <option value="Caquetá">Caquetá</option>
+              <option value="Casanare">Casanare</option>
+              <option value="Cauca">Cauca</option>
+              <option value="Cesar">Cesar</option>
+              <option value="Chocó">Chocó</option>
+              <option value="Córdoba">Córdoba</option>
+              <option value="Cundinamarca">Cundinamarca</option>
+              <option value="Guainía">Guainía</option>
+              <option value="Guaviare">Guaviare</option>
+              <option value="Huila">Huila</option>
+              <option value="La Guajira">La Guajira</option>
+              <option value="Magdalena">Magdalena</option>
+              <option value="Meta">Meta</option>
+              <option value="Nariño">Nariño</option>
+              <option value="Norte de Santander">Norte de Santander</option>
+              <option value="Putumayo">Putumayo</option>
+              <option value="Quindío">Quindío</option>
+              <option value="Risaralda">Risaralda</option>
+              <option value="Santander">Santander</option>
+              <option value="Sucre">Sucre</option>
+              <option value="Tolima">Tolima</option>
+              <option value="Valle del Cauca">Valle del Cauca</option>
+              <option value="Vaupés">Vaupés</option>
+              <option value="Vichada">Vichada</option>
+            </select>
+          </div>
+        </div>
+        <div class="checkout-shipping-info" id="checkoutShippingInfo">
+          <i class="fas fa-truck"></i>
+          <span id="checkoutShippingText">Selecciona una ciudad para ver el costo de envío</span>
+        </div>
+        <div class="checkout-section-title">Método de pago *</div>
+        <div class="checkout-payment-options" id="checkoutPaymentOptions">
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="addi-sistecredito" required />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Paga a crédito</span>
+              <span class="checkout-payment-desc">Addi o Sistecrédito</span>
+            </div>
+          </label>
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="transferencia" />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Transferencia bancaria</span>
+              <span class="checkout-payment-desc">Bancolombia, Banco de Bogotá, Nequi o Bre-B</span>
+            </div>
+          </label>
+          <label class="checkout-payment-option">
+            <input type="radio" name="payment" value="contraentrega" />
+            <div class="checkout-payment-content">
+              <span class="checkout-payment-name">Contraentrega</span>
+              <span class="checkout-payment-desc">Paga al recibir tu pedido</span>
+            </div>
+          </label>
+        </div>
+        <div class="checkout-payment-note">
+          <i class="fas fa-info-circle"></i>
+          Si se compra con Addi o Sistecrédito el valor puede aumentar, se verificará internamente y se notificará.
+        </div>
+        <button type="submit" class="btn btn-primary checkout-submit" id="checkoutSubmitBtn">
+          <i class="fab fa-whatsapp"></i> Enviar cotización por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.3/jspdf.plugin.autotable.min.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
