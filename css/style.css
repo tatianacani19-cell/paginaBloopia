@@ -5570,6 +5570,7 @@ input {
 /* Closing */
 .nos-closing {
   text-align: center;
+  padding-bottom: 380px;
 }
 
 .nos-closing-content {
