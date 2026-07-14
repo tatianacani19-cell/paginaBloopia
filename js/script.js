@@ -260,7 +260,7 @@ function checkoutWhatsApp() {
     return;
   }
 
-  const phone = '15551234567';
+  const phone = '573102898133';
   let message = '¡Hola! Me gustaría pedir lo siguiente de BLOOPIA:\n\n';
 
   cart.forEach(item => {
