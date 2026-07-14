@@ -6313,6 +6313,10 @@ input {
   opacity: 0.3;
 }
 
+.env-section-last {
+  padding-bottom: 400px;
+}
+
 @media (max-width: 1024px) {
   .env-hero-container {
     grid-template-columns: 1fr;
