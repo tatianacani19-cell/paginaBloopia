@@ -253,25 +253,134 @@ function showNotification(message) {
   notif._timeout = setTimeout(() => notif.classList.remove('show'), 2400);
 }
 
+// ========== CHECKOUT MODAL ==========
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutModalClose = document.getElementById('checkoutModalClose');
+const checkoutForm = document.getElementById('checkoutForm');
+const checkoutCity = document.getElementById('chkCity');
+const checkoutShippingText = document.getElementById('checkoutShippingText');
+const checkoutSubmitBtn = document.getElementById('checkoutSubmitBtn');
+
+function openCheckoutModal() {
+  if (!checkoutModal || !checkoutOverlay) return;
+  checkoutModal.classList.add('active');
+  checkoutOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckoutModal() {
+  if (!checkoutModal || !checkoutOverlay) return;
+  checkoutModal.classList.remove('active');
+  checkoutOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (checkoutModalClose) checkoutModalClose.addEventListener('click', closeCheckoutModal);
+if (checkoutOverlay) checkoutOverlay.addEventListener('click', closeCheckoutModal);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && checkoutModal?.classList.contains('active')) closeCheckoutModal();
+});
+
+const shippingCosts = {
+  'Bogotá': { label: '$10.000 COP', detail: 'El precio puede variar dependiendo del peso o tipo de producto' },
+  'Cundinamarca': { label: '$12.000 COP a $16.000 COP', detail: '' },
+};
+
+if (checkoutCity) {
+  checkoutCity.addEventListener('change', function() {
+    const city = this.value;
+    if (!city) {
+      checkoutShippingText.textContent = 'Selecciona una ciudad para ver el costo de envío';
+      return;
+    }
+    const info = shippingCosts[city];
+    if (info) {
+      checkoutShippingText.textContent = `Envío a ${city}: ${info.label}` + (info.detail ? ` (${info.detail})` : '');
+    } else {
+      checkoutShippingText.textContent = `Envío a ${city}: $15.000 COP`;
+    }
+  });
+}
+
+function getShippingCost() {
+  const city = checkoutCity?.value;
+  if (!city) return 15000;
+  if (city === 'Bogotá') return 10000;
+  if (city === 'Cundinamarca') return 12000;
+  return 15000;
+}
+
+function submitCheckout(e) {
+  e.preventDefault();
+  if (cart.length === 0) {
+    showNotification('¡Tu carrito está vacío!');
+    return;
+  }
+
+  const name = document.getElementById('chkName').value.trim();
+  const lastName = document.getElementById('chkLastName').value.trim();
+  const email = document.getElementById('chkEmail').value.trim();
+  const phone = document.getElementById('chkPhone').value.trim();
+  const idNum = document.getElementById('chkId').value.trim();
+  const address = document.getElementById('chkAddress').value.trim();
+  const apt = document.getElementById('chkApt').value.trim();
+  const city = checkoutCity?.value || '';
+  const state = document.getElementById('chkState').value.trim();
+  const payment = document.querySelector('input[name="payment"]:checked')?.value || '';
+
+  if (!name || !lastName || !email || !phone || !idNum || !address || !city || !payment) {
+    showNotification('Completa todos los campos obligatorios');
+    return;
+  }
+
+  const phoneClean = '573102898133';
+  const shipping = getShippingCost();
+  const subtotal = getCartTotal();
+  const total = subtotal + shipping;
+
+  let message = '🎯 *NUEVO PEDIDO - BLOOPIA*\n\n';
+  message += '👤 *DATOS DEL CLIENTE*\n';
+  message += `Nombre: ${name} ${lastName}\n`;
+  message += `Tel: ${phone}\n`;
+  message += `Email: ${email}\n`;
+  message += `ID: ${idNum}\n`;
+  message += `Dirección: ${address}${apt ? ', ' + apt : ''}\n`;
+  message += `Ciudad: ${city}\n`;
+  if (state) message += `Estado: ${state}\n`;
+  message += `País: Colombia\n\n`;
+
+  message += '🛒 *PRODUCTOS*\n';
+  cart.forEach(item => {
+    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
+  });
+
+  message += `\n💰 *RESUMEN*\n`;
+  message += `Subtotal: ${formatPrice(subtotal)}\n`;
+  message += `Envío: ${formatPrice(shipping)}\n`;
+  message += `*Total: ${formatPrice(total)}*\n\n`;
+
+  message += `💳 *Método de pago:* `;
+  if (payment === 'addi-sistecredito') message += 'Addi / Sistecrédito';
+  else if (payment === 'transferencia') message += 'Transferencia bancaria';
+  else if (payment === 'contraentrega') message += 'Contraentrega';
+  message += '\n\n¡Gracias por tu compra!';
+
+  closeCheckoutModal();
+  const url = `https://wa.me/${phoneClean}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
+
+if (checkoutForm) checkoutForm.addEventListener('submit', submitCheckout);
+
 // ========== WHATSAPP CHECKOUT ==========
 function checkoutWhatsApp() {
   if (cart.length === 0) {
     showNotification('¡Tu carrito está vacío!');
     return;
   }
-
-  const phone = '573102898133';
-  let message = '¡Hola! Me gustaría pedir lo siguiente de BLOOPIA:\n\n';
-
-  cart.forEach(item => {
-    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
-  });
-
-  message += `\nTotal: ${formatPrice(getCartTotal())}`;
-  message += '\n\nPor favor confirma disponibilidad y envío. ¡Gracias!';
-
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  window.open(url, '_blank');
+  openCheckoutModal();
 }
 
 // ========== NAVBAR SCROLL ==========
