@@ -696,7 +696,6 @@ function activateSubcategory(subData) {
   }
 
   if (banner) banner.style.display = '';
-  if (bg) bg.style.backgroundImage = `url('${subData.banner.image}')`;
   if (title) title.textContent = subData.banner.title;
   if (desc) desc.textContent = subData.banner.desc;
   if (features) {

@@ -3510,15 +3510,14 @@ input {
 .subcat-banner-bg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: background-image 0.6s ease;
+  background: #3d0a60;
+  transition: background 0.6s ease;
 }
 
 .subcat-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: transparent;
 }
 
 .subcat-banner-content {
