@@ -2,5 +2,8 @@
   "dependencies": {
     "sharp": "^0.35.2",
     "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "webp-converter": "^2.3.3"
   }
 }
