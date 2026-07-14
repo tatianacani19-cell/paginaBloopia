@@ -484,6 +484,16 @@ function initHeroSlider() {
     });
   }
 
+  slides.forEach(slide => {
+    slide.style.cursor = 'pointer';
+    slide.addEventListener('click', () => {
+      const categoriesSection = document.getElementById('categories');
+      if (categoriesSection) {
+        categoriesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
   startAuto();
 }
 
