@@ -5068,10 +5068,10 @@ input {
 
 .nos-hero-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   margin-top: 12px;
 }
 
@@ -5642,8 +5642,8 @@ input {
   }
 
   .nos-hero-grid {
-    max-width: 320px;
-    margin: 12px auto 0;
+    max-width: 360px;
+    gap: 10px;
   }
 
   .nos-hero-image {
@@ -5680,6 +5680,12 @@ input {
 
   .nos-hero-subtitle {
     font-size: 0.95rem;
+  }
+
+  .nos-hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 280px;
+    gap: 10px;
   }
 
   .nos-hero-image {
