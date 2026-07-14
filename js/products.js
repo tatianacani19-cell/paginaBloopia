@@ -225,13 +225,14 @@ async function loadProductsFromExcel() {
       const medidaVariants = [];
       let descUno = '', especs = '', envs = '';
       for (const r of g) {
-        if (r.Imagen && !seenImages.includes(r.Imagen)) seenImages.push(r.Imagen);
+        const normalizedImg = r.Imagen ? r.Imagen.toLowerCase() : '';
+        if (normalizedImg && !seenImages.includes(normalizedImg)) seenImages.push(normalizedImg);
         if (r.Color) {
           const existing = colors.find(c => c.name === r.Color);
           if (existing) {
-            if (r.Imagen && !existing.images.includes(r.Imagen)) existing.images.push(r.Imagen);
+            if (normalizedImg && !existing.images.includes(normalizedImg)) existing.images.push(normalizedImg);
           } else {
-            colors.push({ name: r.Color, hex: getColorHex(r.Color), codigo: r.Codigo || '', image: r.Imagen || '', images: [r.Imagen || ''] });
+            colors.push({ name: r.Color, hex: getColorHex(r.Color), codigo: r.Codigo || '', image: normalizedImg, images: [normalizedImg] });
           }
         }
         if (r.medidas) {
