@@ -3637,7 +3637,7 @@ input {
   }
 
   .footer {
-    margin-top: -120px;
+    margin-top: -20px;
   }
 
   .footer-content {
@@ -6510,5 +6510,9 @@ input {
 
   .env-section-last {
     padding-bottom: 180px;
+  }
+
+  .promo-carousel {
+    display: none;
   }
 }
