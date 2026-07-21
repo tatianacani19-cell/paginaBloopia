@@ -120,6 +120,14 @@ input {
   padding: 90px 0;
 }
 
+#categories {
+  padding-top: 50px;
+}
+
+#categories .section-header {
+  max-width: 820px;
+}
+
 .section-gray {
   background: var(--cream);
 }
