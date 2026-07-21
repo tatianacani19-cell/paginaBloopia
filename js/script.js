@@ -57,6 +57,7 @@ const categoryNames = {
   tools: 'Herramientas',
   audio: 'Sonido',
   tech: 'Tecnología',
+  appliances: 'Electrodomésticos',
 };
 
 function formatPrice(amount) {

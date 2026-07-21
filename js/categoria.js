@@ -581,6 +581,59 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  appliances: {
+    displayName: 'Electrodomésticos',
+    description: 'Los mejores electrodomésticos para tu hogar con la mejor calidad y eficiencia.',
+    heroImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'preparacion', label: 'Preparación',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Preparación',
+          desc: 'Batidoras, procesadores y licuadoras para facilitar tus labores en la cocina.',
+          features: ['Potente', 'Versátil', 'Fácil de limpiar']
+        }
+      },
+      {
+        key: 'cafeteras', label: 'Cafeteras',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Cafeteras',
+          desc: 'Cafeteras eléctricas, de goteo y espresso para disfrutar el mejor café.',
+          features: ['Fácil uso', 'Gran sabor', 'Diseño compacto']
+        }
+      },
+      {
+        key: 'coccion_hornos', label: 'Cocción y Hornos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Cocción y Hornos',
+          desc: 'Hornos eléctricos, microondas y freidoras de aire para cocinar de forma práctica.',
+          features: ['Tecnología avanzada', 'Ahorro de tiempo', 'Resultados perfectos']
+        }
+      },
+      {
+        key: 'sanducheras', label: 'Sanducheras y Desayunos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Sanducheras y Desayunos',
+          desc: 'Sanducheras, tostadores y wafleras para desayunos deliciosos y rápidos.',
+          features: ['Rápido', 'Antiadherente', 'Fácil almacenamiento']
+        }
+      },
+      {
+        key: 'oster', label: 'Oster',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Oster',
+          desc: 'Productos Oster: licuadoras, batidoras y electrodomésticos de calidad.',
+          features: ['Calidad Oster', 'Durabilidad', 'Rendimiento']
+        }
+      }
+    ]
   }
 };
 

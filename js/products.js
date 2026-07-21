@@ -15,6 +15,8 @@ const categoryMap = {
   'SONIDO': 'audio',
   'TECNOLOGÍA': 'tech',
   'TECNOLOGIA': 'tech',
+  'ELECTRODOMÉSTICOS': 'appliances',
+  'ELECTRODOMESTICOS': 'appliances',
 };
 
 const subcategoryMap = {
