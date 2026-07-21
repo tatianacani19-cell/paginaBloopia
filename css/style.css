@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: var(--nav-height);
+  padding-top: calc(var(--announcement-height) + var(--nav-height));
 }
 
 h1,
@@ -657,11 +657,13 @@ input {
 
 /* ========== ANNOUNCEMENT BAR ========== */
 .announcement-bar {
-  position: relative;
-  width: 100%;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
   height: var(--announcement-height);
   background: var(--brand-green-bg);
-  z-index: 1;
+  z-index: 1001;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -724,6 +726,7 @@ input {
 }
 
 .announcement-bar.is-hidden {
+  top: 0;
   transform: translateY(-100%);
 }
 
@@ -2763,7 +2766,7 @@ input {
 /* ========== NOTIFICATION ========== */
 .notification {
   position: fixed;
-  top: calc(var(--nav-height) + 16px);
+  top: calc(var(--announcement-height) + var(--nav-height) + 16px);
   right: 24px;
   background: var(--brand-purple);
   color: var(--white);
@@ -3822,7 +3825,7 @@ input {
 /* ========== SUBCATEGORY NAV ========== */
 .subcat-nav {
   position: sticky;
-  top: var(--nav-height);
+  top: calc(var(--announcement-height) + var(--nav-height));
   z-index: 100;
   background: var(--white);
   border-bottom: 1px solid var(--border);
@@ -4428,7 +4431,7 @@ input {
 /* Gallery */
 .det-gallery {
   position: sticky;
-  top: calc(var(--nav-height) + 24px);
+  top: calc(var(--announcement-height) + var(--nav-height) + 24px);
 }
 
 .det-main-image {
