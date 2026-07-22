@@ -82,6 +82,13 @@ const subcategoryMap = {
   'energía y bienestar': 'energia_bienestar',
   'energia y bienestar': 'energia_bienestar',
   'accesorios': 'accesorios',
+  'preparación': 'preparacion',
+  'preparacion': 'preparacion',
+  'cafeteras': 'cafeteras',
+  'cocción y hornos': 'coccion_hornos',
+  'coccion y hornos': 'coccion_hornos',
+  'sanduchera y desayunos': 'sanducheras',
+  'sanducheras y desayunos': 'sanducheras',
 };
 
 function normalizeCategory(cat) {
