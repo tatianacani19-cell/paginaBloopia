@@ -598,15 +598,6 @@ const categoryConfig = {
         }
       },
       {
-        key: 'cafeteras', label: 'Cafeteras',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Cafeteras',
-          desc: 'Cafeteras eléctricas, de goteo y espresso para disfrutar el mejor café.',
-          features: ['Fácil uso', 'Gran sabor', 'Diseño compacto']
-        }
-      },
-      {
         key: 'coccion_hornos', label: 'Cocción y Hornos',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
