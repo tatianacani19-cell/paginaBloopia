@@ -154,6 +154,8 @@ const colorHexMap = {
   'verde rana': '#4a8c5c',
   'beige leon': '#d4c9b0',
   'rosado jirafa': '#f5a0b0',
+  'niño': '#3b5998',
+  'niña': '#f5a0b0',
 };
 
 function getColorHex(name) {
