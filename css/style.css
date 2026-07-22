@@ -1055,7 +1055,9 @@ input {
   box-shadow: var(--shadow-hover);
 }
 
-.product-price {
+.product-price,
+.det-current-price,
+.det-original-price {
   display: none;
 }
 
