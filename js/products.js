@@ -89,6 +89,8 @@ const subcategoryMap = {
   'coccion y hornos': 'coccion_hornos',
   'sanduchera y desayunos': 'sanducheras',
   'sanducheras y desayunos': 'sanducheras',
+  'ollas': 'ollas',
+  'cubiertos y utensilios': 'cubiertos_utensilios',
 };
 
 function normalizeCategory(cat) {

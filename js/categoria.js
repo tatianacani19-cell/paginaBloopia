@@ -175,21 +175,30 @@ const categoryConfig = {
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
-        key: 'herramientas', label: 'Herramientas y Utensilios',
+        key: 'organizadores', label: 'Organizadores',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Herramientas y Utensilios',
-          desc: 'Todo lo que necesitas para preparar, cocinar y servir. Cuchillos, ollas, sartenes y más.',
-          features: ['Materiales de calidad', 'Diseño funcional', 'Fáciles de limpiar']
+          title: 'Organizadores',
+          desc: 'Organizadores de cocina, escurridores, porta utensilios y accesorios para mantener todo en orden.',
+          features: ['Ahorra espacio', 'Fácil de limpiar', 'Diseño funcional']
         }
       },
       {
-        key: 'oster', label: 'Oster',
+        key: 'ollas', label: 'Ollas',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Electrodomésticos Oster',
-          desc: 'Licuadoras, freidoras de aire, cafeteras y más. La mejor tecnología para tu cocina.',
-          features: ['Tecnología de punta', 'Durabilidad garantizada', 'Resultados profesionales']
+          title: 'Ollas',
+          desc: 'Ollas, sartenes y baterías de cocina en diferentes materiales y tamaños para tus preparaciones.',
+          features: ['Materiales de calidad', 'Antiadherente', 'Distribución uniforme del calor']
+        }
+      },
+      {
+        key: 'cubiertos_utensilios', label: 'Cubiertos y Utensilios',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Cubiertos y Utensilios',
+          desc: 'Cubiertos, juegos de cuchillos, espátulas y accesorios esenciales para tu cocina.',
+          features: ['Acero inoxidable', 'Diseño ergonómico', 'Set completo']
         }
       }
     ]
