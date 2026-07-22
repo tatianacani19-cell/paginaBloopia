@@ -1055,6 +1055,10 @@ input {
   box-shadow: var(--shadow-hover);
 }
 
+.product-price {
+  display: none;
+}
+
 .product-image-wrap {
   position: relative;
   aspect-ratio: 3/4;
