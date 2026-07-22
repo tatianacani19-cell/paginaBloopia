@@ -156,6 +156,7 @@ const colorHexMap = {
   'rosado jirafa': '#f5a0b0',
   'niño': '#3b5998',
   'niña': '#f5a0b0',
+  'curuba': '#f7c39c',
 };
 
 function getColorHex(name) {
