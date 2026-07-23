@@ -15,15 +15,6 @@ const categoryConfig = {
         }
       },
       {
-        key: 'montables', label: 'Montables',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&q=80&fm=webp',
-          title: 'Juguetes Montables',
-          desc: 'Diversión y desarrollo motor con nuestros caballos balancín, triciclos y coches eléctricos.',
-          features: ['Estimula el equilibrio', 'Materiales seguros', 'Diseños coloridos']
-        }
-      },
-      {
         key: 'andaderas', label: 'Andaderas y Caminadores',
         banner: {
           image: 'https://images.unsplash.com/photo-1593359677879-a4ca92ba5acb?w=800&q=80&fm=webp',
@@ -39,6 +30,24 @@ const categoryConfig = {
           title: 'Descanso para Bebés',
           desc: 'Cunas colecho, colchones viscoelásticos y sábanas de algodón para el descanso perfecto.',
           features: ['Materiales hipoalergénicos', 'Transpirable', 'Máxima comodidad']
+        }
+      },
+      {
+        key: 'comederos', label: 'Comederos',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1593359677879-a4ca92ba5acb?w=800&q=80&fm=webp',
+          title: 'Comederos',
+          desc: 'Sets de comedor infantil y platos de silicona para la hora de comer.',
+          features: ['Silicona de grado alimenticio', 'Antideslizante', 'Fácil de limpiar']
+        }
+      },
+      {
+        key: 'montables', label: 'Montables',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&q=80&fm=webp',
+          title: 'Juguetes Montables',
+          desc: 'Diversión y desarrollo motor con nuestros caballos balancín, triciclos y coches eléctricos.',
+          features: ['Estimula el equilibrio', 'Materiales seguros', 'Diseños coloridos']
         }
       },
       {
@@ -84,15 +93,6 @@ const categoryConfig = {
           title: 'Muebles Infantiles',
           desc: 'Cunas cama, cambiadores plegables y estantes para juguetes. Muebles diseñados para crecer con ellos.',
           features: ['Diseño funcional', 'Materiales resistentes', 'Fácil montaje']
-        }
-      },
-      {
-        key: 'comederos', label: 'Comederos',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1593359677879-a4ca92ba5acb?w=800&q=80&fm=webp',
-          title: 'Comederos',
-          desc: 'Sets de comedor infantil y platos de silicona para la hora de comer.',
-          features: ['Silicona de grado alimenticio', 'Antideslizante', 'Fácil de limpiar']
         }
       }
     ]
@@ -166,15 +166,6 @@ const categoryConfig = {
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
-        key: 'organizadores', label: 'Organizadores',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Organizadores',
-          desc: 'Organizadores de cocina, escurridores, porta utensilios y accesorios para mantener todo en orden.',
-          features: ['Ahorra espacio', 'Fácil de limpiar', 'Diseño funcional']
-        }
-      },
-      {
         key: 'ollas', label: 'Ollas',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
@@ -190,6 +181,15 @@ const categoryConfig = {
           title: 'Cubiertos y Utensilios',
           desc: 'Cubiertos, juegos de cuchillos, espátulas y accesorios esenciales para tu cocina.',
           features: ['Acero inoxidable', 'Diseño ergonómico', 'Set completo']
+        }
+      },
+      {
+        key: 'organizadores', label: 'Organizadores',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
+          title: 'Organizadores',
+          desc: 'Organizadores de cocina, escurridores, porta utensilios y accesorios para mantener todo en orden.',
+          features: ['Ahorra espacio', 'Fácil de limpiar', 'Diseño funcional']
         }
       }
     ]
