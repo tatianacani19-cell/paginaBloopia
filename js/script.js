@@ -225,7 +225,6 @@ function updateCartUI() {
         </div>
         <div class="cart-item-info">
           <h4 class="cart-item-name">${item.name}</h4>
-          <span class="cart-item-price">${formatPrice(item.price)}</span>
           <div class="cart-item-qty">
             <button onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
             <span>${item.qty}</span>
@@ -333,9 +332,6 @@ function submitCheckout(e) {
   }
 
   const phoneClean = '573102898133';
-  const shipping = getShippingCost();
-  const subtotal = getCartTotal();
-  const total = subtotal + shipping;
 
   let message = '🎯 *NUEVO PEDIDO - BLOOPIA*\n\n';
   message += '👤 *DATOS DEL CLIENTE*\n';
@@ -350,15 +346,10 @@ function submitCheckout(e) {
 
   message += '🛒 *PRODUCTOS*\n';
   cart.forEach(item => {
-    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
+    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty}\n`;
   });
 
-  message += `\n💰 *RESUMEN*\n`;
-  message += `Subtotal: ${formatPrice(subtotal)}\n`;
-  message += `Envío: ${formatPrice(shipping)}\n`;
-  message += `*Total: ${formatPrice(total)}*\n\n`;
-
-  message += `💳 *Método de pago:* `;
+  message += `\n💳 *Método de pago:* `;
   if (payment === 'addi-sistecredito') message += 'Addi / Sistecrédito';
   else if (payment === 'transferencia') message += 'Transferencia bancaria';
   else if (payment === 'contraentrega') message += 'Contraentrega';
