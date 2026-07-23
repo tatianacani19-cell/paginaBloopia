@@ -78,15 +78,6 @@ const categoryConfig = {
         }
       },
       {
-        key: 'construccion', label: 'Construcción',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&q=80&fm=webp',
-          title: 'Construcción',
-          desc: 'Bloques de construcción y pistas de tren de madera para horas de diversión creativa.',
-          features: ['Desarrolla la creatividad', 'Madera sostenible', 'Piezas seguras']
-        }
-      },
-      {
         key: 'muebles', label: 'Muebles',
         banner: {
           image: 'https://images.unsplash.com/photo-1593359677879-a4ca92ba5acb?w=800&q=80&fm=webp',
