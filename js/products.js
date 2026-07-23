@@ -243,7 +243,7 @@ async function loadProductsFromExcel() {
       const medidaVariants = [];
       let descUno = '', especs = '', envs = '';
       for (const r of g) {
-        const normalizedImg = r.Imagen ? r.Imagen.toLowerCase() : '';
+        const normalizedImg = r.Imagen || '';
         if (normalizedImg && !seenImages.includes(normalizedImg)) seenImages.push(normalizedImg);
         if (r.Color) {
           const existing = colors.find(c => c.name === r.Color);
