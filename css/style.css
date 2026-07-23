@@ -1174,6 +1174,7 @@ input {
   justify-content: center;
   gap: 6px;
   border: 1px solid var(--border);
+  margin-top: auto;
 }
 
 .add-to-cart:hover {
