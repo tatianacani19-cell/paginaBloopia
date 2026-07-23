@@ -946,6 +946,7 @@ input {
   font-weight: 500;
   color: var(--white);
   margin-bottom: 6px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .category-info span {
@@ -1932,7 +1933,7 @@ input {
 .footer {
   position: relative;
   overflow: hidden;
-  margin-top: -350px;
+  margin-top: 0;
   z-index: 3;
   background: linear-gradient(180deg, #b8e8d8 0%, #e0d8f0 100%);
 }
