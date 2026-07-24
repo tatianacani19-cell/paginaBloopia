@@ -797,6 +797,7 @@ function renderProducts() {
   grid.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.add-to-cart')) return;
+      sessionStorage.setItem('scrollPos_' + window.location.pathname, window.scrollY);
       window.location.href = `detalle.html?id=${card.dataset.id}&sub=${currentSubcategory}`;
     });
   });
@@ -820,6 +821,12 @@ function renderProducts() {
     pDesc.textContent = currentSubcategory === 'todos'
       ? 'Explora todos nuestros productos para esta categoría.'
       : `Descubre nuestra selección de ${categoryConfig[currentCategory]?.subcategories.find(s => s.key === currentSubcategory)?.label?.toLowerCase() || 'productos'}.`;
+  }
+
+  const saved = sessionStorage.getItem('scrollPos_' + window.location.pathname);
+  if (saved !== null) {
+    sessionStorage.removeItem('scrollPos_' + window.location.pathname);
+    requestAnimationFrame(() => window.scrollTo(0, parseInt(saved)));
   }
 }
 

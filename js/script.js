@@ -95,6 +95,7 @@ function renderProducts(gridId, items) {
   grid.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('.add-to-cart')) return;
+      sessionStorage.setItem('scrollPos_' + window.location.pathname, window.scrollY);
       const cat = card.dataset.category;
       window.location.href = `detalle.html?id=${card.dataset.id || ''}`;
     });
@@ -110,6 +111,15 @@ function initProducts() {
   const featured = getFeaturedProducts();
   renderProducts('featuredGrid', featured);
   initFeaturedCarousel();
+  restoreScrollPosition();
+}
+
+function restoreScrollPosition() {
+  const saved = sessionStorage.getItem('scrollPos_' + window.location.pathname);
+  if (saved !== null) {
+    sessionStorage.removeItem('scrollPos_' + window.location.pathname);
+    requestAnimationFrame(() => window.scrollTo(0, parseInt(saved)));
+  }
 }
 
 function initFeaturedCarousel() {
