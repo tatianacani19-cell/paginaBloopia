@@ -1059,12 +1059,6 @@ input {
   box-shadow: var(--shadow-hover);
 }
 
-.product-price,
-.det-current-price,
-.det-original-price {
-  display: none;
-}
-
 .product-image-wrap {
   position: relative;
   aspect-ratio: 3/4;
