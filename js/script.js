@@ -1000,6 +1000,10 @@ function initCategoryDimming() {
       if (!isDesktop()) return;
       cards.forEach(c => c.classList.remove('is-dimmed'));
     });
+
+    card.addEventListener('click', () => {
+      sessionStorage.setItem('scrollPos_' + window.location.pathname, window.scrollY);
+    });
   });
 
   window.addEventListener('resize', () => {
