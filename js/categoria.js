@@ -2,7 +2,7 @@ const categoryConfig = {
   babies: {
     displayName: 'Bebés',
     description: 'Todo para el cuidado, comodidad y desarrollo de tu bebé, con la mejor calidad y diseño.',
-    heroImage: 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=1200&q=80&fm=webp',
+    heroImage: 'assets/bebe.webp',
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
@@ -100,7 +100,7 @@ const categoryConfig = {
   home: {
     displayName: 'Hogar',
     description: 'Transforma tu hogar con organización, estilo y confort. Encuentra todo para hacer de tu casa un espacio único.',
-    heroImage: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fm=webp',
+    heroImage: 'assets/hogar.webp',
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
@@ -162,7 +162,7 @@ const categoryConfig = {
   kitchen: {
     displayName: 'Cocina',
     description: 'Equipa tu cocina con los mejores utensilios, electrodomésticos y accesorios. Prepara platillos increíbles con estilo y funcionalidad.',
-    heroImage: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&fm=webp',
+    heroImage: 'assets/cocina.webp',
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
