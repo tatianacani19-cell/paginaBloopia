@@ -84,7 +84,7 @@ function renderProducts(gridId, items) {
       <div class="product-body">
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
-        <span class="product-price">${formatPrice(p.price)}</span>
+        <span class="product-price">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
         <button class="add-to-cart" data-id="${p.id}">
           <i class="fas fa-plus"></i> Agregar al Carrito
         </button>
@@ -235,7 +235,7 @@ function updateCartUI() {
         </div>
         <div class="cart-item-info">
           <h4 class="cart-item-name">${item.name}</h4>
-          <span class="cart-item-price">${formatPrice(item.price)}</span>
+          <span class="cart-item-price">${item.price > 0 ? formatPrice(item.price) : 'Precio por confirmar'}</span>
           <div class="cart-item-qty">
             <button onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
             <span>${item.qty}</span>
@@ -247,7 +247,10 @@ function updateCartUI() {
     `).join('');
   }
 
-  if (totalEl) totalEl.textContent = `${formatPrice(getCartTotal())}`;
+  if (totalEl) {
+    const hasZeroPrice = cart.some(item => item.price <= 0);
+    totalEl.textContent = hasZeroPrice ? 'Algunos precios por confirmar' : formatPrice(getCartTotal());
+  }
 }
 
 // ========== NOTIFICATION ==========
@@ -356,10 +359,14 @@ function submitCheckout(e) {
   message += `País: Colombia\n\n`;
 
   message += '🛒 *PRODUCTOS*\n';
+  let hasZeroPrice = false;
   cart.forEach(item => {
-    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
+    const priceText = item.price > 0 ? `${formatPrice(item.price * item.qty)}` : 'Precio por confirmar';
+    if (item.price <= 0) hasZeroPrice = true;
+    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${priceText}\n`;
   });
-  message += `\n💰 *Total:* ${formatPrice(getCartTotal())}\n`;
+  const totalText = hasZeroPrice ? `Algunos precios por confirmar` : formatPrice(getCartTotal());
+  message += `\n💰 *Total:* ${totalText}\n`;
 
   message += `\n💳 *Método de pago:* `;
   if (payment === 'addi-sistecredito') message += 'Addi / Sistecrédito';

@@ -213,7 +213,11 @@ function renderInfo() {
     if (p.originalPrice && p.originalPrice > p.price) {
       html += `<span class="det-original-price">${formatPrice(p.originalPrice)}</span>`;
     }
-    html += `<span class="det-current-price">${formatPrice(p.price)}</span>`;
+    if (p.price > 0) {
+      html += `<span class="det-current-price">${formatPrice(p.price)}</span>`;
+    } else {
+      html += `<span class="det-current-price det-price-confirm">Precio por confirmar</span>`;
+    }
     pricing.innerHTML = html;
   }
 
@@ -288,7 +292,9 @@ function renderInfo() {
             if (medidaName) medidaName.textContent = medida;
             const pricing = document.getElementById('detPricing');
             if (pricing && price) {
-              pricing.innerHTML = `<span class="det-current-price">${formatPrice(price)}</span>`;
+              pricing.innerHTML = price > 0
+                ? `<span class="det-current-price">${formatPrice(price)}</span>`
+                : `<span class="det-current-price det-price-confirm">Precio por confirmar</span>`;
             }
             const detTitle = document.getElementById('detTitle');
             if (detTitle && codigo) {
@@ -413,7 +419,7 @@ function renderRelated() {
       <div class="product-body">
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
-        <span class="product-price">${formatPrice(p.price)}</span>
+        <span class="product-price">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
         <button class="add-to-cart" data-id="${p.id}">
           <i class="fas fa-plus"></i> Agregar al Carrito
         </button>

@@ -4618,6 +4618,13 @@ input {
   color: var(--text);
 }
 
+.det-price-confirm {
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
 /* Colors */
 .det-colors {
   display: flex;
