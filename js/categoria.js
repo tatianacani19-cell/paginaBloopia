@@ -633,6 +633,16 @@ function getUrlParam(name) {
   return params.get(name);
 }
 
+// Desplaza un botón dentro del track sin mover la página entera
+function scrollBtnIntoTrack(btn) {
+  const track = document.getElementById('subcatTrack');
+  if (!track || !btn) return;
+  const trackRect = track.getBoundingClientRect();
+  const btnRect = btn.getBoundingClientRect();
+  const offset = btnRect.left - trackRect.left + track.scrollLeft - (trackRect.width / 2) + (btnRect.width / 2);
+  track.scrollTo({ left: offset, behavior: 'smooth' });
+}
+
 let currentCategory = 'babies';
 let currentSubcategory = 'todos';
 
@@ -658,7 +668,7 @@ function initCategoryPage() {
   if (defaultSub) activateSubcategory(defaultSub);
   if (subParam && subParam !== 'todos') {
     const activeBtn = document.querySelector(`.subcat-btn[data-sub="${subParam}"]`);
-    if (activeBtn) setTimeout(() => activeBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }), 100);
+    if (activeBtn) setTimeout(() => scrollBtnIntoTrack(activeBtn), 100);
   }
 }
 
@@ -690,7 +700,7 @@ function renderSubcategoryNav(config) {
       currentSubcategory = key;
       track.querySelectorAll('.subcat-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      scrollBtnIntoTrack(btn);
 
       const subData = config.subcategories.find(s => s.key === key);
       if (subData) activateSubcategory(subData);
