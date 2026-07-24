@@ -2463,7 +2463,7 @@ input {
 }
 
 .cart-total {
-  display: none;
+  display: block;
 }
 
 .cart-shipping-note {

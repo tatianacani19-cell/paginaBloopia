@@ -235,6 +235,7 @@ function updateCartUI() {
         </div>
         <div class="cart-item-info">
           <h4 class="cart-item-name">${item.name}</h4>
+          <span class="cart-item-price">${formatPrice(item.price)}</span>
           <div class="cart-item-qty">
             <button onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
             <span>${item.qty}</span>
@@ -356,8 +357,9 @@ function submitCheckout(e) {
 
   message += '🛒 *PRODUCTOS*\n';
   cart.forEach(item => {
-    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty}\n`;
+    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${formatPrice(item.price * item.qty)}\n`;
   });
+  message += `\n💰 *Total:* ${formatPrice(getCartTotal())}\n`;
 
   message += `\n💳 *Método de pago:* `;
   if (payment === 'addi-sistecredito') message += 'Addi / Sistecrédito';
