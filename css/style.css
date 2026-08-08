@@ -285,7 +285,7 @@ input {
 /* ========== NAVBAR ========== */
 .navbar {
   position: fixed;
-  top: 0;
+  top: var(--announcement-height);
   left: 0;
   right: 0;
   height: var(--nav-height);
@@ -669,7 +669,7 @@ input {
 /* ========== ANNOUNCEMENT BAR ========== */
 .announcement-bar {
   position: fixed;
-  top: var(--nav-height);
+  top: 0;
   left: 0;
   right: 0;
   height: var(--announcement-height);
