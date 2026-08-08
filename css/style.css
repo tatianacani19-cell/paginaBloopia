@@ -5027,8 +5027,8 @@ input {
   }
 
   .det-main-image {
-    aspect-ratio: 16/10;
-    max-height: 300px;
+    aspect-ratio: 1;
+    max-height: none;
   }
 
   .det-lens,
@@ -5153,8 +5153,8 @@ input {
 
 @media (max-width: 480px) {
   .det-main-image {
-    aspect-ratio: 16/9;
-    max-height: 240px;
+    aspect-ratio: 1;
+    max-height: none;
   }
 
   .det-layout {
