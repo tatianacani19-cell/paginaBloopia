@@ -54,6 +54,7 @@ const categoryNames = {
   beauty: 'Belleza',
   makeup: 'Maquillaje',
   jewelry: 'Joyería',
+  plush: 'Peluches',
   entertainment: 'Entretenimiento',
   fitness: 'Fitness',
   tools: 'Herramientas',

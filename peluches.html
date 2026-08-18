@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Maquillaje</title>
+  <title>BLOOPIA — Peluches</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -13,7 +13,7 @@
   <script>
     if (!window.location.search.includes('category=')) {
       const url = new URL(window.location);
-      url.searchParams.set('category', 'makeup');
+      url.searchParams.set('category', 'plush');
       window.history.replaceState({}, '', url);
     }
   </script>
@@ -115,8 +115,8 @@
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title" id="catHeroTitle">MAQUILLAJE</h1>
-      <p class="cat-banner-desc" id="catHeroDesc">Organizadores, accesorios y herramientas profesionales para mantener tu maquillaje impecable y en orden.</p>
+      <h1 class="cat-banner-title" id="catHeroTitle">PELUCHES</h1>
+      <p class="cat-banner-desc" id="catHeroDesc">Peluches suaves y adorables con sorpresas, luces y música para regalar y abrazar.</p>
     </div>
   </section>
 
@@ -139,7 +139,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección de maquillaje y accesorios.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección de peluches y sorpresas.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -150,7 +150,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas en maquillaje y accesorios.</p>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas en peluches y sorpresas.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>

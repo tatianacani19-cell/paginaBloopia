@@ -598,6 +598,14 @@ const categoryConfig = {
       }
     ]
   },
+  plush: {
+    displayName: 'Peluches',
+    description: 'Peluches suaves y adorables con sorpresas, luces y música para regalar y abrazar.',
+    heroImage: 'https://images.unsplash.com/photo-1602734846297-9299fc2d4703?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
+  },
   appliances: {
     displayName: 'Electrodomésticos',
     description: 'Los mejores electrodomésticos para tu hogar con la mejor calidad y eficiencia.',

@@ -12,6 +12,7 @@ const categoryMap = {
   'MAQUILLAJE': 'makeup',
   'JOYERÍA': 'jewelry',
   'JOYERIA': 'jewelry',
+  'PELUCHES': 'plush',
   'ENTRETENIMIENTO': 'entertainment',
   'FITNESS': 'fitness',
   'HERRAMIENTAS': 'tools',
