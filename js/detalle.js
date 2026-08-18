@@ -374,7 +374,8 @@ function renderInfo() {
         colorName: currentColor ? currentColor.name : null,
         qty: currentQty
       };
-      const existing = cart.find(item => item.id === p.id && item.codigo === cartCodigo);
+      const selectedColorName = currentColor ? currentColor.name : null;
+      const existing = cart.find(item => item.id === p.id && item.codigo === cartCodigo && (item.colorName || null) === selectedColorName);
       if (existing) {
         existing.qty += currentQty;
       } else {

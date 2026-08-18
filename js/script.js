@@ -189,18 +189,18 @@ function handleQuickAdd(productId) {
   addToCart(productId);
 }
 
-function removeFromCart(productId) {
-  cart = cart.filter(item => item.id !== productId);
+function removeFromCart(productId, colorName) {
+  cart = cart.filter(item => item.id !== productId || (item.colorName || null) !== (colorName || null));
   saveCart();
   updateCartUI();
 }
 
-function updateQty(productId, delta) {
-  const item = cart.find(i => i.id === productId);
+function updateQty(productId, delta, colorName) {
+  const item = cart.find(i => i.id === productId && (i.colorName || null) === (colorName || null));
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) {
-    removeFromCart(productId);
+    removeFromCart(productId, colorName);
     return;
   }
   saveCart();
@@ -250,12 +250,12 @@ function updateCartUI() {
           <h4 class="cart-item-name">${item.name}${item.colorName ? ` <span class="cart-item-color">${item.colorName}</span>` : ''}</h4>
           <span class="cart-item-price">${item.price > 0 ? formatPrice(item.price) : 'Precio por confirmar'}</span>
           <div class="cart-item-qty">
-            <button onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>
+            <button onclick="updateQty(${item.id}, -1, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-minus"></i></button>
             <span>${item.qty}</span>
-            <button onclick="updateQty(${item.id}, 1)"><i class="fas fa-plus"></i></button>
+            <button onclick="updateQty(${item.id}, 1, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-plus"></i></button>
           </div>
         </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${item.id})"><i class="fas fa-trash-alt"></i></button>
+        <button class="cart-item-remove" onclick="removeFromCart(${item.id}, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-trash-alt"></i></button>
       </div>
     `).join('');
   }
@@ -376,7 +376,7 @@ function submitCheckout(e) {
   cart.forEach(item => {
     const priceText = item.price > 0 ? `${formatPrice(item.price * item.qty)}` : 'Precio por confirmar';
     if (item.price <= 0) hasZeroPrice = true;
-    message += `• [${item.codigo || 'N/A'}] ${item.name} x${item.qty} — ${priceText}\n`;
+    message += `• [${item.codigo || 'N/A'}] ${item.name}${item.colorName ? ` (Color: ${item.colorName})` : ''} x${item.qty} — ${priceText}\n`;
   });
   const totalText = hasZeroPrice ? `Algunos precios por confirmar` : formatPrice(getCartTotal());
   message += `\n💰 *Total:* ${totalText}\n`;
