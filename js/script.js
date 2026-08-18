@@ -104,7 +104,7 @@ function renderProducts(gridId, items) {
   });
 
   grid.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id)));
+    btn.addEventListener('click', () => handleQuickAdd(parseInt(btn.dataset.id)));
   });
 }
 
@@ -178,6 +178,16 @@ function addToCart(productId) {
   showNotification(`${product.name} agregado al carrito`);
 }
 
+function handleQuickAdd(productId) {
+  const product = products.find(p => p.id === productId);
+  if (product && (product.colors || []).length > 1) {
+    sessionStorage.setItem('scrollPos_' + window.location.pathname, window.scrollY);
+    window.location.href = `detalle.html?id=${productId}`;
+    return;
+  }
+  addToCart(productId);
+}
+
 function removeFromCart(productId) {
   cart = cart.filter(item => item.id !== productId);
   saveCart();
@@ -236,7 +246,7 @@ function updateCartUI() {
           <img src="${item.image}" alt="${item.name}" decoding="async" />
         </div>
         <div class="cart-item-info">
-          <h4 class="cart-item-name">${item.name}</h4>
+          <h4 class="cart-item-name">${item.name}${item.colorName ? ` <span class="cart-item-color">${item.colorName}</span>` : ''}</h4>
           <span class="cart-item-price">${item.price > 0 ? formatPrice(item.price) : 'Precio por confirmar'}</span>
           <div class="cart-item-qty">
             <button onclick="updateQty(${item.id}, -1)"><i class="fas fa-minus"></i></button>

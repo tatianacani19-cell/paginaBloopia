@@ -829,7 +829,7 @@ function renderProducts() {
   });
 
   grid.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id)));
+    btn.addEventListener('click', () => handleQuickAdd(parseInt(btn.dataset.id)));
   });
 
   const label = document.getElementById('productsLabel');

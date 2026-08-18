@@ -181,7 +181,10 @@ function bindThumbClicks() {
           colorBtns[colorIdx].classList.add('active');
         }
         const colorName = document.getElementById('detColorName');
-        if (colorName) colorName.textContent = matchedColor.name;
+        if (colorName) {
+          colorName.textContent = matchedColor.name;
+          colorName.classList.remove('det-color-pending');
+        }
         currentColor = matchedColor;
       }
     });
@@ -223,29 +226,34 @@ function renderInfo() {
 
   if (colorOptions && colorName) {
     const colors = p.colors || [];
+
+    function updateGalleryForColor(color) {
+      const cImages = color.images && color.images.length > 0 ? color.images : [color.image || currentProduct.image];
+      const thumbs = document.getElementById('detThumbs');
+      const mainImg = document.getElementById('detMainImg');
+      if (!thumbs || !mainImg) return;
+      thumbs.innerHTML = cImages.map((img, i) => `
+        <div class="det-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
+          <img src="${img}" alt="${currentProduct.name}" loading="lazy" decoding="async" />
+        </div>
+      `).join('');
+      mainImg.src = cImages[0].includes('w=') ? cImages[0].replace(/w=\d+/, 'w=800') : cImages[0];
+      bindThumbClicks();
+    }
+
     if (colors.length > 0) {
-      currentColor = colors[0];
-      colorName.textContent = currentColor.name;
-      updateGalleryForColor(currentColor);
+      const needsSelection = colors.length > 1;
+      currentColor = needsSelection ? null : colors[0];
+      if (colorName) {
+        colorName.textContent = needsSelection ? 'Selecciona un color' : (colors[0].name || 'Único');
+        colorName.classList.toggle('det-color-pending', needsSelection);
+      }
       colorOptions.innerHTML = colors.map((c, i) => `
-        <button class="det-color-btn${i === 0 ? ' active' : ''}" data-color="${i}"
+        <button class="det-color-btn${(!needsSelection && i === 0) ? ' active' : ''}" data-color="${i}"
           style="background:${c.hex}" title="${c.name}">
         </button>
       `).join('');
 
-      function updateGalleryForColor(color) {
-        const cImages = color.images && color.images.length > 0 ? color.images : [color.image || currentProduct.image];
-        const thumbs = document.getElementById('detThumbs');
-        const mainImg = document.getElementById('detMainImg');
-        if (!thumbs || !mainImg) return;
-        thumbs.innerHTML = cImages.map((img, i) => `
-          <div class="det-thumb${i === 0 ? ' active' : ''}" data-index="${i}">
-            <img src="${img}" alt="${currentProduct.name}" loading="lazy" decoding="async" />
-          </div>
-        `).join('');
-        mainImg.src = cImages[0].includes('w=') ? cImages[0].replace(/w=\d+/, 'w=800') : cImages[0];
-        bindThumbClicks();
-      }
       colorOptions.querySelectorAll('.det-color-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const idx = parseInt(btn.dataset.color);
@@ -254,17 +262,23 @@ function renderInfo() {
           currentColor = color;
           colorOptions.querySelectorAll('.det-color-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          if (colorName) colorName.textContent = color.name;
+          if (colorName) {
+            colorName.textContent = color.name;
+            colorName.classList.remove('det-color-pending');
+          }
           const detTitle = document.getElementById('detTitle');
           if (detTitle) detTitle.innerHTML = (color.title || p.name) + ' <span class="det-codigo">' + (color.codigo || p.codigo || '') + '</span>';
           updateGalleryForColor(color);
         });
       });
-      } else {
-        colorOptions.innerHTML = '<span class="det-no-colors">Color único</span>';
-        if (colorName) colorName.textContent = 'Único';
-      }
+
+      if (!needsSelection) updateGalleryForColor(colors[0]);
+    } else {
+      currentColor = null;
+      colorOptions.innerHTML = '<span class="det-no-colors">Color único</span>';
+      if (colorName) colorName.textContent = 'Único';
     }
+  }
 
     // Measurements
     const medidaContainer = document.getElementById('detMedidas');
@@ -335,10 +349,31 @@ function renderInfo() {
   const addBtn = document.getElementById('detAddCart');
   if (addBtn) {
     addBtn.addEventListener('click', () => {
+      const hasColorChoices = (p.colors || []).length > 1;
+      if (hasColorChoices && !currentColor) {
+        showNotification('Selecciona un color antes de continuar');
+        const colorName = document.getElementById('detColorName');
+        const colorOptions = document.getElementById('detColorOptions');
+        if (colorName) {
+          colorName.textContent = 'Selecciona un color';
+          colorName.classList.add('det-color-pending');
+        }
+        if (colorOptions) {
+          colorOptions.classList.add('det-color-error');
+          setTimeout(() => colorOptions.classList.remove('det-color-error'), 1800);
+        }
+        return;
+      }
       const variant = (p.medidas || []).find(v => v.name === currentMedida);
       const cartPrice = variant ? variant.price : p.price;
       const cartCodigo = variant ? variant.codigo : p.codigo;
-      const cartItem = { ...p, price: cartPrice, codigo: cartCodigo, qty: currentQty };
+      const cartItem = {
+        ...p,
+        price: cartPrice,
+        codigo: cartCodigo,
+        colorName: currentColor ? currentColor.name : null,
+        qty: currentQty
+      };
       const existing = cart.find(item => item.id === p.id && item.codigo === cartCodigo);
       if (existing) {
         existing.qty += currentQty;
@@ -435,7 +470,7 @@ function renderRelated() {
   });
 
   grid.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => addToCart(parseInt(btn.dataset.id)));
+    btn.addEventListener('click', () => handleQuickAdd(parseInt(btn.dataset.id)));
   });
 }
 

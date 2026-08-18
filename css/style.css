@@ -2402,6 +2402,13 @@ input {
   margin-bottom: 2px;
 }
 
+.cart-item-color {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--brand-purple);
+  margin-left: 4px;
+}
+
 .cart-item-price {
   font-size: 0.85rem;
   color: var(--text-light);
@@ -4678,6 +4685,26 @@ input {
   color: #fff;
   font-size: 0.7rem;
   text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.det-color-pending {
+  color: var(--brand-purple);
+  font-style: italic;
+}
+
+.det-color-error {
+  animation: det-shake 0.4s ease;
+}
+
+.det-color-error .det-color-btn {
+  border-color: #e0245e;
+}
+
+@keyframes det-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
 }
 
 /* Measurements */
