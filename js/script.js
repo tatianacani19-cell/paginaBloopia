@@ -52,6 +52,7 @@ const categoryNames = {
   solar: 'Energía Solar',
   pets: 'Mascotas',
   beauty: 'Belleza',
+  makeup: 'Maquillaje',
   entertainment: 'Entretenimiento',
   fitness: 'Fitness',
   tools: 'Herramientas',

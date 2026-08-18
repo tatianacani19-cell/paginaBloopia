@@ -9,6 +9,7 @@ const categoryMap = {
   'ENERGIA SOLAR': 'solar',
   'MASCOTAS': 'pets',
   'BELLEZA': 'beauty',
+  'MAQUILLAJE': 'makeup',
   'ENTRETENIMIENTO': 'entertainment',
   'FITNESS': 'fitness',
   'HERRAMIENTAS': 'tools',

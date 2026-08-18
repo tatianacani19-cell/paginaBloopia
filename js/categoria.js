@@ -399,7 +399,7 @@ const categoryConfig = {
   },
   beauty: {
     displayName: 'Belleza',
-    description: 'Resalta tu belleza natural con productos de alta calidad. Cuidado capilar, maquillaje, masajeadores y bienestar para consentirte.',
+    description: 'Resalta tu belleza natural con productos de alta calidad. Cuidado capilar, masajeadores y bienestar para consentirte.',
     heroImage: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80&fm=webp',
     subcategories: [
       { key: 'todos', label: 'Todos' },
@@ -431,15 +431,6 @@ const categoryConfig = {
         }
       },
       {
-        key: 'maquillaje', label: 'Maquillaje',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80&fm=webp',
-          title: 'Organizadores y Accesorios',
-          desc: 'Organizadores acrílicos y limpiadores de brochas para mantener tus herramientas impecables.',
-          features: ['Organización', 'Material acrílico', 'Fácil limpieza']
-        }
-      },
-      {
         key: 'masajeadores', label: 'Masajeadores',
         banner: {
           image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=800&q=80&fm=webp',
@@ -464,6 +455,23 @@ const categoryConfig = {
           title: 'Cuidado Personal',
           desc: 'Lámparas LED faciales y sets de manicure para tu rutina de cuidado personal.',
           features: ['Tecnología LED', 'Kit completo', 'Uso profesional']
+        }
+      }
+    ]
+  },
+  makeup: {
+    displayName: 'Maquillaje',
+    description: 'Organizadores, accesorios y herramientas profesionales para mantener tu maquillaje impecable y en orden.',
+    heroImage: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'maquillaje', label: 'Maquillaje',
+        banner: {
+          image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80&fm=webp',
+          title: 'Organizadores y Accesorios',
+          desc: 'Organizadores acrílicos y limpiadores de brochas para mantener tus herramientas de maquillaje impecables.',
+          features: ['Organización', 'Material acrílico', 'Fácil limpieza']
         }
       }
     ]
