@@ -476,6 +476,14 @@ const categoryConfig = {
       }
     ]
   },
+  jewelry: {
+    displayName: 'Joyería',
+    description: 'Brilla con estilo. Aretes, collares, pulseras y accesorios que complementan cualquier ocasión.',
+    heroImage: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80&fm=webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
+  },
   tools: {
     displayName: 'Herramientas',
     description: 'Las herramientas perfectas para cada proyecto del hogar. Encuentra calidad, durabilidad y rendimiento en un solo lugar.',

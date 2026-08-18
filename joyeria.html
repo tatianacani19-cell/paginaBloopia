@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLOOPIA — Mascotas</title>
+  <title>BLOOPIA — Joyería</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -13,7 +13,7 @@
   <script>
     if (!window.location.search.includes('category=')) {
       const url = new URL(window.location);
-      url.searchParams.set('category', 'pets');
+      url.searchParams.set('category', 'jewelry');
       window.history.replaceState({}, '', url);
     }
   </script>
@@ -56,8 +56,8 @@
               <li><a href="hogar.html">Hogar</a></li>
               <li><a href="electrodomesticos.html">Electrodomésticos</a></li>
               <li><a href="cocina.html">Cocina</a></li>
-              <li><a href="mascotas.html">Mascotas</a></li>
-              <li><a href="#">Belleza</a></li>
+              <li><a href="#">Mascotas</a></li>
+              <li><a href="belleza.html">Belleza</a></li>
               <li><a href="maquillaje.html">Maquillaje</a></li>
               <li><a href="joyeria.html">Joyería</a></li>
               <li><a href="entretenimiento.html">Entretenimiento</a></li>
@@ -110,12 +110,12 @@
 
   <!-- ========== CATEGORY BANNER ========== -->
   <section class="cat-banner">
-    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&q=80&fm=webp')"></div>
+    <div class="cat-banner-bg" id="catHeroBg" style="background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1200&q=80&fm=webp')"></div>
     <div class="cat-banner-overlay"></div>
     <div class="container cat-banner-content">
       <a href="index.html" class="cat-banner-back"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
-      <h1 class="cat-banner-title" id="catHeroTitle">MASCOTAS</h1>
-      <p class="cat-banner-desc" id="catHeroDesc">Todo para la felicidad y bienestar de tu mejor amigo. Alimentación, higiene, paseo, seguridad y cuidado para perros y gatos.</p>
+      <h1 class="cat-banner-title" id="catHeroTitle">JOYERÍA</h1>
+      <p class="cat-banner-desc" id="catHeroDesc">Brilla con estilo. Aretes, collares, pulseras y accesorios que complementan cualquier ocasión.</p>
     </div>
   </section>
 
@@ -138,7 +138,7 @@
     <div class="subcat-banner-overlay"></div>
     <div class="subcat-banner-content container">
       <h2 class="subcat-banner-title" id="subcatBannerTitle">Descubre Nuestra Colección</h2>
-      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección pensada para tus mascotas.</p>
+      <p class="subcat-banner-desc" id="subcatBannerDesc">Explora nuestra selección de joyería y accesorios.</p>
       <ul class="subcat-banner-features" id="subcatBannerFeatures"></ul>
     </div>
   </section>
@@ -149,7 +149,7 @@
       <div class="section-header reveal reveal-up">
         <span class="section-label" id="productsLabel">Productos</span>
         <h2 class="section-title" id="productsTitle">Todos los Productos</h2>
-        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas para tu mascota.</p>
+        <p class="section-desc" id="productsDesc">Encuentra todo lo que necesitas en joyería y accesorios.</p>
       </div>
       <div class="product-grid" id="categoryGrid"></div>
     </div>
@@ -211,10 +211,10 @@
           <a href="hogar.html">Hogar</a>
           <a href="cocina.html">Cocina</a>
           <a href="solar.html">Energia Solar</a>
-          <a href="mascotas.html">Mascotas</a>
-          <a href="#">Belleza</a>
+          <a href="belleza.html">Belleza</a>
 <a href="maquillaje.html">Maquillaje</a>
           <a href="joyeria.html">Joyería</a>
+          <a href="#">Mascotas</a>
           <a href="entretenimiento.html">Entretenimiento</a>
           <a href="fitness.html">Fitness</a>
           <a href="herramientas.html">Herramientas</a>

@@ -10,6 +10,8 @@ const categoryMap = {
   'MASCOTAS': 'pets',
   'BELLEZA': 'beauty',
   'MAQUILLAJE': 'makeup',
+  'JOYERÍA': 'jewelry',
+  'JOYERIA': 'jewelry',
   'ENTRETENIMIENTO': 'entertainment',
   'FITNESS': 'fitness',
   'HERRAMIENTAS': 'tools',

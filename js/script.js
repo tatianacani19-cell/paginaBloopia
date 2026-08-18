@@ -53,6 +53,7 @@ const categoryNames = {
   pets: 'Mascotas',
   beauty: 'Belleza',
   makeup: 'Maquillaje',
+  jewelry: 'Joyería',
   entertainment: 'Entretenimiento',
   fitness: 'Fitness',
   tools: 'Herramientas',
