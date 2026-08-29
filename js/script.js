@@ -167,11 +167,23 @@ function addToCart(productId) {
   const product = products.find(p => p.id === productId);
   if (!product) return;
 
-  const existing = cart.find(item => item.id === productId);
+  const medidas = product.medidas || [];
+  const defaultMedida = medidas.length > 0 ? medidas[0] : null;
+
+  const cartItem = {
+    ...product,
+    price: defaultMedida ? defaultMedida.price : product.price,
+    codigo: defaultMedida ? defaultMedida.codigo : product.codigo,
+    medidaName: defaultMedida ? defaultMedida.name : null,
+    colorName: null,
+    qty: 1
+  };
+
+  const existing = cart.find(item => item.id === productId && item.codigo === cartItem.codigo);
   if (existing) {
     existing.qty += 1;
   } else {
-    cart.push({ ...product, qty: 1 });
+    cart.push(cartItem);
   }
 
   saveCart();
@@ -181,7 +193,7 @@ function addToCart(productId) {
 
 function handleQuickAdd(productId) {
   const product = products.find(p => p.id === productId);
-  if (product && (product.colors || []).length > 1) {
+  if (product && ((product.colors || []).length > 1 || (product.medidas || []).length > 1)) {
     sessionStorage.setItem('scrollPos_' + window.location.pathname, window.scrollY);
     window.location.href = `detalle.html?id=${productId}`;
     return;
@@ -189,18 +201,18 @@ function handleQuickAdd(productId) {
   addToCart(productId);
 }
 
-function removeFromCart(productId, colorName) {
-  cart = cart.filter(item => item.id !== productId || (item.colorName || null) !== (colorName || null));
+function removeFromCart(productId, colorName, codigo) {
+  cart = cart.filter(item => item.id !== productId || (item.colorName || null) !== (colorName || null) || (item.codigo || '') !== (codigo || ''));
   saveCart();
   updateCartUI();
 }
 
-function updateQty(productId, delta, colorName) {
-  const item = cart.find(i => i.id === productId && (i.colorName || null) === (colorName || null));
+function updateQty(productId, delta, colorName, codigo) {
+  const item = cart.find(i => i.id === productId && (i.colorName || null) === (colorName || null) && (i.codigo || '') === (codigo || ''));
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) {
-    removeFromCart(productId, colorName);
+    removeFromCart(productId, colorName, codigo);
     return;
   }
   saveCart();
@@ -247,15 +259,15 @@ function updateCartUI() {
           <img src="${item.image}" alt="${item.name}" decoding="async" />
         </div>
         <div class="cart-item-info">
-          <h4 class="cart-item-name">${item.name}${item.colorName ? ` <span class="cart-item-color">${item.colorName}</span>` : ''}</h4>
+          <h4 class="cart-item-name">${item.name}${item.medidaName ? ` <span class="cart-item-color">${item.medidaName}</span>` : ''}${item.colorName ? ` <span class="cart-item-color">${item.colorName}</span>` : ''}</h4>
           <span class="cart-item-price">${item.price > 0 ? formatPrice(item.price) : 'Precio por confirmar'}</span>
           <div class="cart-item-qty">
-            <button onclick="updateQty(${item.id}, -1, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-minus"></i></button>
+            <button onclick="updateQty(${item.id}, -1, '${(item.colorName || '').replace(/'/g, "\\'")}', '${(item.codigo || '').replace(/'/g, "\\'")}')"><i class="fas fa-minus"></i></button>
             <span>${item.qty}</span>
-            <button onclick="updateQty(${item.id}, 1, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-plus"></i></button>
+            <button onclick="updateQty(${item.id}, 1, '${(item.colorName || '').replace(/'/g, "\\'")}', '${(item.codigo || '').replace(/'/g, "\\'")}')"><i class="fas fa-plus"></i></button>
           </div>
         </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${item.id}, '${(item.colorName || '').replace(/'/g, "\\'")}')"><i class="fas fa-trash-alt"></i></button>
+        <button class="cart-item-remove" onclick="removeFromCart(${item.id}, '${(item.colorName || '').replace(/'/g, "\\'")}', '${(item.codigo || '').replace(/'/g, "\\'")}')"><i class="fas fa-trash-alt"></i></button>
       </div>
     `).join('');
   }
@@ -376,7 +388,7 @@ function submitCheckout(e) {
   cart.forEach(item => {
     const priceText = item.price > 0 ? `${formatPrice(item.price * item.qty)}` : 'Precio por confirmar';
     if (item.price <= 0) hasZeroPrice = true;
-    message += `• [${item.codigo || 'N/A'}] ${item.name}${item.colorName ? ` (Color: ${item.colorName})` : ''} x${item.qty} — ${priceText}\n`;
+    message += `• [${item.codigo || 'N/A'}] ${item.name}${item.medidaName ? ` (${item.medidaName})` : ''}${item.colorName ? ` (Color: ${item.colorName})` : ''} x${item.qty} — ${priceText}\n`;
   });
   const totalText = hasZeroPrice ? `Algunos precios por confirmar` : formatPrice(getCartTotal());
   message += `\n💰 *Total:* ${totalText}\n`;

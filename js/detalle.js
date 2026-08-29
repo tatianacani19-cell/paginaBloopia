@@ -372,6 +372,7 @@ function renderInfo() {
         price: cartPrice,
         codigo: cartCodigo,
         colorName: currentColor ? currentColor.name : null,
+        medidaName: currentMedida || null,
         qty: currentQty
       };
       const selectedColorName = currentColor ? currentColor.name : null;
