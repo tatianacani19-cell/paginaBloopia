@@ -325,7 +325,7 @@ document.addEventListener('keydown', (e) => {
 const shippingNote = 'El precio puede variar dependiendo del peso o tipo de producto';
 
 if (checkoutCity) {
-  checkoutCity.addEventListener('change', function() {
+  checkoutCity.addEventListener('change', function () {
     const city = this.value;
     if (!city) {
       checkoutShippingText.textContent = 'Selecciona una ciudad para ver el costo de envío';
@@ -614,7 +614,7 @@ function initHeroSlider() {
   let current = 0;
   let interval = null;
   const DELAY = 5000;
-  const FIRST_DELAY = 8000;
+  const FIRST_DELAY = 10000;
 
   function goTo(index) {
     slides.forEach((s, i) => {
@@ -792,13 +792,13 @@ function initPromoSlider() {
   }
 
   const origNext = next;
-  next = function() {
+  next = function () {
     origNext();
     scrollToSlide(current);
   };
 
   const origPrev = prev;
-  prev = function() {
+  prev = function () {
     origPrev();
     scrollToSlide(current);
   };
