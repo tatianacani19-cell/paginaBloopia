@@ -3190,21 +3190,26 @@ input {
   }
 
   .hero-slide:first-child {
-    background-image: url('../assets/bannermovil/banner1cel.webp') !important;
+    background-image: url('../assets/baneramor.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(2) {
-    background-image: url('../assets/bannermovil/banner2cel.webp') !important;
+    background-image: url('../assets/bannermovil/banner1cel.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(3) {
-    background-image: url('../assets/bannermovil/banner3cel.webp') !important;
+    background-image: url('../assets/bannermovil/banner2cel.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(4) {
+    background-image: url('../assets/bannermovil/banner3cel.webp') !important;
+    background-position: center center;
+  }
+
+  .hero-slide:nth-child(5) {
     background-image: url('../assets/bannermovil/banner4cel.webp') !important;
     background-position: center center;
   }

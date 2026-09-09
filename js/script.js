@@ -614,6 +614,7 @@ function initHeroSlider() {
   let current = 0;
   let interval = null;
   const DELAY = 5000;
+  const FIRST_DELAY = 8000;
 
   function goTo(index) {
     slides.forEach((s, i) => {
@@ -635,7 +636,8 @@ function initHeroSlider() {
 
   function startAuto() {
     stopAuto();
-    interval = setInterval(next, DELAY);
+    const delay = current === 0 ? FIRST_DELAY : DELAY;
+    interval = setInterval(next, delay);
   }
 
   function stopAuto() {
