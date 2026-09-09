@@ -872,8 +872,9 @@ function initHeroCursor() {
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         life: 1,
-        size: 3 + Math.random() * 4,
-        color: Math.random() > 0.5 ? '88,197,175' : '116,112,229'
+        rotation: Math.random() * Math.PI * 2,
+        size: 6 + Math.random() * 7,
+        color: Math.random() > 0.5 ? '255,105,180' : '255,163,214'
       });
     }
   }
@@ -911,10 +912,17 @@ function initHeroCursor() {
 
       if (p.life <= 0) { particles.splice(i, 1); continue; }
 
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation || 0);
+      const s = p.size * p.life;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.5})`;
+      ctx.moveTo(0, s * 0.3);
+      ctx.bezierCurveTo(-s, -s * 0.3, -s * 0.5, -s, 0, -s * 0.5);
+      ctx.bezierCurveTo(s * 0.5, -s, s, -s * 0.3, 0, s * 0.3);
+      ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.6})`;
       ctx.fill();
+      ctx.restore();
     }
 
     if (isInside) {
