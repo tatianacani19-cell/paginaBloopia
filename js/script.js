@@ -335,20 +335,19 @@ if (checkoutCity) {
       checkoutShippingText.textContent = 'Selecciona una ciudad para ver el costo de envío';
       return;
     }
-    let label = '';
-    if (city === 'Bogotá') label = '$10.000 COP';
-    else if (city === 'Cundinamarca') label = '$12.000 COP a $16.000 COP';
-    else label = '$15.000 COP';
-    checkoutShippingText.textContent = `Envío a ${city}: ${label} (${shippingNote})`;
+    const info = getShippingInfo(city);
+    checkoutShippingText.textContent = `Envío a ${city}: ${info.label} (${shippingNote})`;
   });
 }
 
+function getShippingInfo(city) {
+  if (city === 'Bogotá') return { min: 10000, max: 10000, label: '$10.000 COP' };
+  if (city === 'Cundinamarca') return { min: 12000, max: 16000, label: '$12.000 COP a $16.000 COP' };
+  return { min: 15000, max: 15000, label: '$15.000 COP' };
+}
+
 function getShippingCost() {
-  const city = checkoutCity?.value;
-  if (!city) return 15000;
-  if (city === 'Bogotá') return 10000;
-  if (city === 'Cundinamarca') return 12000;
-  return 15000;
+  return getShippingInfo(checkoutCity?.value).min;
 }
 
 function submitCheckout(e) {
@@ -394,8 +393,19 @@ function submitCheckout(e) {
     if (item.price <= 0) hasZeroPrice = true;
     message += `• [${item.codigo || 'N/A'}] ${item.name}${item.medidaName ? ` (${item.medidaName})` : ''}${item.colorName ? ` (Color: ${item.colorName})` : ''} x${item.qty} — ${priceText}\n`;
   });
-  const totalText = hasZeroPrice ? `Algunos precios por confirmar` : formatPrice(getCartTotal());
-  message += `\n💰 *Total:* ${totalText}\n`;
+  const subtotal = getCartTotal();
+  const shipping = getShippingInfo(city);
+  const shippingNoteText = 'El precio del envío varía dependiendo del peso o tipo de producto, muy pronto uno de nuestros asesores te contactará para confirmar el valor exacto de tu envío';
+
+  message += `\n💰 *Subtotal productos:* ${hasZeroPrice ? 'Algunos precios por confirmar' : formatPrice(subtotal)}\n`;
+  message += `🚚 *Envío (${city}):* ${shipping.label}\n`;
+  if (hasZeroPrice) {
+    message += `🧾 *Total (productos + envío):* Algunos precios por confirmar (${shippingNoteText})\n`;
+  } else if (shipping.min === shipping.max) {
+    message += `🧾 *Total (productos + envío):* ${formatPrice(subtotal + shipping.min)} (${shippingNoteText})\n`;
+  } else {
+    message += `🧾 *Total (productos + envío):* ${formatPrice(subtotal + shipping.min)} a ${formatPrice(subtotal + shipping.max)} (${shippingNoteText})\n`;
+  }
 
   message += `\n💳 *Método de pago:* `;
   if (payment === 'addi-sistecredito') message += 'Addi / Sistecrédito';
