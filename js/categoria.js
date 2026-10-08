@@ -649,6 +649,50 @@ const categoryConfig = {
         }
       }
     ]
+  },
+  halloween: {
+    displayName: 'Halloween',
+    description: 'Disfraces, decoración, maquillaje y accesorios para vivir el Halloween más divertido.',
+    heroImage: 'assets/categorias/halloween.webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' },
+      {
+        key: 'disfraces', label: 'Disfraces',
+        banner: {
+          image: 'assets/categorias/halloween.webp',
+          title: 'Disfraces',
+          desc: 'Disfrazate de lo que quieras: monstruos, superhéroes, fantasmas y más personajes.',
+          features: ['Tallas para todos', 'Diseños originales', 'Fácil de usar']
+        }
+      },
+      {
+        key: 'decoracion', label: 'Decoración',
+        banner: {
+          image: 'assets/categorias/halloween.webp',
+          title: 'Decoración',
+          desc: 'Calabazas, luces, telarañas y adornos para transformar tu casa en una casa encantada.',
+          features: ['Ambiente terrorífico', 'Reutilizable', 'Fácil montaje']
+        }
+      },
+      {
+        key: 'accesorios', label: 'Accesorios',
+        banner: {
+          image: 'assets/categorias/halloween.webp',
+          title: 'Accesorios',
+          desc: 'Sombreros, máscaras, garras y accesorios para completar tu look de Halloween.',
+          features: ['Comodidad', 'Variedad de estilos', 'Para todas las edades']
+        }
+      },
+      {
+        key: 'maquillaje', label: 'Maquillaje',
+        banner: {
+          image: 'assets/categorias/halloween.webp',
+          title: 'Maquillaje',
+          desc: 'Maquillaje de efectos especiales para crear heridas, cicatrices y looks escalofriantes.',
+          features: ['No tóxico', 'Larga duración', 'Fácil aplicación']
+        }
+      }
+    ]
   }
 };
 

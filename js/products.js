@@ -3,6 +3,7 @@ let productsReady = null;
 
 const categoryMap = {
   'BEBES': 'babies',
+  'HALLOWEEN': 'halloween',
   'HOGAR': 'home',
   'COCINA': 'kitchen',
   'ENERGÍA SOLAR': 'solar',

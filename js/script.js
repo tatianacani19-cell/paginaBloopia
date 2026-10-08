@@ -47,6 +47,7 @@ function saveCart() {
 
 const categoryNames = {
   babies: 'Bebés',
+  halloween: 'Halloween',
   home: 'Hogar',
   kitchen: 'Cocina',
   solar: 'Energía Solar',
