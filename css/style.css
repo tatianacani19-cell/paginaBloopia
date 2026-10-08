@@ -4466,7 +4466,7 @@ input {
   aspect-ratio: 1;
   border-radius: var(--radius);
   overflow: hidden;
-  background: var(--cream);
+  background: var(--white);
   border: 1px solid var(--border);
   cursor: zoom-in;
 }
