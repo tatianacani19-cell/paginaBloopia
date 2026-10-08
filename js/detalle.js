@@ -95,20 +95,28 @@ function renderGallery() {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
+      const nw = mainImg.naturalWidth || rect.width;
+      const nh = mainImg.naturalHeight || rect.height;
+      const scale = Math.min(rect.width / nw, rect.height / nh);
+      const drawW = nw * scale;
+      const drawH = nh * scale;
+      const drawX = (rect.width - drawW) / 2;
+      const drawY = (rect.height - drawH) / 2;
+
       const lensHalf = lens.offsetWidth / 2;
       let lx = x - lensHalf;
       let ly = y - lensHalf;
-      lx = Math.max(0, Math.min(lx, rect.width - lens.offsetWidth));
-      ly = Math.max(0, Math.min(ly, rect.height - lens.offsetHeight));
+      lx = Math.max(drawX, Math.min(lx, drawX + drawW - lens.offsetWidth));
+      ly = Math.max(drawY, Math.min(ly, drawY + drawH - lens.offsetHeight));
 
       lens.style.left = (lx + lensHalf) + 'px';
       lens.style.top = (ly + lensHalf) + 'px';
 
-      const cx = lx + lens.offsetWidth / 2;
-      const cy = ly + lens.offsetHeight / 2;
+      const cx = (lx - drawX) + lens.offsetWidth / 2;
+      const cy = (ly - drawY) + lens.offsetHeight / 2;
 
       result.style.backgroundImage = `url('${mainImg.src}')`;
-      result.style.backgroundSize = `${rect.width * ZOOM}px ${rect.height * ZOOM}px`;
+      result.style.backgroundSize = `${drawW * ZOOM}px ${drawH * ZOOM}px`;
       result.style.backgroundPosition = `-${cx * ZOOM - result.offsetWidth / 2}px -${cy * ZOOM - result.offsetHeight / 2}px`;
       result.classList.add('active');
       lens.style.display = 'block';
