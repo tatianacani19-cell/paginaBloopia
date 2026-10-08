@@ -319,32 +319,10 @@ function closeCheckoutModal() {
 if (checkoutModalClose) checkoutModalClose.addEventListener('click', closeCheckoutModal);
 if (checkoutOverlay) checkoutOverlay.addEventListener('click', closeCheckoutModal);
 
-// ========== HEART CATEGORIES MODAL ==========
-const heartOverlay = document.getElementById('heartOverlay');
-const heartModal = document.getElementById('heartModal');
-const heartModalClose = document.getElementById('heartModalClose');
-
-function openHeartModal() {
-  if (!heartModal || !heartOverlay) return;
-  heartModal.classList.add('active');
-  heartOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeHeartModal() {
-  if (!heartModal || !heartOverlay) return;
-  heartModal.classList.remove('active');
-  heartOverlay.classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-if (heartModalClose) heartModalClose.addEventListener('click', closeHeartModal);
-if (heartOverlay) heartOverlay.addEventListener('click', closeHeartModal);
-
+// ========== CLOSE ON ESC ==========
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (checkoutModal?.classList.contains('active')) closeCheckoutModal();
-    if (heartModal?.classList.contains('active')) closeHeartModal();
   }
 });
 
@@ -717,7 +695,7 @@ function initHeroSlider() {
     slide.style.cursor = 'pointer';
     slide.addEventListener('click', () => {
       if (i === 0) {
-        openHeartModal();
+        window.location.href = 'halloween.html';
         return;
       }
       const categoriesSection = document.getElementById('categories');
