@@ -653,7 +653,7 @@ const categoryConfig = {
   halloween: {
     displayName: 'Halloween',
     description: 'Disfraces, decoración, maquillaje y accesorios para vivir el Halloween más divertido.',
-    heroImage: 'assets/categorias/halloween.webp',
+    heroImage: 'assets/bannerhallo.webp',
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
