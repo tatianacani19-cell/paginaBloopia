@@ -22,6 +22,7 @@ const categoryMap = {
   'TECNOLOGIA': 'tech',
   'ELECTRODOMÉSTICOS': 'appliances',
   'ELECTRODOMESTICOS': 'appliances',
+  'NAVIDAD': 'navidad',
 };
 
 const subcategoryMap = {
@@ -96,6 +97,13 @@ const subcategoryMap = {
   'sanducheras y desayunos': 'sanducheras',
   'ollas': 'ollas',
   'cubiertos y utensilios': 'cubiertos_utensilios',
+  'árboles': 'arboles',
+  'arboles': 'arboles',
+  'arboles de navidad': 'arboles',
+  'adornos': 'adornos',
+  'pesebres': 'pesebres',
+  'regalos': 'regalos',
+  'regalos y envoltura': 'regalos',
 };
 
 function normalizeCategory(cat) {

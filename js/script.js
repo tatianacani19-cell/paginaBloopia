@@ -62,6 +62,7 @@ const categoryNames = {
   audio: 'Sonido',
   tech: 'Tecnología',
   appliances: 'Electrodomésticos',
+  navidad: 'Navidad',
 };
 
 function formatPrice(amount) {
