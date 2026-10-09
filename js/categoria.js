@@ -655,43 +655,7 @@ const categoryConfig = {
     description: 'Disfraces, decoración, maquillaje y accesorios para vivir el Halloween más divertido.',
     heroImage: 'assets/bannerhallo.webp',
     subcategories: [
-      { key: 'todos', label: 'Todos' },
-      {
-        key: 'disfraces', label: 'Disfraces',
-        banner: {
-          image: 'assets/categorias/halloween.webp',
-          title: 'Disfraces',
-          desc: 'Disfrazate de lo que quieras: monstruos, superhéroes, fantasmas y más personajes.',
-          features: ['Tallas para todos', 'Diseños originales', 'Fácil de usar']
-        }
-      },
-      {
-        key: 'decoracion', label: 'Decoración',
-        banner: {
-          image: 'assets/categorias/halloween.webp',
-          title: 'Decoración',
-          desc: 'Calabazas, luces, telarañas y adornos para transformar tu casa en una casa encantada.',
-          features: ['Ambiente terrorífico', 'Reutilizable', 'Fácil montaje']
-        }
-      },
-      {
-        key: 'accesorios', label: 'Accesorios',
-        banner: {
-          image: 'assets/categorias/halloween.webp',
-          title: 'Accesorios',
-          desc: 'Sombreros, máscaras, garras y accesorios para completar tu look de Halloween.',
-          features: ['Comodidad', 'Variedad de estilos', 'Para todas las edades']
-        }
-      },
-      {
-        key: 'maquillaje', label: 'Maquillaje',
-        banner: {
-          image: 'assets/categorias/halloween.webp',
-          title: 'Maquillaje',
-          desc: 'Maquillaje de efectos especiales para crear heridas, cicatrices y looks escalofriantes.',
-          features: ['No tóxico', 'Larga duración', 'Fácil aplicación']
-        }
-      }
+      { key: 'todos', label: 'Todos' }
     ]
   },
   navidad: {
@@ -699,52 +663,7 @@ const categoryConfig = {
     description: 'Vive la magia de la Navidad con árboles, luces, adornos, pesebres y regalos para toda la familia.',
     heroImage: 'https://images.unsplash.com/photo-1703362557246-90a79dd73c63?w=1200&q=80&fm=webp',
     subcategories: [
-      { key: 'todos', label: 'Todos' },
-      {
-        key: 'arboles', label: 'Árboles',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1703362557246-90a79dd73c63?w=800&q=80&fm=webp',
-          title: 'Árboles de Navidad',
-          desc: 'Árboles de todos los tamaños, con y sin luces, para armar el centro de tu decoración navideña.',
-          features: ['Tamaños variados', 'Fáciles de armar', 'Resistentes']
-        }
-      },
-      {
-        key: 'iluminacion', label: 'Luces e Iluminación',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1576326040427-37c74aa26805?w=800&q=80&fm=webp',
-          title: 'Luces e Iluminación',
-          desc: 'Series de luces LED, cortinas y proyectores para iluminar tu hogar con el espíritu navideño.',
-          features: ['Bajo consumo', 'Interiores y exteriores', 'Modo parpadeo']
-        }
-      },
-      {
-        key: 'adornos', label: 'Adornos',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1703362557246-90a79dd73c63?w=800&q=80&fm=webp',
-          title: 'Adornos Navideños',
-          desc: 'Esferas, lazos, campanas y figuras para decorar tu árbol y toda la casa.',
-          features: ['Diseños variados', 'Reutilizables', 'Colores de temporada']
-        }
-      },
-      {
-        key: 'pesebres', label: 'Pesebres',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1576326040427-37c74aa26805?w=800&q=80&fm=webp',
-          title: 'Pesebres',
-          desc: 'Pesebres completos y figuras para representar el nacimiento en tu hogar.',
-          features: ['Sets completos', 'Acabados detallados', 'Variedad de tamaños']
-        }
-      },
-      {
-        key: 'regalos', label: 'Regalos y Envoltura',
-        banner: {
-          image: 'https://images.unsplash.com/photo-1576326040427-37c74aa26805?w=800&q=80&fm=webp',
-          title: 'Regalos y Envoltura',
-          desc: 'Papel de regalo, bolsas, cintas y accesorios para envolver los obsequios de esta Navidad.',
-          features: ['Diseños navideños', 'Pack completo', 'Resistente']
-        }
-      }
+      { key: 'todos', label: 'Todos' }
     ]
   }
 };
