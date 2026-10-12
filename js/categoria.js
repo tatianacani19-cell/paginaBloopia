@@ -926,6 +926,11 @@ function initPromoCarousel() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   initTopBar();
+
+  const earlyCat = getUrlParam('category') || 'babies';
+  const earlyConfig = categoryConfig[earlyCat];
+  if (earlyConfig) renderHero(earlyConfig);
+
   await productsReady;
   initCategoryPage();
   initPromoCarousel();

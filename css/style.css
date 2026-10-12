@@ -3796,6 +3796,7 @@ input {
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: var(--text);
 }
 
 .cat-banner-bg {
