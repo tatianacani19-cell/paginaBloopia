@@ -282,6 +282,7 @@ async function loadProductsFromExcel() {
       }
       const images = seenImages.length > 0 ? seenImages : colors.map(c => c.image).filter(Boolean);
       const defaultPrice = medidaVariants.length > 0 ? medidaVariants[0].price : (Number(first.Precio) || 0);
+      const agotado = g.some(r => String(r.Estado_1 || r['Estado 1'] || '').trim().toUpperCase() === 'AGOTADO');
       return {
         id: i + 1,
         codigo: first.Codigo || '',
@@ -298,6 +299,7 @@ async function loadProductsFromExcel() {
         medidas: medidaVariants,
         shortDesc: first.Descripcion || '',
         description: first.Descripcion || '',
+        agotado: agotado,
         descripcionUno: descUno,
         especificaciones: especs,
         envios: envs,

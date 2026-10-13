@@ -837,9 +837,11 @@ function renderProducts() {
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <span class="product-price">${formatPrice(p.price)}</span>
-        <button class="add-to-cart" data-id="${p.id}">
+        ${p.agotado
+          ? `<span class="out-of-stock"><i class="fas fa-ban"></i> AGOTADO</span>`
+          : `<button class="add-to-cart" data-id="${p.id}">
           <i class="fas fa-plus"></i> Agregar al Carrito
-        </button>
+        </button>`}
       </div>
     </div>
   `).join('');

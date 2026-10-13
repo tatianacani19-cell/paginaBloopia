@@ -1180,6 +1180,26 @@ input {
   border-color: var(--brand-green);
 }
 
+.out-of-stock {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: var(--brand-purple);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid var(--brand-purple);
+  margin-top: auto;
+  cursor: not-allowed;
+  user-select: none;
+}
+
 /* ========== CATALOG CONTROLS ========== */
 .catalog-controls {
   display: flex;
@@ -4825,6 +4845,15 @@ input {
   min-width: 200px;
   padding: 14px 32px;
   font-size: 0.95rem;
+}
+
+.det-add-cart.out-of-stock,
+.det-add-cart.out-of-stock:hover {
+  background: var(--brand-purple);
+  border-color: var(--brand-purple);
+  color: var(--white);
+  cursor: not-allowed;
+  justify-content: center;
 }
 
 /* Feature Icons */
