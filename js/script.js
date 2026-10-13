@@ -895,7 +895,7 @@ function initHeroCursor() {
         life: 1,
         rotation: Math.random() * Math.PI * 2,
         size: 6 + Math.random() * 7,
-        color: Math.random() > 0.5 ? '255,105,180' : '255,163,214'
+        color: Math.random() > 0.5 ? '255,138,26' : '255,170,64'
       });
     }
   }
@@ -935,14 +935,41 @@ function initHeroCursor() {
 
       ctx.save();
       ctx.translate(p.x, p.y);
-      ctx.rotate(p.rotation || 0);
+      ctx.rotate((p.rotation || 0) * 0.35);
       const s = p.size * p.life;
+
+      // Pumpkin body (three lobes)
+      ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.85})`;
       ctx.beginPath();
-      ctx.moveTo(0, s * 0.3);
-      ctx.bezierCurveTo(-s, -s * 0.3, -s * 0.5, -s, 0, -s * 0.5);
-      ctx.bezierCurveTo(s * 0.5, -s, s, -s * 0.3, 0, s * 0.3);
-      ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.6})`;
+      ctx.ellipse(-s * 0.5, 0, s * 0.62, s * 0.85, 0, 0, Math.PI * 2);
       ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(s * 0.5, 0, s * 0.62, s * 0.85, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(0, 0, s * 0.8, s * 0.9, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Ridges
+      ctx.strokeStyle = `rgba(196,96,0, ${p.life * 0.85})`;
+      ctx.lineWidth = Math.max(0.6, s * 0.12);
+      ctx.beginPath();
+      ctx.ellipse(-s * 0.28, 0, s * 0.3, s * 0.85, 0, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.ellipse(s * 0.28, 0, s * 0.3, s * 0.85, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Stem
+      ctx.fillStyle = `rgba(74,140,60, ${p.life * 0.95})`;
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.14, -s * 0.7);
+      ctx.lineTo(s * 0.14, -s * 0.7);
+      ctx.lineTo(s * 0.1, -s * 1.15);
+      ctx.lineTo(-s * 0.1, -s * 1.15);
+      ctx.closePath();
+      ctx.fill();
+
       ctx.restore();
     }
 
