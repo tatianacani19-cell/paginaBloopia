@@ -1049,9 +1049,15 @@ function initAnnouncementBar() {
   const closeBtn = document.getElementById('announcementClose');
   if (!bar || !closeBtn) return;
 
-  closeBtn.addEventListener('click', () => {
+  closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
     bar.classList.add('is-hidden');
     document.documentElement.style.setProperty('--announcement-height', '0px');
+  });
+
+  bar.addEventListener('click', (e) => {
+    if (e.target.closest('.announcement-close')) return;
+    window.location.href = 'halloween.html';
   });
 }
 

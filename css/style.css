@@ -673,11 +673,12 @@ input {
   left: 0;
   right: 0;
   height: var(--announcement-height);
-  background: var(--brand-green-bg);
+  background: #ffc07a;
   z-index: 1001;
   overflow: hidden;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .announcement-track {
@@ -693,7 +694,7 @@ input {
   align-items: center;
   white-space: nowrap;
   padding: 0 3rem;
-  color: var(--brand-green-dark);
+  color: var(--brand-purple-dark);
   font-size: 0.78rem;
   font-weight: 500;
   font-family: var(--font);
