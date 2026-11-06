@@ -22,6 +22,7 @@ function initDetailPage() {
   }
 
   document.title = `BLOOPIA — ${currentProduct.name}`;
+  if (currentProduct.category === 'navidad') initSnowEffect();
   renderBreadcrumb();
   renderGallery();
   renderInfo();

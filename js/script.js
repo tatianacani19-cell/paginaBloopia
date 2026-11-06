@@ -1108,6 +1108,71 @@ function initCategoryDimming() {
   });
 }
 
+// ========== SNOW EFFECT (NAVIDAD) ==========
+function initSnowEffect() {
+  if (document.getElementById('snowCanvas')) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.id = 'snowCanvas';
+  canvas.className = 'snow-canvas';
+  canvas.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let flakes = [];
+  let w = 0;
+  let h = 0;
+
+  function createFlakes() {
+    const count = Math.min(70, Math.max(28, Math.round((w * h) / 26000)));
+    flakes = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: 0.8 + Math.random() * 2,
+      speed: 0.3 + Math.random() * 0.8,
+      drift: (Math.random() - 0.5) * 0.4,
+      opacity: 0.35 + Math.random() * 0.45,
+      phase: Math.random() * Math.PI * 2
+    }));
+  }
+
+  function resize() {
+    w = window.innerWidth;
+    h = window.innerHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    createFlakes();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const f of flakes) {
+      f.phase += 0.01;
+      f.y += f.speed;
+      f.x += f.drift + Math.sin(f.phase) * 0.25;
+
+      if (f.y - f.r > h) { f.y = -f.r * 2; f.x = Math.random() * w; }
+      if (f.x - f.r > w) f.x = -f.r;
+      if (f.x + f.r < 0) f.x = w + f.r;
+
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${f.opacity})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener('resize', resize);
+}
+
 // ========== INIT ==========
 document.addEventListener('DOMContentLoaded', async () => {
   initTopBar();

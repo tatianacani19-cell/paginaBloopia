@@ -704,6 +704,11 @@ function initCategoryPage() {
   renderSubcategoryNav(config);
   renderProducts();
 
+  if (cat === 'navidad') {
+    document.body.classList.add('theme-navidad');
+    initSnowEffect();
+  }
+
   const defaultSub = config.subcategories.find(s => s.key === currentSubcategory) || config.subcategories[0];
   if (defaultSub) activateSubcategory(defaultSub);
   if (subParam && subParam !== 'todos') {
