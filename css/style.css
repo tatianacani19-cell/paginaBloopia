@@ -3211,7 +3211,7 @@ input {
   }
 
   .hero-slide:first-child {
-    background-image: url('../assets/preblack.webp') !important;
+    background-image: url('../assets/bannermovil/black.webp') !important;
     background-position: center center;
   }
 
