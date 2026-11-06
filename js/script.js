@@ -894,8 +894,9 @@ function initHeroCursor() {
         vy: Math.sin(angle) * speed,
         life: 1,
         rotation: Math.random() * Math.PI * 2,
-        size: 6 + Math.random() * 7,
-        color: Math.random() > 0.5 ? '255,138,26' : '255,170,64'
+        spin: (Math.random() - 0.5) * 0.15,
+        size: 5 + Math.random() * 7,
+        color: ['255,215,0', '255,193,7', '255,235,150'][Math.floor(Math.random() * 3)]
       });
     }
   }
@@ -917,7 +918,7 @@ function initHeroCursor() {
     const overlay = getActiveOverlay();
     if (overlay) {
       overlay.style.background = isInside
-        ? `radial-gradient(600px circle at ${spotX}px ${spotY}px, rgba(88,197,175,0.35) 0%, rgba(116,112,229,0.2) 30%, rgba(88,197,175,0.08) 55%, transparent 80%)`
+        ? `radial-gradient(600px circle at ${spotX}px ${spotY}px, rgba(255,215,0,0.3) 0%, rgba(255,193,7,0.18) 30%, rgba(255,215,0,0.07) 55%, transparent 80%)`
         : originalOverlay;
     }
 
@@ -928,6 +929,7 @@ function initHeroCursor() {
       p.x += p.vx;
       p.y += p.vy;
       p.life -= 0.018;
+      p.rotation += p.spin || 0;
       p.vx *= 0.97;
       p.vy *= 0.97;
 
@@ -935,50 +937,45 @@ function initHeroCursor() {
 
       ctx.save();
       ctx.translate(p.x, p.y);
-      ctx.rotate((p.rotation || 0) * 0.35);
+      ctx.rotate(p.rotation || 0);
       const s = p.size * p.life;
 
-      // Pumpkin body (three lobes)
-      ctx.fillStyle = `rgba(${p.color}, ${p.life * 0.85})`;
+      // Golden five-pointed star
+      const spikes = 5;
+      const outer = s;
+      const inner = s * 0.42;
       ctx.beginPath();
-      ctx.ellipse(-s * 0.5, 0, s * 0.62, s * 0.85, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(s * 0.5, 0, s * 0.62, s * 0.85, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(0, 0, s * 0.8, s * 0.9, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Ridges
-      ctx.strokeStyle = `rgba(196,96,0, ${p.life * 0.85})`;
-      ctx.lineWidth = Math.max(0.6, s * 0.12);
-      ctx.beginPath();
-      ctx.ellipse(-s * 0.28, 0, s * 0.3, s * 0.85, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.ellipse(s * 0.28, 0, s * 0.3, s * 0.85, 0, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Stem
-      ctx.fillStyle = `rgba(74,140,60, ${p.life * 0.95})`;
-      ctx.beginPath();
-      ctx.moveTo(-s * 0.14, -s * 0.7);
-      ctx.lineTo(s * 0.14, -s * 0.7);
-      ctx.lineTo(s * 0.1, -s * 1.15);
-      ctx.lineTo(-s * 0.1, -s * 1.15);
+      for (let j = 0; j < spikes * 2; j++) {
+        const r = j % 2 === 0 ? outer : inner;
+        const a = (j * Math.PI) / spikes - Math.PI / 2;
+        const px = Math.cos(a) * r;
+        const py = Math.sin(a) * r;
+        if (j === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
       ctx.closePath();
+
+      const starGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, s);
+      starGrad.addColorStop(0, `rgba(255,248,220, ${p.life * 0.95})`);
+      starGrad.addColorStop(0.5, `rgba(${p.color}, ${p.life * 0.9})`);
+      starGrad.addColorStop(1, `rgba(${p.color}, ${p.life * 0.3})`);
+      ctx.fillStyle = starGrad;
       ctx.fill();
+
+      // Gold sparkle outline
+      ctx.strokeStyle = `rgba(255,193,7, ${p.life * 0.6})`;
+      ctx.lineWidth = Math.max(0.5, s * 0.08);
+      ctx.stroke();
 
       ctx.restore();
     }
 
     if (isInside) {
       const glow = ctx.createRadialGradient(orbX, orbY, 0, orbX, orbY, orbRadius * 10);
-      glow.addColorStop(0, 'rgba(88,197,175,0.25)');
-      glow.addColorStop(0.3, 'rgba(116,112,229,0.15)');
-      glow.addColorStop(0.6, 'rgba(88,197,175,0.06)');
-      glow.addColorStop(1, 'rgba(116,112,229,0)');
+      glow.addColorStop(0, 'rgba(255,215,0,0.3)');
+      glow.addColorStop(0.3, 'rgba(255,193,7,0.18)');
+      glow.addColorStop(0.6, 'rgba(255,235,150,0.08)');
+      glow.addColorStop(1, 'rgba(255,193,7,0)');
       ctx.beginPath();
       ctx.arc(orbX, orbY, orbRadius * 10, 0, Math.PI * 2);
       ctx.fillStyle = glow;
@@ -988,9 +985,9 @@ function initHeroCursor() {
         orbX - orbRadius * 0.25, orbY - orbRadius * 0.25, 0,
         orbX, orbY, orbRadius
       );
-      orbGrad.addColorStop(0, 'rgba(88,197,175,0.9)');
-      orbGrad.addColorStop(0.4, 'rgba(116,112,229,0.7)');
-      orbGrad.addColorStop(1, 'rgba(88,197,175,0.05)');
+      orbGrad.addColorStop(0, 'rgba(255,248,220,0.95)');
+      orbGrad.addColorStop(0.4, 'rgba(255,193,7,0.85)');
+      orbGrad.addColorStop(1, 'rgba(255,215,0,0.05)');
       ctx.beginPath();
       ctx.arc(orbX, orbY, orbRadius, 0, Math.PI * 2);
       ctx.fillStyle = orbGrad;

@@ -673,7 +673,7 @@ input {
   left: 0;
   right: 0;
   height: var(--announcement-height);
-  background: #ffc07a;
+  background: #722f37;
   z-index: 1001;
   overflow: hidden;
   display: flex;
@@ -694,7 +694,7 @@ input {
   align-items: center;
   white-space: nowrap;
   padding: 0 3rem;
-  color: var(--brand-purple-dark);
+  color: var(--white);
   font-size: 0.78rem;
   font-weight: 500;
   font-family: var(--font);
