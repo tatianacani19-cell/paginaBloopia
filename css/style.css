@@ -3211,26 +3211,31 @@ input {
   }
 
   .hero-slide:first-child {
-    background-image: url('../assets/bannermovil/banneramorcel.webp') !important;
+    background-image: url('../assets/preblack.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(2) {
-    background-image: url('../assets/bannermovil/banner1cel.webp') !important;
+    background-image: url('../assets/bannermovil/banneramorcel.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(3) {
-    background-image: url('../assets/bannermovil/banner2cel.webp') !important;
+    background-image: url('../assets/bannermovil/banner1cel.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(4) {
-    background-image: url('../assets/bannermovil/banner3cel.webp') !important;
+    background-image: url('../assets/bannermovil/banner2cel.webp') !important;
     background-position: center center;
   }
 
   .hero-slide:nth-child(5) {
+    background-image: url('../assets/bannermovil/banner3cel.webp') !important;
+    background-position: center center;
+  }
+
+  .hero-slide:nth-child(6) {
     background-image: url('../assets/bannermovil/banner4cel.webp') !important;
     background-position: center center;
   }
@@ -6745,5 +6750,37 @@ body.theme-navidad .section-title {
 
 body.theme-navidad .section-desc {
   color: rgba(255, 244, 239, 0.72);
+}
+
+body.theme-navidad .subcat-nav {
+  background: linear-gradient(180deg, #4c151c 0%, #3b0f14 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.theme-navidad .subcat-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 244, 239, 0.85);
+}
+
+body.theme-navidad .subcat-btn:hover {
+  border-color: rgba(255, 244, 239, 0.5);
+  color: #fff;
+}
+
+body.theme-navidad .subcat-btn.active {
+  background: #fff4ef;
+  border-color: #fff4ef;
+  color: #4c151c;
+}
+
+body.theme-navidad .subcat-arrow {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+body.theme-navidad .subcat-arrow:hover {
+  background: rgba(255, 255, 255, 0.28);
 }
 

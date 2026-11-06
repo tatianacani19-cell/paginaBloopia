@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preload" href="assets/baneramor.webp" as="image" />
+  <link rel="preload" href="assets/preblack.webp" as="image" />
   <link rel="preload" href="assets/bannermovil/banneramorcel.webp" as="image" media="(max-width: 768px)" />
   <link rel="preload" href="assets/banner1.webp" as="image" />
   <link rel="preload" href="assets/banner2.webp" as="image" />
@@ -113,6 +114,10 @@
   <section class="hero" id="heroSlider">
     <div class="hero-slides" id="heroSlides">
       <div class="hero-slide active"
+        style="background-image: url('assets/preblack.webp'); background-position: center center;">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-slide"
         style="background-image: url('assets/baneramor.webp'); background-position: center center;">
         <div class="hero-overlay"></div>
       </div>
@@ -144,6 +149,7 @@
       <span class="hero-dot" data-index="2"></span>
       <span class="hero-dot" data-index="3"></span>
       <span class="hero-dot" data-index="4"></span>
+      <span class="hero-dot" data-index="5"></span>
     </div>
 
     <canvas class="hero-cursor-canvas" id="heroCursorCanvas"></canvas>

@@ -707,8 +707,8 @@ function initHeroSlider() {
   slides.forEach((slide, i) => {
     slide.style.cursor = 'pointer';
     slide.addEventListener('click', () => {
-      if (i === 0) {
-        window.location.href = 'halloween.html';
+      if (i === 1) {
+        window.location.href = 'navidad.html';
         return;
       }
       const categoriesSection = document.getElementById('categories');
