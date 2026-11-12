@@ -1,4 +1,12 @@
 const categoryConfig = {
+  todos: {
+    displayName: 'TODOS',
+    description: 'Explora el catálogo completo de Bloopia. Todos nuestros productos disponibles en un solo lugar.',
+    heroImage: 'assets/categorias/todos.webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
+  },
   babies: {
     displayName: 'Bebés',
     description: 'Todo para el cuidado, comodidad y desarrollo de tu bebé, con la mejor calidad y diseño.',
@@ -814,7 +822,9 @@ function renderProducts() {
   if (!grid) return;
 
   let filtered;
-  if (currentSubcategory === 'todos') {
+  if (currentCategory === 'todos') {
+    filtered = products;
+  } else if (currentSubcategory === 'todos') {
     filtered = products.filter(p => p.category === currentCategory);
   } else {
     filtered = products.filter(p => p.category === currentCategory && p.subcategory === currentSubcategory);
@@ -872,10 +882,13 @@ function renderProducts() {
     const config = categoryConfig[currentCategory];
     const sub = config?.subcategories.find(s => s.key === currentSubcategory);
     const subName = currentSubcategory === 'todos' ? 'Todos' : (sub?.label || '');
-    pTitle.textContent = `${subName} — ${filtered.length} producto${filtered.length !== 1 ? 's' : ''}`;
+    const titlePrefix = currentCategory === 'todos' ? 'Todos los productos' : subName;
+    pTitle.textContent = `${titlePrefix} — ${filtered.length} producto${filtered.length !== 1 ? 's' : ''}`;
   }
   if (pDesc) {
-    pDesc.textContent = currentSubcategory === 'todos'
+    pDesc.textContent = currentCategory === 'todos'
+      ? 'Explora todos nuestros productos disponibles.'
+      : currentSubcategory === 'todos'
       ? 'Explora todos nuestros productos para esta categoría.'
       : `Descubre nuestra selección de ${categoryConfig[currentCategory]?.subcategories.find(s => s.key === currentSubcategory)?.label?.toLowerCase() || 'productos'}.`;
   }
