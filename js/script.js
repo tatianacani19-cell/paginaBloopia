@@ -1054,7 +1054,7 @@ function initAnnouncementBar() {
 
   bar.addEventListener('click', (e) => {
     if (e.target.closest('.announcement-close')) return;
-    window.location.href = 'halloween.html';
+    window.location.href = 'categoria.html?category=todos';
   });
 }
 
