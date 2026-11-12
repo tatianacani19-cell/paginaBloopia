@@ -658,14 +658,6 @@ const categoryConfig = {
       }
     ]
   },
-  halloween: {
-    displayName: 'Halloween',
-    description: 'Disfraces, decoración, maquillaje y accesorios para vivir el Halloween más divertido.',
-    heroImage: 'assets/bannerhallo.webp',
-    subcategories: [
-      { key: 'todos', label: 'Todos' }
-    ]
-  },
   navidad: {
     displayName: 'Navidad',
     description: 'Vive la magia de la Navidad con árboles, luces, adornos, pesebres y regalos para toda la familia.',

@@ -240,7 +240,8 @@ async function loadProductsFromExcel() {
       }
     }
 
-    const active = rows.filter(r => r.Estado === 'Activo' && r.Nombre);
+    const hiddenCategories = ['halloween'];
+    const active = rows.filter(r => r.Estado === 'Activo' && r.Nombre && !hiddenCategories.includes(normalizeCategory(r.Categoria)));
 
     const groups = {};
     for (const r of active) {
