@@ -621,12 +621,12 @@ const categoryConfig = {
     subcategories: [
       { key: 'todos', label: 'Todos' },
       {
-        key: 'preparacion', label: 'Preparación',
+        key: 'oster', label: 'Oster',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Preparación',
-          desc: 'Batidoras, procesadores y licuadoras para facilitar tus labores en la cocina.',
-          features: ['Potente', 'Versátil', 'Fácil de limpiar']
+          title: 'Oster',
+          desc: 'Productos Oster: licuadoras, batidoras y electrodomésticos de calidad.',
+          features: ['Calidad Oster', 'Durabilidad', 'Rendimiento']
         }
       },
       {
@@ -648,12 +648,12 @@ const categoryConfig = {
         }
       },
       {
-        key: 'oster', label: 'Oster',
+        key: 'preparacion', label: 'Preparación',
         banner: {
           image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80&fm=webp',
-          title: 'Oster',
-          desc: 'Productos Oster: licuadoras, batidoras y electrodomésticos de calidad.',
-          features: ['Calidad Oster', 'Durabilidad', 'Rendimiento']
+          title: 'Preparación',
+          desc: 'Batidoras, procesadores y licuadoras para facilitar tus labores en la cocina.',
+          features: ['Potente', 'Versátil', 'Fácil de limpiar']
         }
       }
     ]
