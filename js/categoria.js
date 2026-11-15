@@ -809,13 +809,40 @@ function activateSubcategory(subData) {
   }
 }
 
+function interleaveByCategory(list) {
+  const buckets = new Map();
+  for (const p of list) {
+    const key = p.category || 'otros';
+    if (!buckets.has(key)) buckets.set(key, []);
+    buckets.get(key).push(p);
+  }
+
+  const queues = Array.from(buckets.values());
+  const indices = queues.map(() => 0);
+  const result = [];
+
+  while (result.length < list.length) {
+    let added = false;
+    for (let q = 0; q < queues.length; q++) {
+      if (indices[q] < queues[q].length) {
+        result.push(queues[q][indices[q]]);
+        indices[q]++;
+        added = true;
+      }
+    }
+    if (!added) break;
+  }
+
+  return result;
+}
+
 function renderProducts() {
   const grid = document.getElementById('categoryGrid');
   if (!grid) return;
 
   let filtered;
   if (currentCategory === 'todos') {
-    filtered = products;
+    filtered = interleaveByCategory(products);
   } else if (currentSubcategory === 'todos') {
     filtered = products.filter(p => p.category === currentCategory);
   } else {
