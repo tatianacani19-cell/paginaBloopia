@@ -871,7 +871,10 @@ function renderProducts() {
       <div class="product-body">
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
-        <span class="product-price">${formatPrice(p.price)}</span>
+        <div class="product-pricing">
+          <span class="product-price">${formatPrice(p.price)}</span>
+          ${p.descuento ? `<span class="product-price-old">${formatPrice(p.descuento)}</span>` : ''}
+        </div>
         ${p.agotado
           ? `<span class="out-of-stock"><i class="fas fa-ban"></i> AGOTADO</span>`
           : `<button class="add-to-cart" data-id="${p.id}">

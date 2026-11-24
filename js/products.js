@@ -232,6 +232,10 @@ async function loadProductsFromExcel() {
     }
     const fieldColIdx = {};
     richFields.forEach(f => { const idx = headerRow.indexOf(f); if (idx >= 0) fieldColIdx[f] = idx; });
+    const descuentosKey = headerRow.find(h => String(h).trim().toLowerCase() === 'descuentos');
+    if (descuentosKey && descuentosKey !== 'descuentos') {
+      rows.forEach(r => { if (r[descuentosKey] !== undefined) r.descuentos = r[descuentosKey]; });
+    }
     const dataStartRow = range.s.r + 1;
     for (let i = 0; i < rows.length; i++) {
       for (const field of richFields) {
@@ -263,8 +267,13 @@ async function loadProductsFromExcel() {
       const medidaVariants = [];
       let descUno = '', especs = '', envs = '';
       let blackFriday = false;
+      let descuento = null;
       for (const r of g) {
         if (String(r.blackfriday || '').trim().toUpperCase() === 'SI') blackFriday = true;
+        if (descuento === null) {
+          const d = Number(r.descuentos);
+          if (Number.isFinite(d) && d > 0) descuento = d;
+        }
         const normalizedImg = (r.Imagen || '').toLowerCase();
         if (normalizedImg && !seenImages.includes(normalizedImg)) seenImages.push(normalizedImg);
         if (r.Color) {
@@ -304,6 +313,7 @@ async function loadProductsFromExcel() {
         hoverImage: images[1] || images[0] || '',
         badge: null,
         blackFriday: blackFriday,
+        descuento: descuento,
         images: images,
         colors: colors,
         medidas: medidaVariants,

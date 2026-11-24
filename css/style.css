@@ -1174,12 +1174,26 @@ input {
   margin-bottom: 8px;
 }
 
+.product-pricing {
+  margin-top: auto;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .product-price {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 14px;
-  margin-top: auto;
+}
+
+.product-price-old {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-light);
+  text-decoration: line-through;
+  margin-top: 3px;
 }
 
 .add-to-cart {
@@ -4672,6 +4686,14 @@ input {
 .det-original-price {
   font-size: 1.1rem;
   color: var(--mid-gray);
+  text-decoration: line-through;
+}
+
+.det-discount-price {
+  flex-basis: 100%;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-light);
   text-decoration: line-through;
 }
 
