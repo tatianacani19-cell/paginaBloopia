@@ -191,6 +191,12 @@ function getColorHex(name) {
   return '#cccccc';
 }
 
+function blackFridayRibbon(product) {
+  return product && product.blackFriday
+    ? '<span class="bf-ribbon">BLACK FRIDAY</span>'
+    : '';
+}
+
 function parseRichText(rStr) {
   if (!rStr) return null;
   const simple = rStr.match(/^<t[^>]*>([\s\S]*)<\/t>$/);
@@ -256,7 +262,9 @@ async function loadProductsFromExcel() {
       const colors = [];
       const medidaVariants = [];
       let descUno = '', especs = '', envs = '';
+      let blackFriday = false;
       for (const r of g) {
+        if (String(r.blackfriday || '').trim().toUpperCase() === 'SI') blackFriday = true;
         const normalizedImg = (r.Imagen || '').toLowerCase();
         if (normalizedImg && !seenImages.includes(normalizedImg)) seenImages.push(normalizedImg);
         if (r.Color) {
@@ -295,6 +303,7 @@ async function loadProductsFromExcel() {
         image: images[0] || '',
         hoverImage: images[1] || images[0] || '',
         badge: null,
+        blackFriday: blackFriday,
         images: images,
         colors: colors,
         medidas: medidaVariants,

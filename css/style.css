@@ -1115,6 +1115,30 @@ input {
   background: var(--brand-purple-dark);
 }
 
+.bf-ribbon {
+  position: absolute;
+  top: 38px;
+  left: -46px;
+  z-index: 4;
+  width: 190px;
+  padding: 6px 0;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #000 0%, #101018 100%);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  border-top: 1px solid rgba(183, 77, 255, 0.85);
+  border-bottom: 1px solid rgba(183, 77, 255, 0.85);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.45), 0 0 12px rgba(168, 60, 255, 0.45);
+  text-shadow: 0 0 5px #b74dff, 0 0 10px #8a2be2;
+}
+
 .product-body {
   padding: 16px 18px 18px;
   flex: 1;

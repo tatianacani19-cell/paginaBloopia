@@ -866,6 +866,7 @@ function renderProducts() {
         <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async"${i < 4 ? ' fetchpriority="high"' : ''} class="product-img-default" onerror="this.style.display='none'" />
         ${p.hoverImage ? `<img src="${p.hoverImage}" alt="${p.name}" loading="lazy" decoding="async" class="product-img-hover" onerror="this.style.display='none'" />` : ''}
         ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+        ${blackFridayRibbon(p)}
       </div>
       <div class="product-body">
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
