@@ -1182,10 +1182,30 @@ input {
   align-items: flex-start;
 }
 
+.product-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .product-price {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text);
+}
+
+.product-discount-pct {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--brand-purple-dark);
+  margin-left: auto;
+}
+
+.product-price.is-blackfriday,
+.det-current-price.is-blackfriday {
+  color: var(--brand-purple-dark);
 }
 
 .product-price-old {
@@ -4687,6 +4707,13 @@ input {
   font-size: 1.1rem;
   color: var(--mid-gray);
   text-decoration: line-through;
+}
+
+.det-discount-pct {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brand-purple-dark);
+  margin-left: auto;
 }
 
 .det-discount-price {

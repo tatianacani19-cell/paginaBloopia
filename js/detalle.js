@@ -227,9 +227,12 @@ function renderInfo() {
       html += `<span class="det-original-price">${formatPrice(p.originalPrice)}</span>`;
     }
     if (p.price > 0) {
-      html += `<span class="det-current-price">${formatPrice(p.price)}</span>`;
+      html += `<span class="det-current-price${p.blackFriday ? ' is-blackfriday' : ''}">${formatPrice(p.price)}</span>`;
     } else {
-      html += `<span class="det-current-price det-price-confirm">Precio por confirmar</span>`;
+      html += `<span class="det-current-price det-price-confirm${p.blackFriday ? ' is-blackfriday' : ''}">Precio por confirmar</span>`;
+    }
+    if (p.porcentaje) {
+      html += `<span class="det-discount-pct">${p.porcentaje}</span>`;
     }
     if (p.descuento) {
       html += `<span class="det-discount-price">${formatPrice(p.descuento)}</span>`;
@@ -479,7 +482,10 @@ function renderRelated() {
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <div class="product-pricing">
-          <span class="product-price">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
+          <div class="product-price-row">
+            <span class="product-price${p.blackFriday ? ' is-blackfriday' : ''}">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
+            ${p.porcentaje ? `<span class="product-discount-pct">${p.porcentaje}</span>` : ''}
+          </div>
           ${p.descuento ? `<span class="product-price-old">${formatPrice(p.descuento)}</span>` : ''}
         </div>
         ${p.agotado

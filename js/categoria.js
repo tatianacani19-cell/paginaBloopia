@@ -872,7 +872,10 @@ function renderProducts() {
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <div class="product-pricing">
-          <span class="product-price">${formatPrice(p.price)}</span>
+          <div class="product-price-row">
+            <span class="product-price${p.blackFriday ? ' is-blackfriday' : ''}">${formatPrice(p.price)}</span>
+            ${p.porcentaje ? `<span class="product-discount-pct">${p.porcentaje}</span>` : ''}
+          </div>
           ${p.descuento ? `<span class="product-price-old">${formatPrice(p.descuento)}</span>` : ''}
         </div>
         ${p.agotado

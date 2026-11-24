@@ -191,6 +191,14 @@ function getColorHex(name) {
   return '#cccccc';
 }
 
+function formatPorcentajeDescuento(value) {
+  if (value === '' || value === null || value === undefined) return '';
+  const n = Number(value);
+  if (!Number.isFinite(n) || n === 0) return '';
+  const pct = Math.abs(n) <= 1 ? Math.abs(n) * 100 : Math.abs(n);
+  return '-' + (Number.isInteger(pct) ? pct : Number(pct.toFixed(1))) + '%';
+}
+
 function blackFridayRibbon(product) {
   return product && product.blackFriday
     ? '<span class="bf-ribbon">BLACK FRIDAY</span>'
@@ -236,6 +244,10 @@ async function loadProductsFromExcel() {
     if (descuentosKey && descuentosKey !== 'descuentos') {
       rows.forEach(r => { if (r[descuentosKey] !== undefined) r.descuentos = r[descuentosKey]; });
     }
+    const porcentajeKey = headerRow.find(h => String(h).trim().toLowerCase() === 'porcentaje');
+    if (porcentajeKey && porcentajeKey !== 'porcentaje') {
+      rows.forEach(r => { if (r[porcentajeKey] !== undefined) r.porcentaje = r[porcentajeKey]; });
+    }
     const dataStartRow = range.s.r + 1;
     for (let i = 0; i < rows.length; i++) {
       for (const field of richFields) {
@@ -268,12 +280,14 @@ async function loadProductsFromExcel() {
       let descUno = '', especs = '', envs = '';
       let blackFriday = false;
       let descuento = null;
+      let porcentaje = '';
       for (const r of g) {
         if (String(r.blackfriday || '').trim().toUpperCase() === 'SI') blackFriday = true;
         if (descuento === null) {
           const d = Number(r.descuentos);
           if (Number.isFinite(d) && d > 0) descuento = d;
         }
+        if (!porcentaje) porcentaje = formatPorcentajeDescuento(r.porcentaje);
         const normalizedImg = (r.Imagen || '').toLowerCase();
         if (normalizedImg && !seenImages.includes(normalizedImg)) seenImages.push(normalizedImg);
         if (r.Color) {
@@ -314,6 +328,7 @@ async function loadProductsFromExcel() {
         badge: null,
         blackFriday: blackFriday,
         descuento: descuento,
+        porcentaje: porcentaje,
         images: images,
         colors: colors,
         medidas: medidaVariants,

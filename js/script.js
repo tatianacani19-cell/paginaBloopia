@@ -91,7 +91,10 @@ function renderProducts(gridId, items) {
         <h3 class="product-name">${p.name} <span class="product-codigo">${p.codigo || ''}</span></h3>
         <span class="product-category-tag">${categoryNames[p.category] || p.category}</span>
         <div class="product-pricing">
-          <span class="product-price">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
+          <div class="product-price-row">
+            <span class="product-price${p.blackFriday ? ' is-blackfriday' : ''}">${p.price > 0 ? formatPrice(p.price) : 'Precio por confirmar'}</span>
+            ${p.porcentaje ? `<span class="product-discount-pct">${p.porcentaje}</span>` : ''}
+          </div>
           ${p.descuento ? `<span class="product-price-old">${formatPrice(p.descuento)}</span>` : ''}
         </div>
         ${p.agotado
