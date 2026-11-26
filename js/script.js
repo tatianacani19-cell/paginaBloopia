@@ -1184,8 +1184,22 @@ function initSnowEffect() {
   window.addEventListener('resize', resize);
 }
 
+// ========== PAGE LOADER ==========
+function initPageLoader() {
+  const loader = document.getElementById('pageLoader');
+  if (!loader) return;
+  const hide = () => loader.classList.add('is-hidden');
+  if (document.readyState === 'complete') {
+    setTimeout(hide, 180);
+  } else {
+    window.addEventListener('load', () => setTimeout(hide, 180), { once: true });
+  }
+  setTimeout(hide, 4000);
+}
+
 // ========== INIT ==========
 document.addEventListener('DOMContentLoaded', async () => {
+  initPageLoader();
   initTopBar();
   initSmoothScroll();
   initAnnouncementBar();
