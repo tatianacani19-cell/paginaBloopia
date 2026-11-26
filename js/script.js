@@ -714,6 +714,10 @@ function initHeroSlider() {
   slides.forEach((slide, i) => {
     slide.style.cursor = 'pointer';
     slide.addEventListener('click', () => {
+      if (i === 0) {
+        window.location.href = 'categoria.html?category=blackfriday';
+        return;
+      }
       if (i === 1) {
         window.location.href = 'navidad.html';
         return;
