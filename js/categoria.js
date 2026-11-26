@@ -850,7 +850,7 @@ function renderProducts() {
 
   let filtered;
   if (currentCategory === 'blackfriday') {
-    filtered = products.filter(p => p.blackFriday);
+    filtered = interleaveByCategory(products.filter(p => p.blackFriday));
   } else if (currentCategory === 'todos') {
     filtered = interleaveByCategory(products);
   } else if (currentSubcategory === 'todos') {
