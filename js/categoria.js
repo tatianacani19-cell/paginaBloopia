@@ -1,4 +1,12 @@
 const categoryConfig = {
+  blackfriday: {
+    displayName: 'BLACK FRIDAY',
+    description: 'Aprovecha los descuentos más increíbles en productos seleccionados de Black Friday.',
+    heroImage: 'assets/preblack.webp',
+    subcategories: [
+      { key: 'todos', label: 'Todos' }
+    ]
+  },
   todos: {
     displayName: 'TODOS',
     description: 'Explora el catálogo completo de Bloopia. Todos nuestros productos disponibles en un solo lugar.',
@@ -841,7 +849,9 @@ function renderProducts() {
   if (!grid) return;
 
   let filtered;
-  if (currentCategory === 'todos') {
+  if (currentCategory === 'blackfriday') {
+    filtered = products.filter(p => p.blackFriday);
+  } else if (currentCategory === 'todos') {
     filtered = interleaveByCategory(products);
   } else if (currentSubcategory === 'todos') {
     filtered = products.filter(p => p.category === currentCategory);
@@ -908,11 +918,17 @@ function renderProducts() {
     const config = categoryConfig[currentCategory];
     const sub = config?.subcategories.find(s => s.key === currentSubcategory);
     const subName = currentSubcategory === 'todos' ? 'Todos' : (sub?.label || '');
-    const titlePrefix = currentCategory === 'todos' ? 'Todos los productos' : subName;
+    const titlePrefix = currentCategory === 'blackfriday'
+      ? 'Black Friday'
+      : currentCategory === 'todos'
+      ? 'Todos los productos'
+      : subName;
     pTitle.textContent = `${titlePrefix} — ${filtered.length} producto${filtered.length !== 1 ? 's' : ''}`;
   }
   if (pDesc) {
-    pDesc.textContent = currentCategory === 'todos'
+    pDesc.textContent = currentCategory === 'blackfriday'
+      ? 'Productos seleccionados con descuentos especiales de Black Friday.'
+      : currentCategory === 'todos'
       ? 'Explora todos nuestros productos disponibles.'
       : currentSubcategory === 'todos'
       ? 'Explora todos nuestros productos para esta categoría.'
